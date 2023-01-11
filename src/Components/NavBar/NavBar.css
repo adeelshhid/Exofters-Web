@@ -1,0 +1,45 @@
+.nav-padding {
+  padding: 0 10rem;
+}
+
+.company-logo {
+  width: 130px;
+}
+
+.navlink-padding {
+  display: inline-block;
+  padding: 8px 15px !important;
+  font-family: "DM Sans", sans-serif;
+  color: white !important;
+  text-shadow: 3px 4px 7px rgba(81, 67, 21, 0.8) !important;
+}
+.navlink-padding::after {
+  display: block;
+  content: "";
+  border-bottom: 3px solid white;
+  transform: translateY(15px);
+  opacity: 0;
+}
+.navlink-padding:hover::after {
+  animation: 0.3s ease-out;
+  transition: 0.5s all;
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.hamburger-icon {
+  color: white !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+Navbar {
+  background-color: transparent !important;
+}
+
+@media screen and (max-width: 576px) {
+  .nav-links {
+    display: none !important;
+  }
+}
