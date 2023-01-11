@@ -43,3 +43,15 @@ Navbar {
     display: none !important;
   }
 }
+
+@media screen and (max-width: 415px) {
+  .offcanvas-nav {
+    width: 70% !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .offcanvas-nav {
+    width: 70% !important;
+  }
+}

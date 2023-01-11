@@ -3,4 +3,5 @@
     url("./Images/main-img.jpg");
   background-size: cover;
   overflow-x: hidden;
+  height: 100vh;
 }

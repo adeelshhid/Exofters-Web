@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -57,9 +57,13 @@ function NavBar() {
         </Container>
       </Navbar>
 
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
+      <Offcanvas className="offcanvas-nav" show={show} onHide={handleClose}>
+        <Offcanvas.Header>
           <Offcanvas.Title>Exofters</Offcanvas.Title>
+          <FontAwesomeIcon
+            icon={faXmark}
+            onClick={handleClose}
+          ></FontAwesomeIcon>
         </Offcanvas.Header>
         <Offcanvas.Body>
           Some text as placeholder. In real life you can have the elements you
