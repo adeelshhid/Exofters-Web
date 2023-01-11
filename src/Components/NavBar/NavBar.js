@@ -4,7 +4,7 @@ import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Image, Offcanvas } from "react-bootstrap";
+import { Button, Image, Offcanvas } from "react-bootstrap";
 import companylogo from "../../Images/companylogo.png";
 import "./NavBar.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -59,15 +59,27 @@ function NavBar() {
 
       <Offcanvas className="offcanvas-nav" show={show} onHide={handleClose}>
         <Offcanvas.Header>
-          <Offcanvas.Title>Exofters</Offcanvas.Title>
+          <Offcanvas.Title>
+            <Image
+              className="canvas-logo"
+              src={companylogo}
+              alt="Exofters"
+            ></Image>
+          </Offcanvas.Title>
           <FontAwesomeIcon
+            className="close-btn"
             icon={faXmark}
             onClick={handleClose}
           ></FontAwesomeIcon>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          <div className="canvas-links">
+            <Button>Home</Button>
+            <Button>Home</Button>
+            <Button>Home</Button>
+            <Button>Home</Button>
+            <Button>Home</Button>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
     </>

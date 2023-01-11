@@ -34,6 +34,18 @@
   outline: none !important;
 }
 
+.close-btn {
+  color: #f4791b !important;
+}
+
+.canvas-logo {
+  width: 20%;
+}
+
+.offcanvas-nav {
+  background: #1c1c1c !important;
+}
+
 Navbar {
   background-color: transparent !important;
 }
