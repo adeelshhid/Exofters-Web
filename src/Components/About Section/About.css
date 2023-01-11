@@ -1,0 +1,90 @@
+.about-para {
+  font-size: 22px;
+}
+
+.custom-grid {
+  display: flex;
+  flex-direction: row;
+  height: 400px !important;
+  flex-wrap: wrap;
+  /* background: #f3f3f3 !important; */
+  width: 60% !important;
+  margin: 0 20% !important;
+  border-radius: 25px !important;
+}
+.custom-grid .col {
+  width: 20%;
+  min-width: 175px;
+  /* background-color: rgb(128, 104, 104); */
+  height: 100%;
+  padding: 10px !important;
+}
+
+.custom-grid .col .square {
+  height: 170px;
+  width: 100%;
+  /* background-color: green; */
+  border-radius: 25px;
+}
+.custom-grid .col .rect-long {
+  height: 100%;
+  width: 100%;
+  /* background-color: yellow; */
+  border-radius: 25px;
+}
+.custom-grid .col .rect-small {
+  height: 100px;
+  width: 100%;
+  border-radius: 25px;
+  margin: 10px 0;
+}
+.bg-orange {
+  background-color: rgb(244, 184, 104);
+}
+.bg-cyan {
+  background-color: rgb(93, 180, 172);
+}
+.bg-skin {
+  background-color: rgb(229, 210, 174);
+}
+.bg-yellow {
+  background-color: rgb(236, 212, 109);
+}
+.bg-orange2 {
+  background-color: rgb(239, 146, 85);
+}
+.bg-sky {
+  background-color: rgb(76, 163, 232);
+}
+.bg-green {
+  background-color: rgb(139, 182, 151);
+}
+.d-flex-col {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+@media (max-width: 320px) {
+  .custom-grid div.col:first-child {
+    max-height: 150px !important;
+  }
+  .custom-grid div.col {
+    max-height: 75%;
+  }
+  .custom-grid div.col:last-child {
+    max-height: 150px !important;
+  }
+  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+}
+@media (max-width: 480px) {
+  .custom-grid div.col:first-child {
+    max-height: 150px !important;
+  }
+  .custom-grid div.col {
+    max-height: 75%;
+  }
+  .custom-grid div.col:last-child {
+    max-height: 150px !important;
+  }
+  /* smartphones, Android phones, landscape iPhone */
+}
