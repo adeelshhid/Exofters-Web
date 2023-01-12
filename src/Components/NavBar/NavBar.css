@@ -3,6 +3,7 @@
 }
 
 .company-logo {
+  transition: 0.3s all;
   width: 130px;
 }
 
@@ -104,4 +105,14 @@ Navbar {
   .offcanvas-nav {
     width: 70% !important;
   }
+}
+.nav-bar{
+  transition: all 0.3s;
+}
+.nav-dark{
+  background: #1c1c1c !important;
+  
+}.company-logo-small{
+  transition: 0.3s all;
+  width: 75px;
 }

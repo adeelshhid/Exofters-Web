@@ -18,6 +18,13 @@ import "./NavBar.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 function NavBar() {
+  
+  let [scrollHeight, setScrollHeight] = useState(0);
+
+  window.addEventListener("scroll", () => {
+    setScrollHeight(window.scrollY)
+  })
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -27,11 +34,11 @@ function NavBar() {
 
   return (
     <>
-      <Navbar expand="lg">
+      <Navbar expand="lg" className={scrollHeight <= 0 ? "nav-bar fixed-top": "nav-dark nav-bar fixed-top"}>
         <Container className="nav-padding">
           <Navbar.Brand href="#home">
             <Image
-              className="company-logo"
+              className={scrollHeight <= 0 ? "company-logo" : "company-logo-small"}
               src={companylogo}
               alt="Exofters"
             ></Image>
