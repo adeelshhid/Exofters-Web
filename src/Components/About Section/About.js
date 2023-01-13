@@ -1,71 +1,128 @@
-import React from "react";
+import {
+  faHandshakeAngle,
+  faHeadset,
+  faPeopleArrows,
+  faPersonDigging,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
 import "./About.css";
 
 const About = () => {
+  const os = useState(window.navigator.platform);
+  const [device, setDevice] = useState(false);
+  const [desk, setDesk] = useState(false);
+
+  document.addEventListener("scroll", (evt) => {
+    if (
+      (os[0].toLowerCase().includes("android") ||
+        os[0].toLowerCase().includes("ios")) &&
+      window.scrollY >= 430
+    ) {
+      setDevice(true);
+      setDesk(false);
+    } else if (window.scrollY >= 600) {
+      setDevice(false);
+      setDesk(true);
+    } else {
+      setDevice(false);
+      setDesk(false);
+    }
+  });
   return (
-    <div className="text-center p-5">
-      <h3>Who We Are?</h3>
-      <p className="about-para">
-        We are Exofters. We are a well experienced and certified Company. We’ve
-        done several rich features / responsive Mobile Apps, Webapps and
-        Websites. We are a self-driven, flexible, and innovative company. We
-        work in all domains including Websites, Mobile apps, Machine Learning,
-        iOT and Artificial Intelligence.
-      </p>
-      <div className="custom-grid">
-        <div className="col d-flex-col">
-          <div className="square bg-orange d-flex-col p-1">
-            <h6>Flexible Model</h6>
-            <p>
-              Whether you’re seeking a project basis relationship or you’d like to add three remote developers to an ongoing project, we can accommodate. Victory is yours!
-            </p>
-          </div>
-        </div>
-        <div className="col d-flex-col">
-          <div className="rect-small bg-skin d-flex-col p-1">
-            <h6>Documentation</h6>
-            <p>
-              We document our steps in detail and keep it up to date, so that your extended thoughts can incorporate.
-            </p>
-
-          </div>
-          <div className="square bg-cyan d-flex-col p-1">
-            <h6>Experience</h6>
-            <p>
-              Yes it’s true, we lock our employees’ CVs in a vault. If anyone saw them it’d be hard to keep ‘em on our team. Organizationally we also have tons of business experience in various markets. We’re not just keystroking nerds.
-            </p>
-          </div>
-        </div>
-        <div className="col d-flex-col">
-          <div className="rect-long bg-yellow d-flex-col p-2">
-            <h4>Agile</h4>
-            <p>
-              Our agile team guides you through every stage of the project. We transform your idea into a scalable and innovative platform, ensuring that your technology adds value to your users’ experience, while being aligned with your overall business plans and objectives.
-            </p>
-          </div>
-        </div>
-        <div className="col d-flex-col">
-          <div className="square bg-orange2 d-flex-col p-1">
-            <h6>Super Talented</h6>
-            <p>
-              If there is a development technology or methodology our staffed software engineers aren’t intimately familiar with it, please show us. These guys rock, hard.
-            </p>
-          </div>
-          <div className="rect-small bg-sky d-flex-col p-1">
-
-            <h6>Leadership</h6>
-            <p>
-              We’re not just order takers. We will consult on new methods and the latest technology.
-            </p>
-
-          </div>
-        </div>
-        <div className="col d-flex-col">
-          <div className="square bg-green d-flex-col p-1">
-            <h6>Smiles</h6>
-            <p>
-              Tons and tons of them. We’re committed to your success so that’s why you have a state-side liaison and a project manager making sure your goals are being realized.
-            </p>
+    <div>
+      <div className="container py-5">
+        <p className="heading-font">
+          <span className="heading-border-bottom">What</span> We Do
+        </p>
+        <h2 className="text2 pt-2">
+          Our services are defined by quality and commitment.
+        </h2>
+      </div>
+      <div className="card-div-wrapper">
+        <div className="card-div">
+          <div className="container card-inner-div py-5">
+            <div className="row">
+              <div
+                className={
+                  device || desk
+                    ? "col-lg-3 col-md-6 about-card about-card1"
+                    : "col-lg-3 col-md-6 about-card"
+                }
+              >
+                <div className="p-4 card-inner">
+                  <FontAwesomeIcon
+                    icon={faPeopleArrows}
+                    className="card-icon"
+                  ></FontAwesomeIcon>
+                  <h4 className="card-heading">Consulting</h4>
+                  <p className="card-text">
+                    We help you create a clear digital strategy that optimizes
+                    your path to comprehensive, technology-led business success.
+                  </p>
+                </div>
+              </div>
+              <div
+                className={
+                  device || desk
+                    ? "col-lg-3 col-md-6 about-card about-card1"
+                    : "col-lg-3 col-md-6 about-card"
+                }
+              >
+                <div className="p-4 card-inner">
+                  <FontAwesomeIcon
+                    icon={faPersonDigging}
+                    className="card-icon"
+                  ></FontAwesomeIcon>
+                  <h4 className="card-heading">Implementation</h4>
+                  <p className="card-text">
+                    Our expertise spans all major technologies and business
+                    functions, empowering us to deliver comprehensive business
+                    solutions.
+                  </p>
+                </div>
+              </div>
+              <div
+                className={
+                  device || desk
+                    ? "col-lg-3 col-md-6 about-card about-card1"
+                    : "col-lg-3 col-md-6 about-card"
+                }
+              >
+                <div className="p-4 card-inner">
+                  <FontAwesomeIcon
+                    icon={faHandshakeAngle}
+                    className="card-icon"
+                  ></FontAwesomeIcon>
+                  <h4 className="card-heading">Managed Services</h4>
+                  <p className="card-text">
+                    Our global Managed Services teams secure your digital
+                    investment with 24x7 monitoring, maintenance, and end-to-end
+                    support.
+                  </p>
+                </div>
+              </div>
+              <div
+                className={
+                  device || desk
+                    ? "col-lg-3 col-md-6 about-card about-card1"
+                    : "col-lg-3 col-md-6 about-card"
+                }
+              >
+                <div className="p-4 card-inner">
+                  <FontAwesomeIcon
+                    icon={faHeadset}
+                    className="card-icon"
+                  ></FontAwesomeIcon>
+                  <h4 className="card-heading">BPO</h4>
+                  <p className="card-text">
+                    Our trained and experienced teams of BPO professionals
+                    deliver an instant boost to your workforce with on-time,
+                    high-quality results.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
