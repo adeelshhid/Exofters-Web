@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import "./HeroSection.css";
 
 const HeroSection = () => {
+  
   return (
     <div className="hero-section">
       <p className="main-text1">You've found the</p>
