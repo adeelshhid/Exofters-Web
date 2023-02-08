@@ -1,0 +1,63 @@
+.footer-section {
+  background: #1c1c1c;
+}
+
+.aboutexofters-heading {
+  font-size: 16px;
+  font-family: "DM Sans", sans-serif;
+  color: #f26224;
+}
+
+.aboutexofters-text {
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.info-list {
+  list-style-type: none;
+  list-style: none;
+}
+
+.info-icons {
+  color: #f26224;
+}
+
+.info-text {
+  color: #ffffff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #ffffff;
+  transition: 0.2s ease-in-out;
+}
+
+.footer-link:hover {
+  color: #f26224;
+}
+
+.footer-row {
+  border-bottom: 1px solid #ffffff;
+}
+
+.footer-link2 {
+  text-decoration: none;
+  padding: 0 5px;
+  color: #ffffff;
+  transition: 0.2s ease-in-out;
+}
+
+.footer-link2:hover {
+  text-decoration: none;
+  padding: 0 5px;
+  color: #f26224;
+}
+
+.copyright {
+  color: #ffffff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+}

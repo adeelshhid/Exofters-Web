@@ -24,7 +24,7 @@ const AboutSection = () => {
       {/* About Cards Section*/}
       <div className="card-section pt-5 px-5">
         <div className="row">
-          <div className="col-lg-3 col-md-6 about-card">
+          <div className="col-lg-3 col-md-6 col-sm-6 about-card">
             <div className="card-bg p-4">
               <FontAwesomeIcon className="card-icon" icon={faPeopleArrows} />
               <h4 className="card-heading pt-4">Consulting</h4>
@@ -34,7 +34,7 @@ const AboutSection = () => {
               </p>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 about-card">
+          <div className="col-lg-3 col-md-6 col-sm-6 about-card">
             <div className="card-bg p-4">
               <FontAwesomeIcon className="card-icon" icon={faGears} />
               <h4 className="card-heading pt-4">Implementation</h4>
@@ -45,7 +45,7 @@ const AboutSection = () => {
               </p>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 about-card">
+          <div className="col-lg-3 col-md-6 col-sm-6 about-card">
             <div className="card-bg p-4">
               <FontAwesomeIcon className="card-icon" icon={faHandshake} />
               <h4 className="card-heading pt-4">Managed Services</h4>
@@ -55,7 +55,7 @@ const AboutSection = () => {
               </p>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 about-card">
+          <div className="col-lg-3 col-md-6 col-sm-6 about-card">
             <div className="card-bg p-4">
               <FontAwesomeIcon className="card-icon" icon={faHeadset} />
               <h4 className="card-heading pt-4">BPO</h4>
@@ -110,7 +110,7 @@ const AboutSection = () => {
       </div>
 
       {/* Ceo Image Section */}
-      <div className="container ceo-info-section mt-sm-5 mt-md-0">
+      <div className="container ceo-info-section mt-sm-5">
         <div className="row">
           <div className="col-lg-6 col-md-6">
             <div className="d-flex align-items-center ceo-img-section2">

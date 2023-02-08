@@ -1,0 +1,45 @@
+.whyexofters-section {
+  background: #ffffff;
+}
+
+.whyexofters-heading {
+  color: #f26224;
+  font-family: "DM Sans", sans-serif;
+  text-align: center;
+}
+
+.whyexofters-heading::after {
+  content: "";
+  display: block;
+  background-color: #f26224;
+  margin-top: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 4px;
+  width: 6%;
+}
+
+.kudos-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.kudos-icon {
+  color: #f26224;
+  font-size: 35px;
+}
+
+.kudos-name {
+  font-size: 18px;
+  color: #6a6d7c;
+  font-family: "DM Sans", sans-serif;
+}
+
+.kudos-text {
+  color: #6a6d7c;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  text-align: center;
+}

@@ -102,7 +102,7 @@
 
 .ceo1 {
   height: 110px;
-  width: 110px;
+  min-width: 110px;
   border-radius: 50%;
   border: 3px solid #ffffff;
   border-right: 3px dotted #ffffff;
@@ -236,7 +236,7 @@
   }
 
   .our-phil-bg {
-    margin-top: 450px;
+    margin-top: 500px;
   }
 
   .about-heading {
@@ -314,22 +314,32 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  .our-phil-bg {
+@media screen and (max-width: 769px) {
+  /* .our-phil-bg {
     margin-top: 900px;
-  }
+  } */
+}
+
+@media screen and (max-width: 768px) {
+  /* .our-phil-bg {
+    margin-top: 900px;
+  } */
 
   .card-section {
     padding-top: 0 !important;
     top: 10%;
   }
 
-  .about-section {
+  /* .about-section {
     padding: 50px 147px !important;
-  }
+  } */
 
-  .about-card {
+  /* .about-card {
     padding: 20px 110px 0 !important;
+  } */
+
+  .card-text {
+    font-size: 14px;
   }
 
   .about-heading::after {
@@ -408,6 +418,10 @@
   .card-section {
     padding-top: 0 !important;
     top: 9%;
+  }
+
+  .our-phil-bg {
+    margin-top: 950px;
   }
 
   .our-phil-text2 {

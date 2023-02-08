@@ -4,6 +4,8 @@ import NavBar from "./Components/NavBar/NavBar";
 import "./App.css";
 import AboutSection from "./Components/About Section/AboutSection";
 import Experties from "./Components/Experties/Experties";
+import WhyExofters from "./Components/Why Exofters/WhyExofters";
+import Footer from "./Components/Footer/Footer";
 
 const App = (React.FC = () => {
   return (
@@ -14,6 +16,8 @@ const App = (React.FC = () => {
       </div>
       <AboutSection />
       <Experties />
+      <WhyExofters />
+      <Footer />
     </div>
   );
 });
