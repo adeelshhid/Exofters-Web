@@ -96,6 +96,11 @@ Navbar {
   }
 }
 
+@media screen and (max-width: 426px) {
+  .offcanvas-nav {
+    width: 60% !important;
+  }
+}
 @media screen and (max-width: 415px) {
   .offcanvas-nav {
     width: 70% !important;

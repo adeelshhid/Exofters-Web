@@ -13,18 +13,22 @@ import {
 const Footer = () => {
   let links = [
     {
+      id: 1,
       icon: faThumbTack,
       info: "Exofters Pvt Ltd",
     },
     {
+      id: 2,
       icon: faLocationArrow,
       info: "257A G5, Phase 1, Wapda Town, Lahore",
     },
     {
+      id: 3,
       icon: faMobileScreenButton,
       info: "Tel +92 (300) 7171787",
     },
     {
+      id: 4,
       icon: faFax,
       info: "Fax +92 (52) 1234567",
     },
@@ -32,10 +36,12 @@ const Footer = () => {
 
   let contacts = [
     {
+      id: 1,
       icon: faEnvelope,
       info: "info@exofters.com",
     },
     {
+      id: 2,
       icon: faGlobe,
       info: "www.exofters.com",
     },
@@ -55,39 +61,43 @@ const Footer = () => {
               reach into the hands of the avid users.
             </p>
           </div>
-          <div className="col-lg-3">
-            {links.map((item) => {
-              return (
-                <ul className="info-list">
-                  <li>
-                    <FontAwesomeIcon
-                      className="info-icons pe-2"
-                      icon={item.icon}
-                    />
-                    <span className="info-text">{item.info}</span>
-                  </li>
-                </ul>
-              );
-            })}
-          </div>
-          <div className="col-lg-3">
-            {contacts.map((item) => {
-              return (
-                <ul className="info-list">
-                  <li>
-                    <FontAwesomeIcon
-                      className="info-icons pe-2"
-                      icon={item.icon}
-                    />
-                    <span className="info-text">
-                      <a className="footer-link" href="#/">
-                        {item.info}
-                      </a>
-                    </span>
-                  </li>
-                </ul>
-              );
-            })}
+          <div className="col-lg-6">
+            <div className="row">
+              <div className="col-lg-6 col-md-6 col-sm-6 px-0">
+                {links.map((item) => {
+                  return (
+                    <ul key={item.id} className="info-list">
+                      <li>
+                        <FontAwesomeIcon
+                          className="info-icons pe-2"
+                          icon={item.icon}
+                        />
+                        <span className="info-text">{item.info}</span>
+                      </li>
+                    </ul>
+                  );
+                })}
+              </div>
+              <div className="col-lg-6 col-md-6 col-sm-6 px-0">
+                {contacts.map((item) => {
+                  return (
+                    <ul key={item.id} className="info-list">
+                      <li>
+                        <FontAwesomeIcon
+                          className="info-icons pe-2"
+                          icon={item.icon}
+                        />
+                        <span className="info-text">
+                          <a className="footer-link" href="#/">
+                            {item.info}
+                          </a>
+                        </span>
+                      </li>
+                    </ul>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
         <div className="container d-flex justify-content-between pt-3">

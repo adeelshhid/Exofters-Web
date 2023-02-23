@@ -1,7 +1,0 @@
-.main-body {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
-    url("./Images/main-img.jpg");
-  background-size: cover;
-  overflow-x: hidden;
-  height: 100vh;
-}
