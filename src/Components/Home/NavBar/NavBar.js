@@ -13,17 +13,16 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Button, Image, Offcanvas } from "react-bootstrap";
-import companylogo from "../../Images/companylogo.png";
+import companylogo from "../../../Images/companylogo.png";
 import "./NavBar.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 function NavBar() {
-  
   let [scrollHeight, setScrollHeight] = useState(0);
 
   window.addEventListener("scroll", () => {
-    setScrollHeight(window.scrollY)
-  })
+    setScrollHeight(window.scrollY);
+  });
 
   const [show, setShow] = useState(false);
 
@@ -34,11 +33,18 @@ function NavBar() {
 
   return (
     <>
-      <Navbar expand="lg" className={scrollHeight <= 0 ? "nav-bar fixed-top": "nav-dark nav-bar fixed-top"}>
+      <Navbar
+        expand="lg"
+        className={
+          scrollHeight <= 0 ? "nav-bar fixed-top" : "nav-dark nav-bar fixed-top"
+        }
+      >
         <Container className="nav-padding">
           <Navbar.Brand href="#home">
             <Image
-              className={scrollHeight <= 0 ? "company-logo" : "company-logo-small"}
+              className={
+                scrollHeight <= 0 ? "company-logo" : "company-logo-small"
+              }
               src={companylogo}
               alt="Exofters"
             ></Image>

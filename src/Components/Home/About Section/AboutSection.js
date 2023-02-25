@@ -7,8 +7,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "../About Section/AboutSection.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ceo1 from "../../Images/ceo1.jpg";
-import ceo2 from "../../Images/ceo2.jpeg";
+import ceo1 from "../../../Images/ceo1.jpg";
+import ceo2 from "../../../Images/ceo2.jpeg";
 
 const AboutSection = () => {
   return (

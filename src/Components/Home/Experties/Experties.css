@@ -24,7 +24,7 @@
 }
 
 .experties-item {
-  background: url("../../Images/ex-bg.png");
+  background: url("../../../Images/ex-bg.png");
   background-position: center;
   background-size: cover;
   display: flex;

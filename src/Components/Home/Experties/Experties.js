@@ -1,7 +1,7 @@
 import React from "react";
 import "../Experties/Experties.css";
 // import html5 from "../../Images/html5.jpg";
-import Images from "../../ImageExport";
+import Images from "../../../ImageExport";
 
 const Experties = () => {
   let experties = [

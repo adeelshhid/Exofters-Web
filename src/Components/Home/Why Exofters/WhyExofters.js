@@ -59,10 +59,7 @@ const WhyExofters = () => {
         <div className="row">
           {kudos.map((item) => {
             return (
-              <div
-                className="col-lg-4 col-md-6 col-sm-6 pt-3 px-5 px-md-3 px-sm-3"
-                key={item.id}
-              >
+              <div className="col-lg-4 col-md-6 col-sm-6 pt-3" key={item.id}>
                 <div className=" kudos-card">
                   <FontAwesomeIcon className="kudos-icon" icon={item.icon} />
                   <p className="kudos-name pt-4">{item.name}</p>
