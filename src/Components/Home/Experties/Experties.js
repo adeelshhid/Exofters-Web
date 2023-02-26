@@ -157,7 +157,7 @@ const Experties = () => {
       <div className="container">
         <h2 className="experties-heading">Experties</h2>
       </div>
-      <div className="text-center container experties-container p-5">
+      <div className="text-center container experties-container">
         {experties.map((item) => {
           return (
             <div key={item.id}>

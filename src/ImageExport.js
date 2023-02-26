@@ -28,6 +28,15 @@ const Images = {
   blockchain: require("./Images/blockchain.png"),
   api: require("./Images/api.png"),
   firebase: require("./Images/firebase.png"),
+  etraffic: require("./Images/etraffic.jpg"),
+  feba: require("./Images/feba.jpg"),
+  guest: require("./Images/guest.jpg"),
+  ivory: require("./Images/ivory.jpg"),
+  iwish: require("./Images/iwish.jpg"),
+  ownersinfo: require("./Images/ownersinfo.jpg"),
+  penthouse: require("./Images/penthouse.jpg"),
+  quranradio: require("./Images/quraanradio.jpg"),
+  xliquidus: require("./Images/xliquidus.jpg"),
 };
 
 export default Images;

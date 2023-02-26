@@ -203,7 +203,7 @@
   }
 
   .ceo-img-section2 {
-    display: none;
+    display: none !important;
   }
 
   .ceo-name {
@@ -463,7 +463,7 @@
   }
 
   .our-phil-bg {
-    margin-top: 900px;
+    margin-top: 1070px;
   }
 
   .our-phil-heading {

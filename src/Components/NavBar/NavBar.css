@@ -32,6 +32,16 @@
   opacity: 1;
 }
 
+.links {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.links:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+
 .hamburger-icon {
   color: white !important;
   border: none !important;

@@ -13,9 +13,10 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Button, Image, Offcanvas } from "react-bootstrap";
-import companylogo from "../../../Images/companylogo.png";
+import companylogo from "../../Images/companylogo.png";
 import "./NavBar.css";
 import "bootstrap/dist/css/bootstrap.css";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   let [scrollHeight, setScrollHeight] = useState(0);
@@ -50,21 +51,21 @@ function NavBar() {
             ></Image>
           </Navbar.Brand>
           <Nav className="d-sm-none d-md-flex d-lg-flex d-xl-flex nav-links">
-            <Nav.Link href="#home" className="navlink-padding">
+            <Link to="/" className="links navlink-padding">
               Home
-            </Nav.Link>
-            <Nav.Link href="#link" className="navlink-padding">
+            </Link>
+            <Link to="/portfolio" className="links navlink-padding">
               Portfolio
-            </Nav.Link>
-            <Nav.Link href="#link" className="navlink-padding">
+            </Link>
+            <Link to="/teams" className="links navlink-padding">
               Teams
-            </Nav.Link>
-            <Nav.Link href="#link" className="navlink-padding">
+            </Link>
+            <Link to="/" className="links navlink-padding">
               Services
-            </Nav.Link>
-            <Nav.Link href="#link" className="navlink-padding">
+            </Link>
+            <Link to="/" className="links navlink-padding">
               Contact Us
-            </Nav.Link>
+            </Link>
           </Nav>
           <Navbar.Toggle
             className="hamburger-icon d-md-none d-lg-none d-xl-none"

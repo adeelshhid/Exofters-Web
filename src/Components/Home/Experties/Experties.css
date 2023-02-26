@@ -21,6 +21,7 @@
   flex-wrap: wrap;
   max-width: 90%;
   justify-content: center;
+  padding: 40px 0;
 }
 
 .experties-item {

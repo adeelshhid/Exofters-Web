@@ -113,7 +113,7 @@ const AboutSection = () => {
       <div className="container ceo-info-section mt-sm-5">
         <div className="row">
           <div className="col-lg-6 col-md-6">
-            <div className="d-flex align-items-center ceo-img-section2">
+            <div className="d-flex d-lg-none d-md-none align-items-center ceo-img-section2">
               <img src={ceo1} className="ceo1" alt="" />
               <div className="ps-3">
                 <h2 className="ceo-name">Adeel Shahid, Co-Founder</h2>
@@ -132,7 +132,7 @@ const AboutSection = () => {
             </p>
           </div>
           <div className="col-lg-6 col-md-6">
-            <div className="d-flex align-items-center ceo-img-section2">
+            <div className="d-flex d-lg-none d-md-none align-items-center ceo-img-section2">
               <img src={ceo2} className="ceo2" alt="" />
               <div className="ps-3">
                 <h2 className="ceo-name">Zeeshan Aziz, Co-Founder</h2>
