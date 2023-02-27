@@ -1,0 +1,134 @@
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+.services-hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+    url("../../Images/services.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* padding-top: 350px; */
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.services-main-text2 {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  text-shadow: 3px 4px 7px rgba(81, 67, 21, 0.8) !important;
+  font-family: "DM Sans", sans-serif;
+}
+
+.services-start-btn {
+  background-color: transparent !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  color: white !important;
+  text-shadow: 3px 4px 7px rgba(81, 67, 21, 0.8) !important;
+  border: 1px solid white !important;
+  border-radius: 1px !important;
+  font-family: "DM Sans", sans-serif;
+  padding: 10px 50px;
+}
+
+.mob-plat-heading {
+  color: #6a6d7c;
+  font-family: "DM Sans", sans-serif;
+}
+
+.mob-plat-heading::after {
+  content: "";
+  display: block;
+  height: 5px;
+  width: 5%;
+  background-color: #f26224;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.plat-img {
+  height: 550px;
+  width: 370px;
+  padding: 0 20px;
+}
+
+.chevron {
+  color: #f26224;
+}
+
+.plat-text {
+  color: #6a6d7c;
+}
+
+.serv-text {
+  color: #6a6d7c;
+}
+
+@media screen and (max-width: 426px) {
+  .services-main-text2 {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    text-shadow: 3px 4px 7px rgb(81 67 21 / 80%) !important;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  .services-main-text1 {
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  .services-main-text3 {
+    padding: 0 10px;
+    color: #ffffff;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .services-main-text2 {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    text-shadow: 3px 4px 7px rgb(81 67 21 / 80%) !important;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  .services-main-text1 {
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  .services-main-text3 {
+    padding: 0 10px;
+    color: #ffffff;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .services-main-text2 {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    text-shadow: 3px 4px 7px rgb(81 67 21 / 80%) !important;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  .services-main-text1 {
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  .services-main-text3 {
+    padding: 0 10px;
+    color: #ffffff;
+    text-align: center;
+  }
+}

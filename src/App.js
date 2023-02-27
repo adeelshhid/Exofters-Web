@@ -5,6 +5,7 @@ import Portfolio from "./Components/Portfolio/Portfolio";
 import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer/Footer";
 import Teams from "./Components/Teams/Teams";
+import Services from "./Components/Services/Services";
 
 const App = (React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App = (React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/teams" element={<Teams />} />
+        <Route path="/services" element={<Services />} />
       </Routes>
       <Footer />
     </>

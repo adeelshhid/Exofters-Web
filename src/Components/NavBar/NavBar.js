@@ -20,7 +20,7 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   let [scrollHeight, setScrollHeight] = useState(0);
-
+  let [currentTab, selectTab] = useState(0);
   window.addEventListener("scroll", () => {
     setScrollHeight(window.scrollY);
   });
@@ -51,19 +51,69 @@ function NavBar() {
             ></Image>
           </Navbar.Brand>
           <Nav className="d-sm-none d-md-flex d-lg-flex d-xl-flex nav-links">
-            <Link to="/" className="links navlink-padding">
+            <Link
+              to="/"
+              onClick={() => {
+                selectTab(0);
+              }}
+              className={
+                currentTab === 0
+                  ? "links navlink-padding bordered"
+                  : "links navlink-padding"
+              }
+            >
               Home
             </Link>
-            <Link to="/portfolio" className="links navlink-padding">
+            <Link
+              to="/portfolio"
+              onClick={() => {
+                selectTab(1);
+              }}
+              className={
+                currentTab === 1
+                  ? "links navlink-padding bordered"
+                  : "links navlink-padding"
+              }
+            >
               Portfolio
             </Link>
-            <Link to="/teams" className="links navlink-padding">
+            <Link
+              to="/teams"
+              onClick={() => {
+                selectTab(2);
+              }}
+              className={
+                currentTab === 2
+                  ? "links navlink-padding bordered"
+                  : "links navlink-padding"
+              }
+            >
               Teams
             </Link>
-            <Link to="/" className="links navlink-padding">
+            <Link
+              to="/services"
+              onClick={() => {
+                selectTab(3);
+              }}
+              className={
+                currentTab === 3
+                  ? "links navlink-padding bordered"
+                  : "links navlink-padding"
+              }
+            >
               Services
             </Link>
-            <Link to="/" className="links navlink-padding">
+            <Link
+              to="/"
+              onClick={() => {
+                selectTab(4);
+              }}
+              className={
+                currentTab === 4
+                  ? "links navlink-padding bordered"
+                  : "links navlink-padding"
+              }
+            >
               Contact Us
             </Link>
           </Nav>
