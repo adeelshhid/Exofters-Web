@@ -12,7 +12,7 @@ import {
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Button, Image, Offcanvas } from "react-bootstrap";
+import { Image, Offcanvas } from "react-bootstrap";
 import companylogo from "../../Images/companylogo.png";
 import "./NavBar.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -143,56 +143,76 @@ function NavBar() {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div className="canvas-links">
-            <Button
+            <Link
+              to="/"
               className={selectedIndex === 0 ? "selected-btn" : "canvas-btn"}
-              onClick={() => setIndex(0)}
+              onClick={() => {
+                setIndex(0);
+                handleClose();
+              }}
             >
               <FontAwesomeIcon
                 icon={faHouse}
                 className="pe-3"
               ></FontAwesomeIcon>
               Home
-            </Button>
-            <Button
+            </Link>
+            <Link
+              to="/portfolio"
               className={selectedIndex === 1 ? "selected-btn" : "canvas-btn"}
-              onClick={() => setIndex(1)}
+              onClick={() => {
+                setIndex(1);
+                handleClose();
+              }}
             >
               <FontAwesomeIcon
                 icon={faBriefcase}
                 className="pe-3"
               ></FontAwesomeIcon>
               Portfolio
-            </Button>
-            <Button
+            </Link>
+            <Link
+              to="/services"
               className={selectedIndex === 2 ? "selected-btn" : "canvas-btn"}
-              onClick={() => setIndex(2)}
+              onClick={() => {
+                setIndex(2);
+                handleClose();
+              }}
             >
               <FontAwesomeIcon
                 icon={faScrewdriverWrench}
                 className="pe-3"
               ></FontAwesomeIcon>
               Services
-            </Button>
-            <Button
+            </Link>
+            <Link
+              to="/teams"
               className={selectedIndex === 3 ? "selected-btn" : "canvas-btn"}
-              onClick={() => setIndex(3)}
+              onClick={() => {
+                setIndex(3);
+                handleClose();
+              }}
             >
               <FontAwesomeIcon
                 icon={faPeopleGroup}
                 className="pe-3"
               ></FontAwesomeIcon>
               Team
-            </Button>
-            <Button
+            </Link>
+            <Link
+              to="/"
               className={selectedIndex === 4 ? "selected-btn" : "canvas-btn"}
-              onClick={() => setIndex(4)}
+              onClick={() => {
+                setIndex(4);
+                handleClose();
+              }}
             >
               <FontAwesomeIcon
                 icon={faAddressBook}
                 className="pe-3"
               ></FontAwesomeIcon>
               Contact Us
-            </Button>
+            </Link>
           </div>
         </Offcanvas.Body>
       </Offcanvas>

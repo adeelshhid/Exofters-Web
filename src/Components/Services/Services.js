@@ -5,6 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import iphone from "../../Images/iPhone-6S.jpg";
 import android from "../../Images/Glaxy-S7.jpg";
 import windowsPhone from "../../Images/Lumia-950.jpg";
+import phpImg from "../../Images/PHP (1).png";
+import wordPress from "../../Images/Wordpress-01.png";
+import nodeJs from "../../Images/nodejs-logo.png";
+import msLoge from "../../Images/Microsoft.png";
 
 import {
   faPersonDigging,
@@ -81,6 +85,58 @@ const Services = () => {
     },
   ];
 
+  const webPlatform = [
+    {
+      id: 1,
+      img: phpImg,
+      name: "PHP and web technologies are staples",
+      text: "With the improvement in technology and a surge in the number of users shifting to mobiles and tablets, there’s a dire need to optimize the multi-device experience for your customers. To keep up with this growing trend, an increasing number of industries need professional web development solutions including e-commerce solutions, Portals & CMS customization and application integration.",
+      services: [
+        "Languages: C, C++, C#, PHP, Ruby",
+        "Frameworks: CakePHP, ASP. Net, Zend",
+        "CMS: Joomla, WordPress, Drupal",
+        "Databases: MySQL, Oracle, SQL Server",
+        "E-Commerce: Magento, Shopify, Opencart",
+        "Integration: Wowza, Oracle, Salesforce.com, SAP, Windows Azure",
+      ],
+      icon: faChevronCircleRight,
+    },
+    {
+      id: 2,
+      img: wordPress,
+      name: "WordPress & Co.",
+      text: "Starting as simple tools for bloggers, WordPress etc. have fully evolved into CMS, shop and portal systems of today forming the basis of millions of large and small sites and landing pages. The ability create responsive, mobile optimized and creative websites in short time, enables designers, marketers and content writers to work and publish directly without developer intervention. We, as developers, offers success by extending and customizing these frameworks through plugins, themes and custom PHP code to meet your exact integrations and requirements.",
+      services: [
+        "CMS: WordPress, Drupal, Joomla, Typo3, eZSystem",
+        "E-Commerce: WooCommerce, XTCommerce, Magento, Shopify, Opencart",
+        "Integration: Analytics, DirectMailing, Blogs",
+      ],
+      icon: faChevronCircleRight,
+    },
+    {
+      id: 3,
+      img: nodeJs,
+      name: "Node.js, AngularJS und JavaScript Farmeworks",
+      text: "Slowly taking over a commendable place in universal web development JS frameworks like Node.js, Meteor and many more, offer a good opportunity for teams to reuse their front-end programming skills on the server side. The set of libraries and community has grown now for the enterprise and serious web products to consider JavaScript as a primary development platform",
+      services: [""],
+      icon: {},
+    },
+    {
+      id: 4,
+      img: msLoge,
+      name: "Microsoft ASP.net",
+      text: "Our team of .Net developers has nine years of experience of developing cutting-edge web applications. Microsoft .Net Development experts at Swenggco possess in-depth knowledge of their domain and stay updated with technological progression associated with ASP. Net. We are adept in using leading Microsoft technologies to develop applications that are tailored to meet the needs of your business across various industry segments.",
+      services: [
+        "ASP .NET 1.1, 2.0, 4.0",
+        "Microsoft Silverlight 1, 2, 3, 4, 5",
+        "Microsoft Dynamics CRM 4 und 2011 Integration",
+        "Microsoft SQL Server 2005, 2008",
+        "Microsoft .Net Framework 1.0, 2.0, 3.0, 3.5, 4.0",
+      ],
+      icon: faChevronCircleRight,
+    },
+  ];
+
   return (
     <div>
       {/* Hero Section */}
@@ -112,7 +168,7 @@ const Services = () => {
                   <FontAwesomeIcon className="kudos-icon" icon={item.icon} />
                   <p className="kudos-name pt-4">{item.name}</p>
                 </div>
-                <p className="kudos-text">{item.text}</p>
+                <p className="kudos-text px-md-3 px-sm-3 px-3">{item.text}</p>
               </div>
             );
           })}
@@ -122,21 +178,23 @@ const Services = () => {
       {/* Mobile Platforms Section */}
 
       <div className="container py-5">
-        <h3 className="mob-plat-heading text-center">Our Mobile Platforms</h3>
-        <p className="py-5" style={{ color: "#6a6d7c" }}>
+        <h3 className="mob-plat-heading text-center pt-5">
+          Our Mobile Platforms
+        </h3>
+        <p className="pt-5 px-md-3 px-sm-3 px-3" style={{ color: "#6a6d7c" }}>
           We stay up to date on all the changes and new technologies for major
           mobile app platforms. You worry about your core business objectives,
           we’ll take the technology from here.
         </p>
 
-        <div className="row pt-5">
+        <div className="row plat-row1 pt-5">
           {mobilePlatform.map((item) => {
             if (item.id % 2 === 0) {
               return (
                 <>
-                  <div className="col-lg-8 details-col">
-                    <h5 className="text-center">{item.name}</h5>
-                    <p className="plat-text">{item.text}</p>
+                  <div className="col-lg-8 pt-5 details-col">
+                    <h5 className="text-center f-dm">{item.name}</h5>
+                    <p className="plat-text f-dm">{item.text}</p>
                     <div>
                       {item.services.map((service) => {
                         return (
@@ -149,14 +207,16 @@ const Services = () => {
                                 />
                               </div>
                               &nbsp; &nbsp;
-                              <div className="py-2 serv-text">{service}</div>
+                              <div className="py-2 serv-text f-dm">
+                                {service}
+                              </div>
                             </div>
                           </>
                         );
                       })}
                     </div>
                   </div>
-                  <div className="col-lg-4 img-col px-5">
+                  <div className="col-lg-4 pt-5 text-md-center img-col px-5">
                     <img className="plat-img" src={item.img} alt="" />
                   </div>
                 </>
@@ -164,12 +224,12 @@ const Services = () => {
             } else {
               return (
                 <>
-                  <div className="col-lg-4 pt-5 img-col">
+                  <div className="col-lg-4 text-md-center pt-5 img-col">
                     <img className="plat-img" src={item.img} alt="" />
                   </div>
                   <div className="col-lg-8 pt-5 details-col">
-                    <h5 className="text-center">{item.name}</h5>
-                    <p className="plat-text">{item.text}</p>
+                    <h5 className="text-center f-dm">{item.name}</h5>
+                    <p className="plat-text f-dm">{item.text}</p>
                     <div>
                       {item.services.map((service) => {
                         return (
@@ -182,7 +242,9 @@ const Services = () => {
                                 />
                               </div>
                               &nbsp; &nbsp;
-                              <div className="py-2 serv-text">{service}</div>
+                              <div className="py-2 serv-text f-dm">
+                                {service}
+                              </div>
                             </div>
                           </>
                         );
@@ -192,6 +254,158 @@ const Services = () => {
                 </>
               );
             }
+          })}
+        </div>
+        <div className="row plat-row2">
+          {mobilePlatform.map((item) => {
+            return (
+              <>
+                <div className="col-lg-4 text-md-center text-sm-center text-center pt-5 img-col">
+                  <img className="plat-img" src={item.img} alt="" />
+                </div>
+                <div className="col-lg-8 pt-5 details-col">
+                  <h5 className="text-center f-dm">{item.name}</h5>
+                  <p className="plat-text px-md-3 px-sm-3 px-3 f-dm">
+                    {item.text}
+                  </p>
+                  <div>
+                    {item.services.map((service) => {
+                      return (
+                        <>
+                          <div className="d-flex px-md-3 px-sm-3 px-3">
+                            <div className="py-2">
+                              <FontAwesomeIcon
+                                icon={item.icon}
+                                className="chevron"
+                              />
+                            </div>
+                            &nbsp; &nbsp;
+                            <div className="py-2 serv-text f-dm">{service}</div>
+                          </div>
+                        </>
+                      );
+                    })}
+                  </div>
+                </div>
+              </>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Web Platforms Section */}
+
+      <div className="container py-5">
+        <h3 className="mob-plat-heading text-center">Our Web Platforms</h3>
+        <p
+          className="pt-5 px-md-3 px-sm-3 px-3 f-dm"
+          style={{ color: "#6a6d7c" }}
+        >
+          We stay up to date on all the changes and new technologies for major
+          mobile app platforms. You worry about your core business objectives,
+          we’ll take the technology from here.
+        </p>
+
+        <div className="row web-plat-row1 pt-5">
+          {webPlatform.map((item) => {
+            if (item.id % 2 === 0) {
+              return (
+                <>
+                  <div className="col-lg-8 pt-5 details-col">
+                    <h5 className="text-center f-dm">{item.name}</h5>
+                    <p className="plat-text f-dm">{item.text}</p>
+                    <div>
+                      {item.services.map((service) => {
+                        return (
+                          <>
+                            <div className="d-flex">
+                              <div className="py-2">
+                                <FontAwesomeIcon
+                                  icon={item.icon}
+                                  className="chevron"
+                                />
+                              </div>
+                              &nbsp; &nbsp;
+                              <div className="py-2 serv-text f-dm">
+                                {service}
+                              </div>
+                            </div>
+                          </>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <div className="col-lg-4 pt-5 text-md-center img-col px-5">
+                    <img className="web-plat-img" src={item.img} alt="" />
+                  </div>
+                </>
+              );
+            } else {
+              return (
+                <>
+                  <div className="col-lg-4 d-flex justify-content-center align-items-center text-md-center pt-5 img-col">
+                    <img className="web-plat-img" src={item.img} alt="" />
+                  </div>
+                  <div className="col-lg-8 d-flex flex-column justify-content-center pt-5 details-col">
+                    <h5 className="text-center f-dm">{item.name}</h5>
+                    <p className="plat-text f-dm">{item.text}</p>
+                    <div>
+                      {item.services.map((service) => {
+                        return (
+                          <>
+                            <div className="d-flex">
+                              <div className="py-2">
+                                <FontAwesomeIcon
+                                  icon={item.icon}
+                                  className="chevron"
+                                />
+                              </div>
+                              &nbsp; &nbsp;
+                              <div className="py-2 serv-text f-dm">
+                                {service}
+                              </div>
+                            </div>
+                          </>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </>
+              );
+            }
+          })}
+        </div>
+        <div className="row web-plat-row2">
+          {webPlatform.map((item) => {
+            return (
+              <>
+                <div className="col-lg-4 text-md-center text-sm-center text-center pt-5 img-col">
+                  <img className="web-plat-img" src={item.img} alt="" />
+                </div>
+                <div className="col-lg-8 pt-5 details-col">
+                  <h5 className="text-center">{item.name}</h5>
+                  <p className="plat-text px-md-3 px-sm-3 px-3">{item.text}</p>
+                  <div>
+                    {item.services.map((service) => {
+                      return (
+                        <>
+                          <div className="d-flex px-md-3 px-sm-3 px-3">
+                            <div className="py-2">
+                              <FontAwesomeIcon
+                                icon={item.icon}
+                                className="chevron"
+                              />
+                            </div>
+                            &nbsp; &nbsp;
+                            <div className="py-2 serv-text">{service}</div>
+                          </div>
+                        </>
+                      );
+                    })}
+                  </div>
+                </div>
+              </>
+            );
           })}
         </div>
       </div>
