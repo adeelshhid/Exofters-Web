@@ -105,13 +105,13 @@ const Footer = () => {
             &#169; Copyright Exofters Pvt Ltd, Pakistan
           </p>
           <div>
-            <a className="footer-link2" href="./">
+            <a className="footer-link2" href="/">
               Home
             </a>
-            <a className="footer-link2" href="./">
+            <a className="footer-link2" href="/contact">
               Contact Us
             </a>
-            <a className="footer-link2" href="./">
+            <a className="footer-link2" href="/">
               Privacy Policy
             </a>
           </div>
