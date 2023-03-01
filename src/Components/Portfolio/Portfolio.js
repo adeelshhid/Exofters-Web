@@ -4,6 +4,13 @@ import "./Portfolio.css";
 import Images from "../../ImageExport";
 
 const Portfolio = () => {
+
+  let root = document.getElementById("root")
+  root.style.opacity = 0.3
+  setTimeout(() => {
+    root.style.opacity = 1
+  }, 500)
+
   const portfolio = [
     {
       id: 1,

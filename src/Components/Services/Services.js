@@ -18,6 +18,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Services = () => {
+  let root = document.getElementById("root")
+  root.style.opacity = 0.3
+  setTimeout(() =>{
+    root.style.opacity = 1
+  },500)
   let kudos = [
     {
       id: 1,
@@ -118,7 +123,7 @@ const Services = () => {
       img: nodeJs,
       name: "Node.js, AngularJS und JavaScript Farmeworks",
       text: "Slowly taking over a commendable place in universal web development JS frameworks like Node.js, Meteor and many more, offer a good opportunity for teams to reuse their front-end programming skills on the server side. The set of libraries and community has grown now for the enterprise and serious web products to consider JavaScript as a primary development platform",
-      services: [""],
+      services: [],
       icon: {},
     },
     {

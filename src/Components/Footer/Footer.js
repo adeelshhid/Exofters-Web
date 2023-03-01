@@ -30,7 +30,7 @@ const Footer = () => {
     {
       id: 4,
       icon: faFax,
-      info: "Fax +92 (52) 1234567",
+      info: "Tel +92 (321) 7171787",
     },
   ];
 
@@ -54,11 +54,7 @@ const Footer = () => {
           <div className="col-lg-6">
             <p className="aboutexofters-heading">About Exofters</p>
             <p className="aboutexofters-text">
-              We are Exofters, an App development company located in Sialkot,
-              Pakistan. We are a team of high-qualified developers with
-              allegiance for mobility, talent for app engineering and knowledge
-              for vectoring your ideas into the right direction so they can
-              reach into the hands of the avid users.
+              We are Exofters. We are a well experienced and certified Company. We've done rich featured / responsive Mobile Apps, Webapps and Websites. We are a self-driven, flexible, and innovative company. We work in all domains including Websites, Mobile apps, Machine Learning, iOT and Artificial Intelligence.
             </p>
           </div>
           <div className="col-lg-6">
@@ -72,7 +68,10 @@ const Footer = () => {
                           className="info-icons pe-2"
                           icon={item.icon}
                         />
-                        <span className="info-text">{item.info}</span>
+                        <span className="info-text">{item.id === 3 || item.id === 4 ? <a className="footer-link" href={'tel:' + item.info}>
+                          {item.info}</a> : item.info}
+
+                        </span>
                       </li>
                     </ul>
                   );
