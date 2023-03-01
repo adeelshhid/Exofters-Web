@@ -59,6 +59,7 @@ body {
   height: 400px;
   width: 350px;
   border-radius: 10%;
+  object-fit: cover;
 }
 
 .project-name {
@@ -152,8 +153,10 @@ body {
     background-position: center;
     height: 260px;
     width: 240px;
-    border-radius: 10%;
+  object-fit: cover;
+  border-radius: 10%;
   }
+
 }
 @media screen and (max-width: 376px) {
   .teams-main-text2 {
@@ -193,7 +196,8 @@ body {
     height: 260px;
     width: 240px;
     border-radius: 10%;
-  }
+  object-fit: cover;
+}
 }
 @media screen and (max-width: 321px) {
   .teams-main-text2 {
@@ -233,5 +237,6 @@ body {
     height: 260px;
     width: 240px;
     border-radius: 10%;
-  }
+  object-fit: cover;
+}
 }

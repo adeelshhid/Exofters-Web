@@ -86,6 +86,7 @@ body {
 .web-plat-img {
   height: 300px;
   width: 300px;
+  object-fit: contain;
 }
 
 @media screen and (min-width: 1400px) {
@@ -118,6 +119,8 @@ body {
   .web-plat-img {
     height: 250px;
     width: 250px;
+  object-fit: contain;
+
   }
 
   .plat-img {
@@ -175,6 +178,8 @@ body {
   .web-plat-img {
     height: 300px;
     width: 300px;
+  object-fit: contain;
+
   }
 
   .services-main-text2 {
@@ -213,6 +218,8 @@ body {
   .web-plat-img {
     height: 300px;
     width: 300px;
+  object-fit: contain;
+
   }
 
   .services-main-text2 {
@@ -250,7 +257,8 @@ body {
 
   .web-plat-img {
     height: 280px;
-    width: 280px;
+  object-fit: contain;
+  width: 280px;
   }
 
   /* .web-plat-row2 {

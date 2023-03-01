@@ -20,7 +20,7 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   let [scrollHeight, setScrollHeight] = useState(0);
-  let [currentTab, selectTab] = useState(0);
+  let [currentTab, selectTab] = useState(localStorage.getItem('selectedTab') ? Number(localStorage.getItem('selectedTab')) : 0);
   window.addEventListener("scroll", () => {
     setScrollHeight(window.scrollY);
   });
@@ -54,6 +54,7 @@ function NavBar() {
             <Link
               to="/"
               onClick={() => {
+                localStorage.setItem('selectedTab', '0')
                 selectTab(0);
               }}
               className={
@@ -67,6 +68,8 @@ function NavBar() {
             <Link
               to="/portfolio"
               onClick={() => {
+                localStorage.setItem('selectedTab', '1')
+
                 selectTab(1);
               }}
               className={
@@ -80,6 +83,8 @@ function NavBar() {
             <Link
               to="/teams"
               onClick={() => {
+                localStorage.setItem('selectedTab', '2')
+
                 selectTab(2);
               }}
               className={
@@ -93,6 +98,8 @@ function NavBar() {
             <Link
               to="/services"
               onClick={() => {
+                localStorage.setItem('selectedTab', '3')
+
                 selectTab(3);
               }}
               className={
@@ -106,6 +113,8 @@ function NavBar() {
             <Link
               to="/"
               onClick={() => {
+                localStorage.setItem('selectedTab', '4')
+
                 selectTab(4);
               }}
               className={

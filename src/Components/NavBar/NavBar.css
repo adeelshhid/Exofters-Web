@@ -144,7 +144,9 @@ Navbar {
     width: 70% !important;
   }
 }
-
+.nav-dark {
+  background: #1c1c1cc2 !important;
+}
 @media screen and (max-width: 375px) {
   .offcanvas-nav {
     width: 70% !important;
@@ -153,7 +155,7 @@ Navbar {
     transition: all 0.3s;
   }
   .nav-dark {
-    background: #1c1c1c !important;
+    background: #1c1c1cc2 !important;
   }
   .company-logo-small {
     transition: 0.3s all;
