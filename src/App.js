@@ -6,6 +6,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer/Footer";
 import Teams from "./Components/Teams/Teams";
 import Services from "./Components/Services/Services";
+import { Contact } from "./Components/Contact Us/Contact";
 
 const App = (React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App = (React.FC = () => {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/teams" element={<Teams />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contact />}></Route>
       </Routes>
       <Footer />
     </>

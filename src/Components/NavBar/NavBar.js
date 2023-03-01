@@ -111,7 +111,7 @@ function NavBar() {
               Services
             </Link>
             <Link
-              to="/"
+              to="/contact"
               onClick={() => {
                 localStorage.setItem('selectedTab', '4')
 
@@ -209,7 +209,7 @@ function NavBar() {
               Team
             </Link>
             <Link
-              to="/"
+              to="/contact"
               className={selectedIndex === 4 ? "selected-btn" : "canvas-btn"}
               onClick={() => {
                 setIndex(4);
