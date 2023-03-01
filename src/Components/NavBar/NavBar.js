@@ -41,7 +41,7 @@ function NavBar() {
         }
       >
         <Container className="nav-padding">
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <Image
               className={
                 scrollHeight <= 0 ? "company-logo" : "company-logo-small"

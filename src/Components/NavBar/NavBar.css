@@ -106,7 +106,7 @@
 }
 
 .canvas-logo {
-  width: 35%;
+  width: 35% !important;
 }
 
 .offcanvas-nav {
@@ -116,6 +116,10 @@
 
 Navbar {
   background-color: transparent !important;
+}
+.company-logo-small {
+  transition: 0.3s all;
+  width: 75px !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -153,6 +157,6 @@ Navbar {
   }
   .company-logo-small {
     transition: 0.3s all;
-    width: 75px;
+    width: 75px !important;
   }
 }
