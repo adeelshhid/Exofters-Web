@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import "./Portfolio.css";
 import Images from "../../ImageExport";
-import { render } from "@testing-library/react";
 
 const Portfolio = () => {
   let root = document.getElementById("root");
@@ -205,16 +204,20 @@ Pent House Chat is an easy-to-use, modern messaging solution for internal teams.
             return (
               <>
                 <div className="col-lg-6 col-md-6 col-sm-6">
-                  <img src={item.img} alt="" className="port-img" />
+                  <img
+                    src={item.img}
+                    alt=""
+                    className="port-img"
+                    style={{ marginTop: "18px" }}
+                  />
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-6 pt-5 d-flex flex-column justify-content-center align-items-center">
                   <h3 className="project-name">{item.name}</h3>
-                  <p className="project-text pb-5">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reiciendis sit dicta explicabo, porro culpa esse ex,
-                    distinctio quas magni harum corporis est, impedit dolores
-                    labore. Praesentium velit animi culpa dignissimos?
-                  </p>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: item.text,
+                    }}
+                  ></div>
                 </div>
               </>
             );

@@ -12,14 +12,15 @@ import {
   faFacebookF,
   faTwitter,
   faInstagram,
+  faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
 
 const Teams = () => {
-  let root = document.getElementById("root")
-  root.style.opacity = 0.3
-  setTimeout(() =>{
-    root.style.opacity = 1
-  },500)
+  let root = document.getElementById("root");
+  root.style.opacity = 0.3;
+  setTimeout(() => {
+    root.style.opacity = 1;
+  }, 500);
 
   const team = [
     {
@@ -27,8 +28,9 @@ const Teams = () => {
       img: ceoImg,
       name: "Adeel Shahid",
       designation: "CEO, Co-Founder, Team Lead",
-      experties:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, voluptates ipsam odio quasi animi repellendus dolore exercitationem veniam saepe nobis doloremque eos, tempora provident eligendi praesentium, ducimus mollitia sequi velit.",
+      experties: `I’m well educated an expert full stack mobile developer developer having +6 year of experience and  i can handle backend and frontend both.
+        I’ve done several rich features in responsive apps using ionic with angular, react, cordova and capacitor. I also have excellent organisational and time management skills. I’m Self-driven, flexible, and innovative.
+        Strong command over:  * HTML5 * CSS3 * API’s developemnt * TypeScript * JavaScript * Vue * Angular * ReactNative * ReactJS * Flutter * Ionic * Laravel * CodeIgnitor * IOS/Android * NodeJS * Firebase * MongoDB * Cordova * Capacitor * ElectronJS * jQuery * Php * AWS deployment * Swagger * Postman * Azure * DigitalOcean deployment * E-commerce. * Woo-commerce. * Chatting Apps. * Location based Apps. * FinTech * Blockchain Apps. * Management Apps. * API integration. * Push notifications using FCM or One Signal. * InApp Payments. * OAuth (Social Logins i.e Facebook, google or Apple)`,
     },
     {
       id: 2,
@@ -36,7 +38,7 @@ const Teams = () => {
       name: "Zeeshan Aziz",
       designation: "CEO, Co-Founder, Bussines Manager",
       experties:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, voluptates ipsam odio quasi animi repellendus dolore exercitationem veniam saepe nobis doloremque eos, tempora provident eligendi praesentium, ducimus mollitia sequi velit.",
+        "Zeeshan Aziz is a dedicated and highly motivated software business manager who exhibits excellent leadership and problem-solving skills. He is an inspiring leader with a knack for developing innovative strategies to help businesses achieve success. His passion for technology and commitment to customer service make him an invaluable asset to Exofters Pvt Ltd.",
     },
     {
       id: 3,
@@ -44,7 +46,7 @@ const Teams = () => {
       name: "Ali Shahid",
       designation: "App Developer",
       experties:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, voluptates ipsam odio quasi animi repellendus dolore exercitationem veniam saepe nobis doloremque eos, tempora provident eligendi praesentium, ducimus mollitia sequi velit.",
+        "Ali Shahid is an extremely talented software developer with a deep understanding of HTML, CSS, JavaScript, Ionic with Angular. He is highly motivated, creative, and dedicated to his craft, and consistently produces exceptional results. He is an invaluable asset to Exofters Pvt Ltd.",
     },
     {
       id: 4,
@@ -52,7 +54,7 @@ const Teams = () => {
       name: "Talha Tariq",
       designation: "App Developer",
       experties:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, voluptates ipsam odio quasi animi repellendus dolore exercitationem veniam saepe nobis doloremque eos, tempora provident eligendi praesentium, ducimus mollitia sequi velit.",
+        "Talha Tariq is an exceptionally talented and experienced software developer. He is highly skilled in HTML, CSS, JavaScript, Ionic, and Angular and has a keen eye for detail. He is passionate about creating innovative solutions to complex problems and is dedicated to delivering the highest quality of work.",
     },
     {
       id: 5,
@@ -60,7 +62,7 @@ const Teams = () => {
       name: "Amir Shahzad",
       designation: "Web Developer",
       experties:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, voluptates ipsam odio quasi animi repellendus dolore exercitationem veniam saepe nobis doloremque eos, tempora provident eligendi praesentium, ducimus mollitia sequi velit.",
+        "Amir Shahzad is an accomplished software developer with impressive technical prowess in HTML, CSS, JavaScript, React, and Bootstrap. He has a keen eye for detail and is dedicated to producing high-quality work. His passion for coding is evident in his strong commitment to continual learning and development.",
     },
   ];
 
@@ -92,18 +94,46 @@ const Teams = () => {
                     <h6 className="fst-italic"> {item.designation} </h6>
                     <p> {item.experties} </p>
                     <div>
-                      <FontAwesomeIcon
-                        icon={faFacebookF}
-                        className="social-icon-fb"
-                      />
-                      <FontAwesomeIcon
-                        icon={faInstagram}
-                        className="social-icon-inst"
-                      />
-                      <FontAwesomeIcon
-                        icon={faTwitter}
-                        className="social-icon-tw"
-                      />
+                      <a
+                        href="https://www.facebook.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon
+                          icon={faFacebookF}
+                          className="social-icon-fb"
+                        />
+                      </a>
+                      <a
+                        href="https://www.instagram.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon
+                          icon={faInstagram}
+                          className="social-icon-inst"
+                        />
+                      </a>
+                      <a
+                        href="https://www.twitter.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon
+                          icon={faTwitter}
+                          className="social-icon-tw"
+                        />
+                      </a>
+                      <a
+                        href="https://www.linkedin.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon
+                          icon={faLinkedinIn}
+                          className="social-icon-ln"
+                        />
+                      </a>
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 pt-5 d-flex justify-content-center ">
@@ -132,14 +162,36 @@ const Teams = () => {
                           className="social-icon-fb"
                         />
                       </a>
-                      <FontAwesomeIcon
-                        icon={faInstagram}
-                        className="social-icon-inst"
-                      />
-                      <FontAwesomeIcon
-                        icon={faTwitter}
-                        className="social-icon-tw"
-                      />
+                      <a
+                        href="https://www.instagram.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon
+                          icon={faInstagram}
+                          className="social-icon-inst"
+                        />
+                      </a>
+                      <a
+                        href="https://www.twitter.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon
+                          icon={faTwitter}
+                          className="social-icon-tw"
+                        />
+                      </a>
+                      <a
+                        href="https://www.linkedin.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon
+                          icon={faLinkedinIn}
+                          className="social-icon-ln"
+                        />
+                      </a>
                     </div>
                   </div>
                 </>
@@ -169,14 +221,36 @@ const Teams = () => {
                         className="social-icon-fb"
                       />
                     </a>
-                    <FontAwesomeIcon
-                      icon={faInstagram}
-                      className="social-icon-inst"
-                    />
-                    <FontAwesomeIcon
-                      icon={faTwitter}
-                      className="social-icon-tw"
-                    />
+                    <a
+                      href="https://www.instagram.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FontAwesomeIcon
+                        icon={faInstagram}
+                        className="social-icon-inst"
+                      />
+                    </a>
+                    <a
+                      href="https://www.twitter.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FontAwesomeIcon
+                        icon={faTwitter}
+                        className="social-icon-tw"
+                      />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FontAwesomeIcon
+                        icon={faLinkedinIn}
+                        className="social-icon-ln"
+                      />
+                    </a>
                   </div>
                 </div>
               </>

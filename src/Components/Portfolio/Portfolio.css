@@ -75,7 +75,7 @@ body {
 }
 
 .projects-container {
-  padding: 50px 50px;
+  padding: 50px 50px !important;
 }
 
 @media screen and (min-width: 1440px) {
@@ -211,6 +211,10 @@ body {
   .projects-row2 {
     display: block !important;
   }
+
+  .projects-container {
+    padding: 50px 30px !important;
+  }
 }
 
 @media screen and (max-width: 376px) {
@@ -242,6 +246,10 @@ body {
   .projects-row2 {
     display: block !important;
   }
+
+  .projects-container {
+    padding: 50px 23px !important;
+  }
 }
 
 @media screen and (max-width: 361px) {
@@ -258,6 +266,10 @@ body {
 
   .projects-row2 {
     display: block !important;
+  }
+
+  .projects-container {
+    padding: 50px 20px !important;
   }
 }
 
@@ -295,5 +307,9 @@ body {
 
   .projects-row2 {
     display: block !important;
+  }
+
+  .projects-container {
+    padding: 50px 20px !important;
   }
 }

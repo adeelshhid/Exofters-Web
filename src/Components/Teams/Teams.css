@@ -85,6 +85,11 @@ body {
   padding: 0 10px;
   color: #db1a47;
 }
+.social-icon-ln {
+  font-size: 20px;
+  padding: 0 10px;
+  color: #0a66c2;
+}
 
 @media screen and (max-width: 1440px) {
 }
@@ -153,10 +158,9 @@ body {
     background-position: center;
     height: 260px;
     width: 240px;
-  object-fit: cover;
-  border-radius: 10%;
+    object-fit: cover;
+    border-radius: 10%;
   }
-
 }
 @media screen and (max-width: 376px) {
   .teams-main-text2 {
@@ -196,8 +200,8 @@ body {
     height: 260px;
     width: 240px;
     border-radius: 10%;
-  object-fit: cover;
-}
+    object-fit: cover;
+  }
 }
 @media screen and (max-width: 321px) {
   .teams-main-text2 {
@@ -237,6 +241,6 @@ body {
     height: 260px;
     width: 240px;
     border-radius: 10%;
-  object-fit: cover;
-}
+    object-fit: cover;
+  }
 }
