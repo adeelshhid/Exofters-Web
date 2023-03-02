@@ -132,7 +132,7 @@ Pent House Chat is an easy-to-use, modern messaging solution for internal teams.
       img: Images.quranradio,
       text: `
       <p className="project-text">
-      
+      Quran Radio is an amazing app that provides an audio stream of the Quran with translation in up to 12 languages 24/7. It is a great way to listen to the Quran and understand it in your own language. The app also provides a variety of audio recitations from renowned reciters, making it a great resource for those who want to learn and understand the Quran. With its easy-to-use interface, Quran Radio is the perfect way to stay connected to the Quran and its teachings.
       </p>
       `,
     },
@@ -142,7 +142,7 @@ Pent House Chat is an easy-to-use, modern messaging solution for internal teams.
       img: Images.xliquidus,
       text: `
       <p className="project-text">
-      
+      XLiquidus is an innovative blockchain application based in the United States that provides a secure and efficient platform for digital asset trading. It enables users to easily and securely trade digital assets such as cryptocurrencies, tokens, and other digital assets. XLiquidus offers a wide range of features, including a user-friendly interface, advanced security protocols, and a powerful matching engine. With XLiquidus, users can quickly and easily access the digital asset market, allowing them to make informed decisions and maximize their profits. XLiquidus also provides users with access to a variety of liquidity sources, allowing them to quickly and easily find the best prices for their digital assets. XLiquidus is the perfect platform for those looking to get involved in the digital asset market.
       </p>
       `,
     },
