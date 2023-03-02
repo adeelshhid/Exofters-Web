@@ -78,11 +78,11 @@ const AboutSection = () => {
             technology.
           </p>
           <p className="our-phil-text2 text-center px-5">
-            Exofters understands the importance of remaining current
-            through frequent self-reinvention. We accomplish this by continually
+            Exofters understands the importance of remaining current through
+            frequent self-reinvention. We accomplish this by continually
             attracting the brightest minds in modern digital paradigms and
             platforms. By maintaining a roster of skilled technology
-            professionals across every business function, Systems Limited
+            professionals across every business function, Exofters Pvt Ltd.
             distinguishes itself by offering its client organizations a single
             touchpoint to address all of their enterprise technology needs.
           </p>
@@ -121,8 +121,14 @@ const AboutSection = () => {
               </div>
             </div>
             <p className="grey-text ceo-msg text-center py-sm-4">
-            Investing in our people is of critical importance as we move forward. Exofters believes in reinventing itself every few years, which is why we have grown over the past. We have created a culture that allows us to foster innovation in its broader sense and focus on idea generation.We have invested in solution development to solve complex business problems, which is one of our key strengths — to be an industry problem solver through dynamic business solutions.
-
+              Investing in our people is of critical importance as we move
+              forward. Exofters believes in reinventing itself every few years,
+              which is why we have grown over the past. We have created a
+              culture that allows us to foster innovation in its broader sense
+              and focus on idea generation.We have invested in solution
+              development to solve complex business problems, which is one of
+              our key strengths — to be an industry problem solver through
+              dynamic business solutions.
             </p>
           </div>
           <div className="col-lg-6 col-md-6">
@@ -134,7 +140,14 @@ const AboutSection = () => {
               </div>
             </div>
             <p className="grey-text ceo-msg text-center py-sm-4">
-            Our dedicated team of professionals has worked tirelessly to develop and launch innovative software solutions that have revolutionized the way businesses operate.Our success is a testament to the hard work and commitment of our employees who have consistently demonstrated their expertise and dedication. We are grateful to our loyal customers who have put their trust in our products and services, and we promise to continue delivering high-quality solutions that meet their evolving needs.
+              Our dedicated team of professionals has worked tirelessly to
+              develop and launch innovative software solutions that have
+              revolutionized the way businesses operate.Our success is a
+              testament to the hard work and commitment of our employees who
+              have consistently demonstrated their expertise and dedication. We
+              are grateful to our loyal customers who have put their trust in
+              our products and services, and we promise to continue delivering
+              high-quality solutions that meet their evolving needs.
             </p>
           </div>
         </div>

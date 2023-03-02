@@ -18,11 +18,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Services = () => {
-  let root = document.getElementById("root")
-  root.style.opacity = 0.3
-  setTimeout(() =>{
-    root.style.opacity = 1
-  },500)
+  let root = document.getElementById("root");
+  root.style.opacity = 0.3;
+  setTimeout(() => {
+    root.style.opacity = 1;
+  }, 500);
   let kudos = [
     {
       id: 1,
@@ -130,7 +130,7 @@ const Services = () => {
       id: 4,
       img: msLoge,
       name: "Microsoft ASP.net",
-      text: "Our team of .Net developers has nine years of experience of developing cutting-edge web applications. Microsoft .Net Development experts at Swenggco possess in-depth knowledge of their domain and stay updated with technological progression associated with ASP. Net. We are adept in using leading Microsoft technologies to develop applications that are tailored to meet the needs of your business across various industry segments.",
+      text: "Our team of .Net developers has nine years of experience of developing cutting-edge web applications. Microsoft .Net Development experts at Exofters Pvt Ltd. possess in-depth knowledge of their domain and stay updated with technological progression associated with ASP. Net. We are adept in using leading Microsoft technologies to develop applications that are tailored to meet the needs of your business across various industry segments.",
       services: [
         "ASP .NET 1.1, 2.0, 4.0",
         "Microsoft Silverlight 1, 2, 3, 4, 5",
