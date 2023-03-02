@@ -1,0 +1,148 @@
+.services-hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+    url("../../Images/contact-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* padding-top: 350px; */
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.services-main-text2 {
+  text-align: center;
+  color: white;
+  font-size: 35px;
+  text-shadow: 3px 4px 7px rgba(81, 67, 21, 0.8) !important;
+  font-family: "DM Sans", sans-serif;
+}
+
+.services-main-text1 {
+  font-size: 30px;
+  color: #ffffff;
+}
+
+.services-main-text3 {
+  color: #ffffff;
+}
+
+.hr-line {
+  height: 1px;
+  border-top: 1px solid #ebebeb;
+  display: block;
+  position: relative;
+  top: 1px;
+  width: 100%;
+}
+
+.form-control {
+  border-radius: 1px !important;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  color: #e0e4e8;
+}
+
+.form-control::placeholder {
+  opacity: 1;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #e0e4e8;
+}
+
+.form-control:focus::placeholder {
+  opacity: 0.5;
+  transition: 0.3s all ease-in-out;
+}
+
+.light-text {
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.btn-primary {
+  background-color: #f26224;
+  border: #f26224;
+}
+.btn-primary:hover {
+  background-color: #f26224;
+  border: #f26224;
+}
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #f26224 !important;
+  border: #f26224 !important;
+}
+
+.fs {
+  font-size: 15px;
+}
+
+.light-grey {
+  color: #6a6d7c;
+}
+
+.link-color {
+  color: #f26224;
+}
+
+@media screen and (max-width: 426px) {
+  .services-main-text1 {
+    font-size: 20px;
+    color: #ffffff;
+  }
+
+  .services-main-text2 {
+    text-align: center;
+    color: white;
+    font-size: 23px;
+    text-shadow: 3px 4px 7px rgb(81 67 21 / 80%) !important;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  .light-text {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 376px) {
+  .services-main-text1 {
+    font-size: 20px;
+    color: #ffffff;
+  }
+
+  .services-main-text2 {
+    text-align: center;
+    color: white;
+    font-size: 23px;
+    text-shadow: 3px 4px 7px rgb(81 67 21 / 80%) !important;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  .light-text {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .services-main-text1 {
+    font-size: 20px;
+    color: #ffffff;
+  }
+
+  .services-main-text2 {
+    text-align: center;
+    color: white;
+    font-size: 23px;
+    text-shadow: 3px 4px 7px rgb(81 67 21 / 80%) !important;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  .light-text {
+    text-align: center;
+  }
+}

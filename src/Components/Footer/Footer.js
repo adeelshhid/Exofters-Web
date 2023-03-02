@@ -87,7 +87,7 @@ const Footer = () => {
                           icon={item.icon}
                         />
                         <span className="info-text">
-                          <a className="footer-link" href="#/">
+                          <a className="footer-link" href="/">
                             {item.info}
                           </a>
                         </span>
