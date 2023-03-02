@@ -46,7 +46,7 @@ const Teams = () => {
       name: "Ali Shahid",
       designation: "App Developer",
       experties:
-        "Ali Shahid is an extremely talented software developer with a deep understanding of HTML, CSS, JavaScript, Ionic with Angular. He is highly motivated, creative, and dedicated to his craft, and consistently produces exceptional results. He is an invaluable asset to Exofters Pvt Ltd.",
+        "Ali Shahid is an extremely talented software developer with a deep understanding of * HTML * CSS *JavaScript * Ionic * Angular. He is highly motivated, creative, and dedicated to his craft, and consistently produces exceptional results. He is an invaluable asset to Exofters Pvt Ltd.",
     },
     {
       id: 4,
@@ -54,7 +54,7 @@ const Teams = () => {
       name: "Talha Tariq",
       designation: "App Developer",
       experties:
-        "Talha Tariq is an exceptionally talented and experienced software developer. He is highly skilled in HTML, CSS, JavaScript, Ionic, and Angular and has a keen eye for detail. He is passionate about creating innovative solutions to complex problems and is dedicated to delivering the highest quality of work.",
+        "Talha Tariq is an exceptionally talented and experienced software developer. He is highly skilled in * HTML * CSS * JavaScript * Ionic * Angular and has a keen eye for detail. He is passionate about creating innovative solutions to complex problems and is dedicated to delivering the highest quality of work.",
     },
     {
       id: 5,
@@ -62,7 +62,7 @@ const Teams = () => {
       name: "Amir Shahzad",
       designation: "Web Developer",
       experties:
-        "Amir Shahzad is an accomplished software developer with impressive technical prowess in HTML, CSS, JavaScript, React, and Bootstrap. He has a keen eye for detail and is dedicated to producing high-quality work. His passion for coding is evident in his strong commitment to continual learning and development.",
+        "Amir Shahzad is an accomplished software developer with impressive technical prowess in * HTML * CSS * JavaScript * React * Bootstrap. He has a keen eye for detail and is dedicated to producing high-quality work. His passion for coding is evident in his strong commitment to continual learning and development.",
     },
   ];
 
@@ -77,7 +77,9 @@ const Teams = () => {
           Have fun solving complex problems in a healthy & productive
           environment.
         </p>
-        <Button className="teams-start-btn">Join Our Team!</Button>
+        <Button href="/contact" className="teams-start-btn">
+          Join Our Team!
+        </Button>
       </div>
 
       {/* Team People Section */}

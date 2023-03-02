@@ -160,7 +160,9 @@ const Services = () => {
           We beleive there is room for more entrants and we will level the
           playing field for you.
         </p>
-        <Button className="services-start-btn">Build my app now!</Button>
+        <Button href="/contact" className="services-start-btn">
+          Build my app now!
+        </Button>
       </div>
 
       {/* Service Header Section */}

@@ -152,7 +152,9 @@ Pent House Chat is an easy-to-use, modern messaging solution for internal teams.
       {/* Main Section */}
       <div className="port-hero-section">
         <p className="port-main-text2">Our customers are all over the world</p>
-        <Button className="port-start-btn">Bring Your Project Here!</Button>
+        <Button href="/contact" className="port-start-btn">
+          Bring Your Project Here!
+        </Button>
       </div>
 
       {/* Portfolio Section */}

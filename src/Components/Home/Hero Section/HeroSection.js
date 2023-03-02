@@ -3,7 +3,6 @@ import { Button } from "react-bootstrap";
 import "./HeroSection.css";
 
 const HeroSection = () => {
-  
   return (
     <div className="hero-section">
       <p className="main-text1">You've found the</p>
@@ -17,7 +16,9 @@ const HeroSection = () => {
         Now you can rely on a partner to help you get the products to market
         quickley and at a budget which maximizes the profit.
       </p>
-      <Button className="start-btn">Start a project scope now!</Button>
+      <Button href="/contact" className="start-btn">
+        Start a project scope now!
+      </Button>
     </div>
   );
 };
