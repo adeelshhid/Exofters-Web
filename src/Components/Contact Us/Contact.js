@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FormControl } from "react-bootstrap";
 import "./Contact.css";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
 export const Contact = () => {
   let root = document.getElementById("root");
@@ -29,12 +29,21 @@ export const Contact = () => {
     }
   };
   const sendEmail = () => {
-    emailjs.send('service_y6cs34m', 'template_7dat5g2', {email:form.email,name:form.name,message:form.message}, '_6Td844_fKAwDRtj4')
-      .then((result) => {
+    emailjs
+      .send(
+        "service_y6cs34m",
+        "template_7dat5g2",
+        { email: form.email, name: form.name, message: form.message },
+        "_6Td844_fKAwDRtj4"
+      )
+      .then(
+        (result) => {
           console.log(result.text);
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-      });
+        }
+      );
   };
 
   const validateForm = () => {
@@ -56,7 +65,7 @@ export const Contact = () => {
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
     } else {
-      sendEmail()
+      sendEmail();
       console.log("form submitted");
       console.log(form);
     }
@@ -113,12 +122,12 @@ export const Contact = () => {
                 <span className="fs">Email</span>
                 <br />
                 <a
-                  href="info@swenggcosoftware.com"
+                  href="mailto:info@exofters.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="fs link-color"
                 >
-                  info@swenggcosoftware.com
+                  info@exofters.com
                 </a>
               </p>
             </div>
