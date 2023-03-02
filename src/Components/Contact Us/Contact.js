@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FormControl } from "react-bootstrap";
 import "./Contact.css";
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
   let root = document.getElementById("root");
@@ -10,7 +11,6 @@ export const Contact = () => {
   }, 500);
   const [form, setForm] = useState({
     name: "",
-    companyName: "",
     email: "",
     message: "",
   });
@@ -28,14 +28,20 @@ export const Contact = () => {
       });
     }
   };
+  const sendEmail = () => {
+    emailjs.send('service_y6cs34m', 'template_7dat5g2', {email:form.email,name:form.name,message:form.message}, '_6Td844_fKAwDRtj4')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 
   const validateForm = () => {
-    const { name, companyName, email, message } = form;
+    const { name, email, message } = form;
     const newErrors = {};
 
     if (!name || name === "") newErrors.name = "Please enter your name";
-    if (!companyName || companyName === "")
-      newErrors.companyName = "Please enter your Company Name";
     if (!email || email === "") newErrors.email = "Please enter your email";
     if (!message || message === "")
       newErrors.message = "Please enter your message";
@@ -50,6 +56,7 @@ export const Contact = () => {
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
     } else {
+      sendEmail()
       console.log("form submitted");
       console.log(form);
     }
@@ -145,21 +152,6 @@ export const Contact = () => {
               ></FormControl>
               <FormControl.Feedback type="invalid">
                 {errors.name}
-              </FormControl.Feedback>
-            </div>
-            <div className="form-group">
-              <FormControl
-                type="text"
-                className="form-control mt-3"
-                placeholder="Company Name"
-                value={form.companyName}
-                onChange={(e) => {
-                  setField("companyName", e.target.value);
-                }}
-                isInvalid={!!errors.companyName}
-              ></FormControl>
-              <FormControl.Feedback type="invalid">
-                {errors.companyName}
               </FormControl.Feedback>
             </div>
             <div className="form-group">
