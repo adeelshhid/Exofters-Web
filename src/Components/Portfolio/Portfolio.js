@@ -160,7 +160,7 @@ Pent House Chat is an easy-to-use, modern messaging solution for internal teams.
 
       <div className="projects-container">
         <div>
-          <h2 className="port-heading">Portfolios</h2>
+          <h2 className="port-heading">Portfolio</h2>
         </div>
         <div className="row pt-4 projects-row">
           {portfolio.map((item) => {
