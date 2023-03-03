@@ -104,10 +104,14 @@ const Footer = () => {
             &#169; Copyright Exofters Pvt Ltd, Pakistan
           </p>
           <div>
-            <a className="footer-link2" href="/">
+            <a className="footer-link2" href="/" onClick={() =>{
+              localStorage.setItem('selectedIndex','0')
+            }}>
               Home
             </a>
-            <a className="footer-link2" href="/contact">
+            <a className="footer-link2" href="/contact" onClick={() =>{
+              localStorage.setItem('selectedIndex','4')
+            }}>
               Contact Us
             </a>
             <a className="footer-link2" href="/">

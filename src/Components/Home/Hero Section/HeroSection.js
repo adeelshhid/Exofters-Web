@@ -16,7 +16,9 @@ const HeroSection = () => {
         Now you can rely on a partner to help you get the products to market
         quickley and at a budget which maximizes the profit.
       </p>
-      <Button href="/contact" className="start-btn">
+      <Button href="/contact" className="start-btn" onClick={() =>{
+              localStorage.setItem('selectedIndex','4')
+            }}>
         Start a project scope now!
       </Button>
     </div>
