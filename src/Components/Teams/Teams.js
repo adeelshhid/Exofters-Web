@@ -208,7 +208,7 @@ const Teams = () => {
                 <div className="col-lg-6 col-md-6 pt-5 d-flex justify-content-center ">
                   <img src={item.img} alt="" className="team-img" />
                 </div>
-                <div className="col-lg-6 col-md-6 px-md-5 member-info d-flex flex-column justify-content-center align-items-md-center">
+                <div className="col-lg-6 col-md-6 px-md-5 mt-5 member-info d-flex flex-column justify-content-center align-items-md-center">
                   <h3> {item.name} </h3>
                   <h6 className="fst-italic"> {item.designation} </h6>
                   <p className="experties-text"> {item.experties} </p>

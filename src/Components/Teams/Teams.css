@@ -121,6 +121,17 @@ body {
     display: none !important;
   }
 }
+
+@media screen and (max-width: 429px) {
+  .teams-row {
+    display: none !important;
+  }
+
+  .teams-row2 {
+    display: block !important;
+  }
+}
+
 @media screen and (max-width: 426px) {
   .teams-main-text2 {
     text-align: center;
