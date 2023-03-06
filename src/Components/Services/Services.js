@@ -18,11 +18,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Services = () => {
-  let root = document.getElementById("root");
-  root.style.opacity = 0.3;
-  setTimeout(() => {
-    root.style.opacity = 1;
-  }, 500);
+
   let kudos = [
     {
       id: 1,

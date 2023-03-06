@@ -30,7 +30,7 @@ function NavBar() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  let [selectedIndex, setIndex] = useState(0);
+  // let [Number(localStorage.getItem('selectedIndex')), // setIndex] = useState(0);
 
   return (
     <>
@@ -154,9 +154,10 @@ function NavBar() {
           <div className="canvas-links">
             <Link
               to="/"
-              className={selectedIndex === 0 ? "selected-btn" : "canvas-btn"}
+              className={Number(localStorage.getItem('selectedIndex')) === 0 ? "selected-btn" : "canvas-btn"}
               onClick={() => {
-                setIndex(0);
+                // setIndex(0);
+                localStorage.setItem('selectedIndex','0')
                 handleClose();
               }}
             >
@@ -168,9 +169,11 @@ function NavBar() {
             </Link>
             <Link
               to="/portfolio"
-              className={selectedIndex === 1 ? "selected-btn" : "canvas-btn"}
+              className={Number(localStorage.getItem('selectedIndex')) === 1 ? "selected-btn" : "canvas-btn"}
               onClick={() => {
-                setIndex(1);
+                // setIndex(1);
+                localStorage.setItem('selectedIndex','1')
+
                 handleClose();
               }}
             >
@@ -182,9 +185,11 @@ function NavBar() {
             </Link>
             <Link
               to="/services"
-              className={selectedIndex === 2 ? "selected-btn" : "canvas-btn"}
+              className={Number(localStorage.getItem('selectedIndex')) === 2 ? "selected-btn" : "canvas-btn"}
               onClick={() => {
-                setIndex(2);
+                // setIndex(2);
+                localStorage.setItem('selectedIndex','2')
+
                 handleClose();
               }}
             >
@@ -196,9 +201,10 @@ function NavBar() {
             </Link>
             <Link
               to="/teams"
-              className={selectedIndex === 3 ? "selected-btn" : "canvas-btn"}
+              className={Number(localStorage.getItem('selectedIndex')) === 3 ? "selected-btn" : "canvas-btn"}
               onClick={() => {
-                setIndex(3);
+                localStorage.setItem('selectedIndex','3')
+                // setIndex(3);
                 handleClose();
               }}
             >
@@ -210,9 +216,10 @@ function NavBar() {
             </Link>
             <Link
               to="/contact"
-              className={selectedIndex === 4 ? "selected-btn" : "canvas-btn"}
+              className={Number(localStorage.getItem('selectedIndex')) === 4 ? "selected-btn" : "canvas-btn"}
               onClick={() => {
-                setIndex(4);
+                localStorage.setItem('selectedIndex','4')
+                // setIndex(4);
                 handleClose();
               }}
             >
