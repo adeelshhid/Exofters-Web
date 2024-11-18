@@ -118,12 +118,12 @@ export const Contact = () => {
                 <span className="fs">Email</span>
                 <br />
                 <a
-                  href="mailto:info@exofters.com"
+                  href="mailto:info@exofters.site"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="fs link-color"
                 >
-                  info@exofters.com
+                  info@exofters.site
                 </a>
               </p>
             </div>
@@ -132,12 +132,12 @@ export const Contact = () => {
                 <span className="fs">Web</span>
                 <br />
                 <a
-                  href="https://www.exofters.com"
+                  href="https://www.exofters.site"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="fs link-color"
                 >
-                  www.exofters.com
+                  www.exofters.site
                 </a>
               </p>
             </div>

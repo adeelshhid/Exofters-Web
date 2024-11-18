@@ -2,7 +2,7 @@
   "name": "exofters-web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://exofters.com",
+  "homepage": "https://exofters.site",
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "@fortawesome/free-brands-svg-icons": "^6.3.0",

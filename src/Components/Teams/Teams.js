@@ -23,24 +23,24 @@ const Teams = () => {
       id: 1,
       img: ceoImg,
       name: "Adeel Shahid",
-      designation: "CEO, Co-Founder, Team Lead",
-      experties: `I’m well educated an expert full stack mobile developer developer having +6 year of experience and  i can handle backend and frontend both.
-        I’ve done several rich features in responsive apps using ionic with angular, react, cordova and capacitor. I also have excellent organisational and time management skills. I’m Self-driven, flexible, and innovative.
-        Strong command over:  * HTML5 * CSS3 * API’s developemnt * TypeScript * JavaScript * Vue * Angular * ReactNative * ReactJS * Flutter * Ionic * Laravel * CodeIgnitor * IOS/Android * NodeJS * Firebase * MongoDB * Cordova * Capacitor * ElectronJS * jQuery * Php * AWS deployment * Swagger * Postman * Azure * DigitalOcean deployment * E-commerce. * Woo-commerce. * Chatting Apps. * Location based Apps. * FinTech * Blockchain Apps. * Management Apps. * API integration. * Push notifications using FCM or One Signal. * InApp Payments. * OAuth (Social Logins i.e Facebook, google or Apple)`,
+      designation: "Founder, CEO, Team Lead",
+      experties: `Adeel Shahid, a seasoned full-stack mobile and web developer with over six years of experience, excels in building feature-rich, responsive applications. Proficient in technologies like Ionic, Angular, React, Flutter, Laravel, Node.js, and more, he integrates APIs, handles cloud deployments, and crafts robust solutions for FinTech, E-commerce, and Blockchain.
+
+Adeel’s strong organizational and time-management skills, coupled with his technical expertise spanning HTML5, CSS3, JavaScript, TypeScript, Firebase, MongoDB, AWS, and Azure, enable him to deliver high-quality, scalable solutions.`,
     },
-    {
-      id: 2,
-      img: jackass,
-      name: "Zeeshan Aziz",
-      designation: "CEO, Co-Founder, Bussines Manager",
-      experties:
-        "Zeeshan Aziz is a dedicated and highly motivated software business manager who exhibits excellent leadership and problem-solving skills. He is an inspiring leader with a knack for developing innovative strategies to help businesses achieve success. His passion for technology and commitment to customer service make him an invaluable asset to Exofters Pvt Ltd.",
-    },
+    // {
+    //   id: 2,
+    //   img: jackass,
+    //   name: "Zeeshan Aziz",
+    //   designation: "CEO, Co-Founder, Bussines Manager",
+    //   experties:
+    //     "Zeeshan Aziz is a dedicated and highly motivated software business manager who exhibits excellent leadership and problem-solving skills. He is an inspiring leader with a knack for developing innovative strategies to help businesses achieve success. His passion for technology and commitment to customer service make him an invaluable asset to Exofters Pvt Ltd.",
+    // },
     {
       id: 3,
       img: fucker,
       name: "Ali Shahid",
-      designation: "App Developer",
+      designation: "Hybrid Mobile App Developer",
       experties:
         "Ali Shahid is an extremely talented software developer with a deep understanding of * HTML * CSS *JavaScript * Ionic * Angular. He is highly motivated, creative, and dedicated to his craft, and consistently produces exceptional results. He is an invaluable asset to Exofters Pvt Ltd.",
     },

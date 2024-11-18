@@ -38,12 +38,12 @@ const Footer = () => {
     {
       id: 1,
       icon: faEnvelope,
-      info: "info@exofters.com",
+      info: "info@exofters.site",
     },
     {
       id: 2,
       icon: faGlobe,
-      info: "www.exofters.com",
+      info: "www.exofters.site",
     },
   ];
 
@@ -54,7 +54,7 @@ const Footer = () => {
           <div className="col-lg-6">
             <p className="aboutexofters-heading">About Exofters</p>
             <p className="aboutexofters-text">
-              We are Exofters. We are a well experienced and certified Company. We've done rich featured / responsive Mobile Apps, Webapps and Websites. We are a self-driven, flexible, and innovative company. We work in all domains including Websites, Mobile apps, Machine Learning, iOT and Artificial Intelligence.
+            As Exofters, we are a highly experienced and certified company specializing in developing richly featured and responsive mobile applications, web applications, and websites. We are a self-driven, flexible, and innovative organization that operates across various domains, including websites, mobile applications, machine learning, IoT, and artificial intelligence.
             </p>
           </div>
           <div className="col-lg-6">

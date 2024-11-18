@@ -8,7 +8,6 @@ import {
 import "../About Section/AboutSection.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ceo1 from "../../../Images/ceo1.jpg";
-import ceo2 from "../../../Images/ceo2.jpeg";
 
 const AboutSection = () => {
   return (
@@ -88,70 +87,59 @@ const AboutSection = () => {
           </p>
         </div>
 
-        {/* Ceo Image Section */}
-        <div className="container mt-5 ceo-img-section">
+        {/* CEO Section */}
+        {/* <div className="container mt-5 ceo-img-section">
           <div className="row">
-            <div className="col-lg-6 col-md-6 d-flex align-items-center">
-              <img src={ceo1} className="ceo1" alt="" />
+            <div className="col-lg-12 d-flex align-items-center">
+              <img src={ceo1} className="ceo1" alt="Adeel Shahid" />
               <div className="ps-3">
-                <h2 className="ceo-name">Adeel Shahid, Co-Founder</h2>
-                <h5 className="fst-italic white-text msg-text">Message</h5>
-              </div>
-            </div>
-            <div className="col-lg-6 col-md-6 d-flex align-items-center">
-              <img src={ceo2} className="ceo2" alt="" />
-              <div className="ps-3">
-                <h2 className="ceo-name">Zeeshan Aziz, Co-Founder</h2>
+                <h2 className="ceo-name">Adeel Shahid, Founder & CEO</h2>
                 <h5 className="fst-italic white-text msg-text">Message</h5>
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
-      {/* Ceo Image Section */}
-      <div className="container ceo-info-section mt-sm-5">
+      {/* CEO Info Section */}
+      {/* <div className="container ceo-info-section mt-sm-5">
         <div className="row">
-          <div className="col-lg-6 col-md-6">
-            <div className="d-flex d-lg-none d-md-none align-items-center ceo-img-section2">
-              <img src={ceo1} className="ceo1" alt="" />
-              <div className="ps-3">
-                <h2 className="ceo-name">Adeel Shahid, Co-Founder</h2>
-                <h5 className="fst-italic white-text msg-text">Message</h5>
-              </div>
-            </div>
+          <div className="col-lg-12">
             <p className="grey-text ceo-msg text-center py-sm-4">
               Investing in our people is of critical importance as we move
               forward. Exofters believes in reinventing itself every few years,
               which is why we have grown over the past. We have created a
               culture that allows us to foster innovation in its broader sense
-              and focus on idea generation.We have invested in solution
+              and focus on idea generation. We have invested in solution
               development to solve complex business problems, which is one of
               our key strengths — to be an industry problem solver through
               dynamic business solutions.
             </p>
           </div>
-          <div className="col-lg-6 col-md-6">
-            <div className="d-flex d-lg-none d-md-none align-items-center ceo-img-section2">
-              <img src={ceo2} className="ceo2" alt="" />
-              <div className="ps-3">
-                <h2 className="ceo-name">Zeeshan Aziz, Co-Founder</h2>
-                <h5 className="fst-italic white-text msg-text">Message</h5>
-              </div>
-            </div>
-            <p className="grey-text ceo-msg text-center py-sm-4">
-              Our dedicated team of professionals has worked tirelessly to
-              develop and launch innovative software solutions that have
-              revolutionized the way businesses operate.Our success is a
-              testament to the hard work and commitment of our employees who
-              have consistently demonstrated their expertise and dedication. We
-              are grateful to our loyal customers who have put their trust in
-              our products and services, and we promise to continue delivering
-              high-quality solutions that meet their evolving needs.
+        </div>
+      </div> */}
+
+      {/* Combined CEO Section */}
+      <div className="container mt-5 ceo-section">
+        <div className="row align-items-center">
+          <div className="col-lg-12 f-col f-center">
+            <img src={ceo1} className="ceo3" alt="Adeel Shahid" />
+
+            <h2 className="ceo-name">Adeel Shahid, Founder & CEO</h2>
+            <h5 className="fst-italic msg-text">Message</h5>
+            <p className="grey-text ceo-msg py-sm-4">
+              Investing in our people is of critical importance as we move forward.
+              Exofters believes in reinventing itself every few years, which is why we
+              have grown over the past. We have created a culture that allows us to
+              foster innovation in its broader sense and focus on idea generation. We
+              have invested in solution development to solve complex business
+              problems, which is one of our key strengths — to be an industry problem
+              solver through dynamic business solutions.
             </p>
           </div>
         </div>
       </div>
+
     </div>
   );
 };
