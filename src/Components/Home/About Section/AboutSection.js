@@ -81,7 +81,7 @@ const AboutSection = () => {
             frequent self-reinvention. We accomplish this by continually
             attracting the brightest minds in modern digital paradigms and
             platforms. By maintaining a roster of skilled technology
-            professionals across every business function, Exofters Pvt Ltd.
+            professionals across every business function, Exofters
             distinguishes itself by offering its client organizations a single
             touchpoint to address all of their enterprise technology needs.
           </p>

@@ -56,14 +56,14 @@ function Footer() {
           <h3>Contact</h3>
           <ul className="footer-links">
             <li><a href="tel:+923007171787">+92 (300) 7171787</a></li>
-            <li><a href="mailto:info@exofters.site">info@exofters.site</a></li>
+            <li><a href="mailto:info@exofters.com">info@exofters.com</a></li>
             <li><Link to="/contact">Get In Touch</Link></li>
           </ul>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {currentYear} Exofters Ltd. All rights reserved.</p>
+        <p>&copy; {currentYear} Exofters (Pvt) Ltd. All rights reserved.</p>
       </div>
     </footer>
   );

@@ -56,8 +56,8 @@ export const Contact = () => {
   const contactInfo = [
     { icon: faMapMarkerAlt, title: "Address", content: "257A G5, Phase 1, Wapda Town, Lahore" },
     { icon: faPhone, title: "Phone", content: "+92 (300) 7171787", link: "tel:+923007171787" },
-    { icon: faEnvelope, title: "Email", content: "info@exofters.site", link: "mailto:info@exofters.site" },
-    { icon: faGlobe, title: "Website", content: "www.exofters.site", link: "https://www.exofters.site" }
+    { icon: faEnvelope, title: "Email", content: "info@exofters.com", link: "mailto:info@exofters.com" },
+    { icon: faGlobe, title: "Website", content: "www.exofters.com", link: "https://www.exofters.com" }
   ];
 
   return (
