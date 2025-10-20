@@ -70,6 +70,30 @@ const Home = () => {
     { name: "X-Liquidus", img: Images.xliquidus, desc: "Blockchain trading platform" }
   ];
 
+  const phrases = ['Digital Future', 'Success Story', 'Dream Project', 'Next Innovation'];
+  const [typedText, setTypedText] = React.useState('');
+  const [phraseIndex, setPhraseIndex] = React.useState(0);
+  const [isDeleting, setIsDeleting] = React.useState(false);
+
+  React.useEffect(() => {
+    const currentPhrase = phrases[phraseIndex];
+    const typingSpeed = isDeleting ? 50 : 100;
+    const pauseTime = isDeleting ? 500 : 2000;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting && typedText === currentPhrase) {
+        setTimeout(() => setIsDeleting(true), pauseTime);
+      } else if (isDeleting && typedText === '') {
+        setIsDeleting(false);
+        setPhraseIndex((prev) => (prev + 1) % phrases.length);
+      } else {
+        setTypedText(currentPhrase.slice(0, typedText.length + (isDeleting ? -1 : 1)));
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [typedText, isDeleting, phraseIndex]);
+
   return (
     <div className="page-transition">
       <section className="hero" ref={heroRef} style={{'--mouse-x': '50%', '--mouse-y': '50%'}}>
@@ -81,7 +105,13 @@ const Home = () => {
         </div>
         <div className="hero-content">
           <div className="hero-text">
-            <h1>Build Your <span className="highlight">Digital Future</span> With Us</h1>
+            <h1>
+              <span className="static-text">Build Your </span>
+              <span className="highlight typing-text">
+                &nbsp;{typedText}
+              </span>
+              <span className="static-text"> With Us</span>
+            </h1>
             <p>We craft exceptional digital experiences that transform businesses and delight users worldwide.</p>
             <div className="hero-buttons">
               <Link to="/contact" className="btn-primary">Get Started</Link>
