@@ -64,7 +64,6 @@ function NavBar() {
         ))}
         <Link to="/contact" className="cta-button">Get Started</Link>
       </div>
-      <div className={`mobile-overlay ${mobileOpen ? "open" : ""}`} onClick={() => setMobileOpen(false)} />
     </>
   );
 }

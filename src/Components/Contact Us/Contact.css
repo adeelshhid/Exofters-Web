@@ -1,11 +1,11 @@
 .contact-page {
-  padding-top: 100px;
+  /* padding-top: 100px; */
   min-height: 100vh;
   background: var(--bg-light);
 }
 
 .contact-hero {
-  padding: 80px 40px;
+  padding: 110px 40px;
   background: linear-gradient(135deg, var(--bg-dark) 0%, var(--dark) 100%);
   text-align: center;
   color: var(--white);
