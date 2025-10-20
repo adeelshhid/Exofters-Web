@@ -1,25 +1,55 @@
+
 {
-  "short_name": "Exofters (Pvt) Ltd",
   "name": "Exofters (Pvt) Ltd",
+  "short_name": "Exofters",
+  "description": "Software Development and IT Services Company",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "categories": ["business", "productivity"],
   "icons": [
     {
       "src": "exofters.jpg",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/png",
+      "sizes": "48x50",
+      "purpose": "any"
     },
     {
       "src": "exofters.jpg",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "72x74",
+      "purpose": "any"
     },
     {
       "src": "exofters.jpg",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "96x98",
+      "purpose": "any"
+    },
+    {
+      "src": "exofters.jpg",
+      "type": "image/png",
+      "sizes": "128x130",
+      "purpose": "any"
+    },
+    {
+      "src": "exofters.jpg",
+      "type": "image/png",
+      "sizes": "192x194",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "exofters.jpg",
+      "type": "image/png",
+      "sizes": "256x258",
+      "purpose": "any"
+    },
+    {
+      "src": "exofters.jpg",
+      "type": "image/png",
+      "sizes": "512x514",
+      "purpose": "any maskable"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }
