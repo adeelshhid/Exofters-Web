@@ -1,0 +1,13 @@
+#root{
+    transition: 0.5s all;
+}
+
+.f-center{
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.f-col{
+    display: flex !important;
+    flex-direction: column !important;
+}
