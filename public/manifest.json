@@ -10,43 +10,43 @@
   "categories": ["business", "productivity"],
   "icons": [
     {
-      "src": "exofters.jpg",
+      "src": "exofters.png",
       "type": "image/png",
       "sizes": "48x50",
       "purpose": "any"
     },
     {
-      "src": "exofters.jpg",
+      "src": "exofters.png",
       "type": "image/png",
       "sizes": "72x74",
       "purpose": "any"
     },
     {
-      "src": "exofters.jpg",
+      "src": "exofters.png",
       "type": "image/png",
       "sizes": "96x98",
       "purpose": "any"
     },
     {
-      "src": "exofters.jpg",
+      "src": "exofters.png",
       "type": "image/png",
       "sizes": "128x130",
       "purpose": "any"
     },
     {
-      "src": "exofters.jpg",
+      "src": "exofters.png",
       "type": "image/png",
       "sizes": "192x194",
       "purpose": "any maskable"
     },
     {
-      "src": "exofters.jpg",
+      "src": "exofters.png",
       "type": "image/png",
       "sizes": "256x258",
       "purpose": "any"
     },
     {
-      "src": "exofters.jpg",
+      "src": "exofters.png",
       "type": "image/png",
       "sizes": "512x514",
       "purpose": "any maskable"
