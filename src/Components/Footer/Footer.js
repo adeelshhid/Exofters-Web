@@ -63,7 +63,7 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {currentYear} Exofters (Pvt) Ltd. All rights reserved.</p>
+        <p>&copy; {currentYear} EXOFTERS (PRIVATE) LIMITED. All rights reserved.</p>
       </div>
     </footer>
   );

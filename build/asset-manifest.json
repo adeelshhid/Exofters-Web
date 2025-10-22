@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "https://adeelshhid.github.io/Exofters-Web/static/css/main.b81544b3.css",
-    "main.js": "https://adeelshhid.github.io/Exofters-Web/static/js/main.d38f3383.js",
+    "main.js": "https://adeelshhid.github.io/Exofters-Web/static/js/main.fa7712ce.js",
     "static/js/787.c10cda3b.chunk.js": "https://adeelshhid.github.io/Exofters-Web/static/js/787.c10cda3b.chunk.js",
     "static/media/quraanradio.jpg": "https://adeelshhid.github.io/Exofters-Web/static/media/quraanradio.1bba890b3882a15a2f0b.jpg",
     "static/media/xliquidus.jpg": "https://adeelshhid.github.io/Exofters-Web/static/media/xliquidus.9267500ad2f53455c703.jpg",
@@ -25,11 +25,11 @@
     "static/media/php.png": "https://adeelshhid.github.io/Exofters-Web/static/media/php.d0825e960f2d02d50e43.png",
     "index.html": "https://adeelshhid.github.io/Exofters-Web/index.html",
     "main.b81544b3.css.map": "https://adeelshhid.github.io/Exofters-Web/static/css/main.b81544b3.css.map",
-    "main.d38f3383.js.map": "https://adeelshhid.github.io/Exofters-Web/static/js/main.d38f3383.js.map",
+    "main.fa7712ce.js.map": "https://adeelshhid.github.io/Exofters-Web/static/js/main.fa7712ce.js.map",
     "787.c10cda3b.chunk.js.map": "https://adeelshhid.github.io/Exofters-Web/static/js/787.c10cda3b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b81544b3.css",
-    "static/js/main.d38f3383.js"
+    "static/js/main.fa7712ce.js"
   ]
 }
