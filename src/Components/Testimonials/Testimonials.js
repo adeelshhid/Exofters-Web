@@ -1,12 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft, faStar } from "@fortawesome/free-solid-svg-icons";
 import "./Testimonials.css";
 
 const Testimonials = () => {
   const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState('next');
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const containerRef = useRef(null);
+  const isDragging = useRef(false);
 
   const testimonials = [
     { name: "Tomy Muszka", role: "Mobile App Client", content: "Everything was perfect", rating: 5, country: "Argentina", flag: "🇦🇷" },
@@ -39,17 +42,63 @@ const Testimonials = () => {
   ];
 
   const handleTouchStart = (e) => {
-    touchStartX.current = e.changedTouches[0].screenX;
+    touchStartX.current = e.touches[0].clientX;
   };
 
   const handleTouchEnd = (e) => {
-    touchEndX.current = e.changedTouches[0].screenX;
-    if (touchStartX.current - touchEndX.current > 75) {
-      setActive((prev) => (prev + 1) % testimonials.length);
+    touchEndX.current = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX.current;
+    
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        setDirection('next');
+        setActive((prev) => (prev + 1) % testimonials.length);
+      } else {
+        setDirection('prev');
+        setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+      }
     }
-    if (touchEndX.current - touchStartX.current > 75) {
-      setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const handleMouseDown = (e) => {
+    isDragging.current = true;
+    touchStartX.current = e.clientX;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+  };
+
+  const handleMouseUp = (e) => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    touchEndX.current = e.clientX;
+    const diff = touchStartX.current - touchEndX.current;
+    
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        setDirection('next');
+        setActive((prev) => (prev + 1) % testimonials.length);
+      } else {
+        setDirection('prev');
+        setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+      }
     }
+  };
+
+  const handleMouseLeave = () => {
+    isDragging.current = false;
+  };
+
+  const goToNext = () => {
+    setDirection('next');
+    setActive((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const goToPrev = () => {
+    setDirection('prev');
+    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   return (
@@ -61,14 +110,31 @@ const Testimonials = () => {
       </div>
       <div className="testimonials-wrapper">
         <div 
+          ref={containerRef}
           className="testimonials-container"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
         >
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial, index) => {
+            let className = 'testimonial-card';
+            if (index === active) {
+              className += ' active';
+            } else if (index === (active - 1 + testimonials.length) % testimonials.length) {
+              className += ' prev';
+            } else if (index === (active + 1) % testimonials.length) {
+              className += ' next';
+            } else {
+              className += ' hidden';
+            }
+            
+            return (
             <div 
               key={index}
-              className={`testimonial-card ${index === active ? 'active' : index < active ? 'prev' : 'next'}`}
+              className={className}
             >
               <div className="quote-wrapper">
                 <FontAwesomeIcon icon={faQuoteLeft} className="quote-icon" />
@@ -87,12 +153,13 @@ const Testimonials = () => {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
         <div className="testimonial-navigation">
           <button 
             className="nav-btn prev-btn" 
-            onClick={() => setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+            onClick={goToPrev}
           >
             ←
           </button>
@@ -101,13 +168,16 @@ const Testimonials = () => {
               <button
                 key={index}
                 className={`dot ${index === active ? "active" : ""}`}
-                onClick={() => setActive(index)}
+                onClick={() => {
+                  setDirection(index > active ? 'next' : 'prev');
+                  setActive(index);
+                }}
               />
             ))}
           </div>
           <button 
             className="nav-btn next-btn" 
-            onClick={() => setActive((prev) => (prev + 1) % testimonials.length)}
+            onClick={goToNext}
           >
             →
           </button>
