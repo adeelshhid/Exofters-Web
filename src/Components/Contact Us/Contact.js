@@ -28,7 +28,7 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formErrors = validateForm();
-    
+
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
       return;
@@ -67,67 +67,75 @@ export const Contact = () => {
         <p>We'd love to hear from you. Let's start a conversation about your project</p>
       </div>
 
-      <div className="contact-content">
-        <div className="contact-info">
-          {contactInfo.map((info, index) => (
-            <div key={index} className="info-card">
-              <div className="info-icon">
-                <FontAwesomeIcon icon={info.icon} />
-              </div>
-              <h3>{info.title}</h3>
-              {info.link ? (
-                <p><a href={info.link}>{info.content}</a></p>
-              ) : (
-                <p>{info.content}</p>
-              )}
-            </div>
-          ))}
-        </div>
 
-        <div className="contact-form-container">
-          <h2>Send Us a Message</h2>
-          {status.message && (
-            <div className={status.type === "success" ? "success-message" : "error-message"}>
-              {status.message}
+
+      <div className="contact-content">
+        <div className="contact-left">
+          <div className="contact-info-section">
+            <h2>Let's Talk</h2>
+            <p>Have a project in mind? We'd love to hear about it. Get in touch and let's build something amazing together.</p>
+            <div className="contact-info">
+              {contactInfo.map((info, index) => (
+                <div key={index} className="info-item">
+                  <div className="info-icon">
+                    <FontAwesomeIcon icon={info.icon} />
+                  </div>
+                  <div className="info-text">
+                    <h4>{info.title}</h4>
+                    {info.link ? (
+                      <a href={info.link}>{info.content}</a>
+                    ) : (
+                      <p>{info.content}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
-          )}
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>Name</label>
-              <input
-                type="text"
-                className="form-control"
-                value={form.name}
-                onChange={(e) => setField("name", e.target.value)}
-                placeholder="Your name"
-              />
-              {errors.name && <small style={{ color: "#991b1b" }}>{errors.name}</small>}
-            </div>
-            <div className="form-group">
-              <label>Email</label>
-              <input
-                type="email"
-                className="form-control"
-                value={form.email}
-                onChange={(e) => setField("email", e.target.value)}
-                placeholder="your@email.com"
-              />
-              {errors.email && <small style={{ color: "#991b1b" }}>{errors.email}</small>}
-            </div>
-            <div className="form-group">
-              <label>Message</label>
-              <textarea
-                className="form-control"
-                value={form.message}
-                onChange={(e) => setField("message", e.target.value)}
-                placeholder="Tell us about your project..."
-              />
-              {errors.message && <small style={{ color: "#991b1b" }}>{errors.message}</small>}
-            </div>
-            <button type="submit" className="submit-btn" disabled={loading}>
-              {loading ? "Sending..." : "Send Message"}
-            </button>
-          </form>
+          </div>
+        </div>
+        <div className="contact-right">
+          <div className="contact-form-container">
+            <h3>Send Message</h3>
+            {status.message && (
+              <div className={status.type === "success" ? "success-message" : "error-message"}>
+                {status.message}
+              </div>
+            )}
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  value={form.name}
+                  onChange={(e) => setField("name", e.target.value)}
+                  placeholder="Your Name"
+                />
+                {errors.name && <small className="error-text">{errors.name}</small>}
+              </div>
+              <div className="form-group">
+                <input
+                  type="email"
+                  className="form-control"
+                  value={form.email}
+                  onChange={(e) => setField("email", e.target.value)}
+                  placeholder="Your Email"
+                />
+                {errors.email && <small className="error-text">{errors.email}</small>}
+              </div>
+              <div className="form-group">
+                <textarea
+                  className="form-control"
+                  value={form.message}
+                  onChange={(e) => setField("message", e.target.value)}
+                  placeholder="Your Message"
+                />
+                {errors.message && <small className="error-text">{errors.message}</small>}
+              </div>
+              <button type="submit" className="submit-btn" disabled={loading}>
+                {loading ? "Sending..." : "Send Message"}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
