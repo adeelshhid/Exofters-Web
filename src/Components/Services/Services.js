@@ -20,6 +20,12 @@ const Services = () => {
     },
     {
       icon: faCloud,
+      title: "AI & Machine Learning",
+      desc: "Intelligent solutions powered by artificial intelligence and machine learning",
+      features: ["Custom AI Models", "Natural Language Processing", "Computer Vision", "Predictive Analytics"]
+    },
+    {
+      icon: faCloud,
       title: "Digital Transformation",
       desc: "Help businesses digitalize and modernize their operations",
       features: ["Process Automation", "Digital Strategy", "Legacy System Modernization", "Cloud Migration"]

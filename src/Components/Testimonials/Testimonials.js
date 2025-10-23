@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft, faStar } from "@fortawesome/free-solid-svg-icons";
 import "./Testimonials.css";
 
 const Testimonials = () => {
   const [active, setActive] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const testimonials = [
     {
@@ -30,14 +32,35 @@ const Testimonials = () => {
     }
   ];
 
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      setActive((prev) => (prev + 1) % testimonials.length);
+    }
+    if (touchEndX.current - touchStartX.current > 50) {
+      setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    }
+  };
+
   return (
     <section className="testimonials-section">
       <div className="section-header">
         <div className="subtitle">Testimonials</div>
         <h2>What Our Clients Say</h2>
-        <p>Don't just take our word for it - hear from our satisfied clients</p>
       </div>
-      <div className="testimonials-container">
+      <div 
+        className="testimonials-container"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="testimonial-card active">
           <FontAwesomeIcon icon={faQuoteLeft} className="quote-icon" />
           <div className="rating">
@@ -49,7 +72,6 @@ const Testimonials = () => {
           <div className="testimonial-author">
             <h4>{testimonials[active].name}</h4>
             <p>{testimonials[active].role}</p>
-            <span>{testimonials[active].company}</span>
           </div>
         </div>
         <div className="testimonial-dots">

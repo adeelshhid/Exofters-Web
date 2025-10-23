@@ -11,6 +11,8 @@ import php from "../../Images/php.png";
 import mongodb from "../../Images/mongodb.png";
 import aws from "../../Images/aws.png";
 import firebase from "../../Images/firebase.png";
+import python from "../../Images/python.png";
+import tensorflow from "../../Images/tensorflow.png";
 import Images from "../../ImageExport";
 import Testimonials from "../Testimonials/Testimonials";
 import FAQ from "../FAQ/FAQ";
@@ -122,8 +124,8 @@ const Home = () => {
   const services = [
     { icon: faMobile, title: "Mobile Development", desc: "Native and cross-platform apps for iOS and Android" },
     { icon: faLaptopCode, title: "Web Development", desc: "Modern, responsive web applications" },
-    { icon: faCloud, title: "Digital Transformation", desc: "Help businesses digitalize and modernize operations" },
-    { icon: faShoppingCart, title: "E-Commerce", desc: "Complete online store solutions" },
+    { icon: faCloud, title: "AI & Machine Learning", desc: "Intelligent solutions with AI/ML models and automation" },
+    { icon: faShoppingCart, title: "Digital Transformation", desc: "Help businesses digitalize and modernize operations" },
     { icon: faDatabase, title: "Product Development", desc: "Innovative SaaS products like The Labour, VSM & BNPL solutions" },
     { icon: faPalette, title: "UI/UX Design", desc: "Beautiful, intuitive user experiences" }
   ];
@@ -133,6 +135,8 @@ const Home = () => {
     { name: "Node.js", img: nodejs },
     { name: "Angular", img: angular },
     { name: "Flutter", img: flutter },
+    { name: "Python", img: python },
+    { name: "TensorFlow", img: tensorflow },
     { name: "PHP", img: php },
     { name: "MongoDB", img: mongodb },
     { name: "AWS", img: aws },
@@ -188,7 +192,7 @@ const Home = () => {
               </span>
               <span className="static-text"> With Us</span>
             </h1>
-            <p>We help businesses digitalize and transform with cutting-edge solutions. From development to digital transformation, we're launching innovative products to revolutionize industries.</p>
+            <p>We help businesses digitalize and transform with cutting-edge solutions including AI/ML. From development to digital transformation, we're launching innovative products to revolutionize industries.</p>
             <div className="hero-buttons">
               <Link to="/contact" className="btn-primary">Get Started</Link>
               <Link to="/portfolio" className="btn-secondary">View Portfolio</Link>
