@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "https://adeelshhid.github.io/Exofters-Web/static/css/main.b81544b3.css",
-    "main.js": "https://adeelshhid.github.io/Exofters-Web/static/js/main.fa7712ce.js",
+    "main.css": "https://adeelshhid.github.io/Exofters-Web/static/css/main.02a415cf.css",
+    "main.js": "https://adeelshhid.github.io/Exofters-Web/static/js/main.f19a9fcb.js",
     "static/js/787.c10cda3b.chunk.js": "https://adeelshhid.github.io/Exofters-Web/static/js/787.c10cda3b.chunk.js",
     "static/media/quraanradio.jpg": "https://adeelshhid.github.io/Exofters-Web/static/media/quraanradio.1bba890b3882a15a2f0b.jpg",
     "static/media/xliquidus.jpg": "https://adeelshhid.github.io/Exofters-Web/static/media/xliquidus.9267500ad2f53455c703.jpg",
@@ -16,20 +16,22 @@
     "static/media/companylogo.png": "https://adeelshhid.github.io/Exofters-Web/static/media/companylogo.399e9574c801dd96cb4f.png",
     "static/media/ceo1.jpg": "https://adeelshhid.github.io/Exofters-Web/static/media/ceo1.ee41eb7e3881795fc828.jpg",
     "static/media/nodejs.png": "https://adeelshhid.github.io/Exofters-Web/static/media/nodejs.7b57a3cb9382dd4c7ff6.png",
+    "static/media/python.png": "https://adeelshhid.github.io/Exofters-Web/static/media/python.80a003b9c5a77dce4443.png",
     "static/media/angular.png": "https://adeelshhid.github.io/Exofters-Web/static/media/angular.74f78cd057cc4e943260.png",
     "static/media/firebase.png": "https://adeelshhid.github.io/Exofters-Web/static/media/firebase.67bd47b88fd2f7f523e5.png",
     "static/media/aws.png": "https://adeelshhid.github.io/Exofters-Web/static/media/aws.01cdbf1365e01bd8e8f1.png",
     "static/media/mongodb.png": "https://adeelshhid.github.io/Exofters-Web/static/media/mongodb.4b0c3f9cabee02e299e8.png",
     "static/media/flutter.png": "https://adeelshhid.github.io/Exofters-Web/static/media/flutter.0ef3ec657aad8bb7bfa8.png",
     "static/media/react.png": "https://adeelshhid.github.io/Exofters-Web/static/media/react.2c4c32c1aca285db3982.png",
+    "static/media/tensorflow.png": "https://adeelshhid.github.io/Exofters-Web/static/media/tensorflow.d25190c68c38a397d590.png",
     "static/media/php.png": "https://adeelshhid.github.io/Exofters-Web/static/media/php.d0825e960f2d02d50e43.png",
     "index.html": "https://adeelshhid.github.io/Exofters-Web/index.html",
-    "main.b81544b3.css.map": "https://adeelshhid.github.io/Exofters-Web/static/css/main.b81544b3.css.map",
-    "main.fa7712ce.js.map": "https://adeelshhid.github.io/Exofters-Web/static/js/main.fa7712ce.js.map",
+    "main.02a415cf.css.map": "https://adeelshhid.github.io/Exofters-Web/static/css/main.02a415cf.css.map",
+    "main.f19a9fcb.js.map": "https://adeelshhid.github.io/Exofters-Web/static/js/main.f19a9fcb.js.map",
     "787.c10cda3b.chunk.js.map": "https://adeelshhid.github.io/Exofters-Web/static/js/787.c10cda3b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b81544b3.css",
-    "static/js/main.fa7712ce.js"
+    "static/css/main.02a415cf.css",
+    "static/js/main.f19a9fcb.js"
   ]
 }
