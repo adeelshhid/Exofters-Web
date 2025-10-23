@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Portfolio from "./Components/Portfolio/Portfolio";
@@ -7,14 +7,18 @@ import Footer from "./Components/Footer/Footer";
 import Teams from "./Components/Teams/Teams";
 import Services from "./Components/Services/Services";
 import { Contact } from "./Components/Contact Us/Contact";
+import Loading from "./Components/Loading/Loading";
+import BackToTop from "./Components/BackToTop/BackToTop";
 import emailjs from "@emailjs/browser";
 import "./App.css";
 
 const App = () => {
   const location = useLocation();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     emailjs.init("_6Td844_fKAwDRtj4");
+    setTimeout(() => setLoading(false), 2500);
   }, []);
 
   useEffect(() => {
@@ -23,6 +27,7 @@ const App = () => {
 
   return (
     <>
+      {loading && <Loading />}
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -32,6 +37,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
+      <BackToTop />
     </>
   );
 };

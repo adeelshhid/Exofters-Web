@@ -1,4 +1,52 @@
-# Getting Started with Create React App
+# Exofters - Software Development Company Website
+
+A modern, responsive, and feature-rich website for Exofters (Private) Limited - a leading software development company.
+
+## 🚀 Features
+
+### Core Pages
+- **Home** - Dynamic hero section with typing animation, services preview, portfolio showcase, tech stack, testimonials, and FAQ
+- **Services** - Comprehensive service offerings with detailed features
+- **Portfolio** - Showcase of successful projects with filtering and tags
+- **Team** - Meet the team with founder spotlight and core values
+- **Contact** - Interactive contact form with EmailJS integration
+
+### UI/UX Features
+- ✨ Smooth animations and transitions
+- 📱 Fully responsive design (mobile, tablet, desktop)
+- 🎨 Modern gradient designs and glassmorphism effects
+- 🔄 Loading screen with brand animation
+- ⬆️ Back to top button
+- 🎯 Sticky navigation with scroll effects
+- 💫 Hover effects and micro-interactions
+- 🌊 Floating shapes and animated backgrounds
+- ⚡ Optimized performance
+
+### Technical Features
+- React Router for seamless navigation
+- EmailJS integration for contact form
+- FontAwesome icons
+- Custom CSS animations
+- SEO optimized with meta tags
+- Accessibility compliant
+- Custom scrollbar styling
+
+## 🛠️ Technologies Used
+
+- React 18.2.0
+- React Router DOM 6.8.1
+- EmailJS Browser 3.10.0
+- FontAwesome Icons
+- Bootstrap 5.2.3
+- React Bootstrap 2.7.0
+
+## 📦 Installation
+
+```bash
+npm install
+```
+
+## 🎯 Available Scripts
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

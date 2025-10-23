@@ -317,10 +317,10 @@
 }
 
 .value-card:hover {
-  background: var(--primary-lighter);
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
   transform: translateY(-5px);
   border-color: var(--primary);
-  box-shadow: 0 10px 30px rgba(30, 167, 141, 0.15);
+  box-shadow: 0 10px 30px rgba(30, 167, 141, 0.3);
 }
 
 .value-card:hover h3,

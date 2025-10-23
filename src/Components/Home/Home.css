@@ -20,19 +20,13 @@
   animation: gradientShift 15s ease infinite;
 }
 
-.hero::after {
-  content: '';
+.particle-canvas {
   position: absolute;
-  width: 1000px;
-  height: 1000px;
-  background: radial-gradient(circle at center, rgba(30, 167, 141, 0.3) 0%, transparent 60%);
-  border-radius: 50%;
-  pointer-events: none;
-  left: var(--mouse-x, 50%);
-  top: var(--mouse-y, 50%);
-  transform: translate(-50%, -50%);
-  transition: left 0.2s ease, top 0.2s ease;
-  filter: blur(60px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 @keyframes gradientShift {
@@ -95,18 +89,21 @@
 }
 
 @keyframes float1 {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(30px, -30px) rotate(180deg); }
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  33% { transform: translate(40px, -40px) rotate(120deg) scale(1.1); }
+  66% { transform: translate(-30px, 30px) rotate(240deg) scale(0.9); }
 }
 
 @keyframes float2 {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(-40px, 40px) rotate(-180deg); }
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  33% { transform: translate(-50px, 50px) rotate(-120deg) scale(0.9); }
+  66% { transform: translate(40px, -40px) rotate(-240deg) scale(1.1); }
 }
 
 @keyframes float3 {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(20px, 30px) rotate(90deg); }
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  33% { transform: translate(30px, 40px) rotate(90deg) scale(1.05); }
+  66% { transform: translate(-25px, -35px) rotate(180deg) scale(0.95); }
 }
 
 .hero-content {
@@ -129,14 +126,14 @@
 
 .hero-text h1 .static-text {
   display: inline-block;
-  animation: fadeInUp 0.8s ease-out;
+  animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .hero-text h1 .typing-text {
   display: inline-block;
   border-right: 3px solid var(--primary-light);
   padding-right: 5px;
-  animation: fadeInUp 0.8s ease-out 0.5s both, blink 0.8s step-end infinite;
+  animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both, blink 0.8s step-end infinite;
 }
 
 @keyframes blink {
@@ -168,7 +165,7 @@
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 50px;
   line-height: 1.7;
-  animation: fadeInUp 1.2s ease-out 1.5s both;
+  animation: fadeInUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s both;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -177,7 +174,7 @@
 .hero-buttons {
   display: flex;
   gap: 20px;
-  animation: fadeInUp 1.2s ease-out 2.2s both;
+  animation: fadeInUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s both;
   justify-content: center;
 }
 
@@ -188,7 +185,7 @@
   font-size: 18px;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   text-decoration: none;
   display: inline-block;
 }
@@ -217,8 +214,8 @@
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 15px 50px rgba(30, 167, 141, 0.6);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 60px rgba(30, 167, 141, 0.7);
 }
 
 .btn-secondary {
@@ -249,13 +246,13 @@
 
 .btn-secondary:hover {
   border-color: var(--primary-light);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(30, 167, 141, 0.3);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(30, 167, 141, 0.4);
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(60px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .hero-content {
@@ -325,7 +322,7 @@
   background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
   padding: 50px 40px;
   border-radius: 24px;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
   border: 1px solid rgba(30, 167, 141, 0.12);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
   position: relative;
@@ -374,10 +371,10 @@
 }
 
 .service-card:hover {
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 30px 70px rgba(30, 167, 141, 0.25), 0 0 0 1px rgba(30, 167, 141, 0.1), inset 0 1px 0 rgba(255, 255, 255, 1);
-  border-color: rgba(30, 167, 141, 0.3);
-  background: linear-gradient(145deg, #ffffff 0%, rgba(230, 247, 244, 0.3) 100%);
+  transform: translateY(-20px) scale(1.03) rotate(-1deg);
+  box-shadow: 0 35px 80px rgba(30, 167, 141, 0.3), 0 0 0 1px rgba(30, 167, 141, 0.2), inset 0 1px 0 rgba(255, 255, 255, 1);
+  border-color: rgba(30, 167, 141, 0.4);
+  background: linear-gradient(145deg, #ffffff 0%, rgba(230, 247, 244, 0.4) 100%);
 }
 
 .service-icon {
@@ -391,7 +388,7 @@
   font-size: 36px;
   color: var(--white);
   margin-bottom: 32px;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: 0 10px 30px rgba(30, 167, 141, 0.4), 0 0 0 1px rgba(30, 167, 141, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   position: relative;
 }
@@ -413,8 +410,8 @@
 }
 
 .service-card:hover .service-icon {
-  transform: translateY(-8px) scale(1.1) rotate(-5deg);
-  box-shadow: 0 20px 50px rgba(30, 167, 141, 0.6), 0 0 0 1px rgba(30, 167, 141, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-12px) scale(1.15) rotate(5deg);
+  box-shadow: 0 25px 60px rgba(30, 167, 141, 0.7), 0 0 0 1px rgba(30, 167, 141, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .service-card:hover .service-icon::before {
@@ -507,14 +504,14 @@
   padding: 30px;
   background: var(--white);
   border-radius: 20px;
-  transition: all 0.3s ease;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .stat-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(30, 167, 141, 0.15);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(30, 167, 141, 0.2);
   border-color: var(--primary);
 }
 
@@ -565,7 +562,7 @@
   background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
   border-radius: 24px;
   overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
   border: 1px solid rgba(30, 167, 141, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -592,9 +589,9 @@
 }
 
 .portfolio-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 25px 60px rgba(30, 167, 141, 0.2), 0 0 0 1px rgba(30, 167, 141, 0.15), inset 0 1px 0 rgba(255, 255, 255, 1);
-  border-color: rgba(30, 167, 141, 0.3);
+  transform: translateY(-16px) scale(1.03) rotate(1deg);
+  box-shadow: 0 30px 70px rgba(30, 167, 141, 0.25), 0 0 0 1px rgba(30, 167, 141, 0.2), inset 0 1px 0 rgba(255, 255, 255, 1);
+  border-color: rgba(30, 167, 141, 0.4);
 }
 
 .portfolio-image {
@@ -621,11 +618,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .portfolio-card:hover .portfolio-image img {
-  transform: scale(1.15);
+  transform: scale(1.2) rotate(-2deg);
 }
 
 .portfolio-info {
@@ -727,15 +724,15 @@
   padding: 45px 25px;
   border-radius: 20px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .tech-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(30, 167, 141, 0.15);
+  transform: translateY(-12px) scale(1.05) rotate(-3deg);
+  box-shadow: 0 20px 50px rgba(30, 167, 141, 0.2);
   border-color: var(--primary);
 }
 
@@ -828,23 +825,40 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: 90vh;
+  }
+
+  .hero-content {
+    padding: 0 20px;
+  }
+
   .hero-text h1 {
-    font-size: 48px;
+    font-size: 42px;
     letter-spacing: -1px;
+    margin-bottom: 24px;
   }
   
   .hero-text p {
-    font-size: 18px;
+    font-size: 17px;
+    margin-bottom: 40px;
   }
   
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 15px;
   }
   
   .btn-primary, .btn-secondary {
     width: 100%;
     max-width: 300px;
+    padding: 16px 36px;
+    font-size: 16px;
+  }
+
+  .shape-1, .shape-2, .shape-3 {
+    display: none;
   }
   
   .services-preview,

@@ -20,9 +20,9 @@ const Services = () => {
     },
     {
       icon: faCloud,
-      title: "Cloud Solutions",
-      desc: "Scalable cloud infrastructure and deployment services",
-      features: ["AWS/Azure/GCP", "DevOps & CI/CD", "Cloud Migration", "Serverless Architecture"]
+      title: "Digital Transformation",
+      desc: "Help businesses digitalize and modernize their operations",
+      features: ["Process Automation", "Digital Strategy", "Legacy System Modernization", "Cloud Migration"]
     },
     {
       icon: faShoppingCart,
@@ -32,9 +32,9 @@ const Services = () => {
     },
     {
       icon: faDatabase,
-      title: "Backend Development",
-      desc: "Robust and scalable backend systems and APIs",
-      features: ["RESTful APIs", "GraphQL", "Database Design", "Microservices"]
+      title: "Product Development",
+      desc: "Innovative SaaS products to revolutionize industries",
+      features: ["The Labour Platform", "VSM (Virtual Store Manager)", "BNPL Flight Booking", "Custom Products"]
     },
     {
       icon: faPalette,

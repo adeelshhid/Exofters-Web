@@ -12,44 +12,119 @@ import mongodb from "../../Images/mongodb.png";
 import aws from "../../Images/aws.png";
 import firebase from "../../Images/firebase.png";
 import Images from "../../ImageExport";
+import Testimonials from "../Testimonials/Testimonials";
+import FAQ from "../FAQ/FAQ";
+import Process from "../Process/Process";
 import "./Home.css";
 
 const Home = () => {
   const heroRef = useRef(null);
+  const canvasRef = useRef(null);
 
   useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const mouse = { x: -1000, y: -1000 };
+    const particles = Array.from({ length: 160 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 1.4,
+      vy: (Math.random() - 0.5) * 1.4,
+      radius: 3
+    }));
+
     const handleMouseMove = (e) => {
-      if (!heroRef.current) return;
-      const { clientX, clientY } = e;
-      const { innerWidth, innerHeight } = window;
-      const x = (clientX / innerWidth) * 100;
-      const y = (clientY / innerHeight) * 100;
-      
-      const glow = heroRef.current.querySelector('.hero::before');
-      if (heroRef.current) {
-        heroRef.current.style.setProperty('--mouse-x', `${x}%`);
-        heroRef.current.style.setProperty('--mouse-y', `${y}%`);
-      }
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
     };
 
-    const hero = heroRef.current;
-    if (hero) {
-      hero.addEventListener('mousemove', handleMouseMove);
-    }
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        p.x = Math.max(0, Math.min(canvas.width, p.x));
+        p.y = Math.max(0, Math.min(canvas.height, p.y));
+
+        particles.forEach((p2, j) => {
+          if (i >= j) return;
+          const dx = p2.x - p.x;
+          const dy = p2.y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          
+          if (dist < p.radius * 2) {
+            const angle = Math.atan2(dy, dx);
+            const overlap = p.radius * 2 - dist;
+            p.x -= Math.cos(angle) * overlap * 0.5;
+            p.y -= Math.sin(angle) * overlap * 0.5;
+            p2.x += Math.cos(angle) * overlap * 0.5;
+            p2.y += Math.sin(angle) * overlap * 0.5;
+          }
+        });
+      });
+
+      const nearMouse = particles.filter(p => {
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        return Math.sqrt(dx * dx + dy * dy) < 200;
+      });
+
+      nearMouse.forEach((p, i) => {
+        nearMouse.forEach((p2, j) => {
+          if (i >= j) return;
+          const dx = (p.x + p2.x) / 2 - mouse.x;
+          const dy = (p.y + p2.y) / 2 - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const opacity = Math.max(0, (1 - dist / 200) * 0.5);
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(30, 167, 141, ${opacity})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        });
+      });
+
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(43, 196, 168, 0.15)';
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animate);
+    };
+
+    canvas.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('resize', handleResize);
+    animate();
 
     return () => {
-      if (hero) {
-        hero.removeEventListener('mousemove', handleMouseMove);
-      }
+      canvas.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   const services = [
     { icon: faMobile, title: "Mobile Development", desc: "Native and cross-platform apps for iOS and Android" },
     { icon: faLaptopCode, title: "Web Development", desc: "Modern, responsive web applications" },
-    { icon: faCloud, title: "Cloud Solutions", desc: "Scalable cloud infrastructure and deployment" },
+    { icon: faCloud, title: "Digital Transformation", desc: "Help businesses digitalize and modernize operations" },
     { icon: faShoppingCart, title: "E-Commerce", desc: "Complete online store solutions" },
-    { icon: faDatabase, title: "Backend Systems", desc: "Robust APIs and database architecture" },
+    { icon: faDatabase, title: "Product Development", desc: "Innovative SaaS products like The Labour, VSM & BNPL solutions" },
     { icon: faPalette, title: "UI/UX Design", desc: "Beautiful, intuitive user experiences" }
   ];
 
@@ -96,7 +171,8 @@ const Home = () => {
 
   return (
     <div className="page-transition">
-      <section className="hero" ref={heroRef} style={{'--mouse-x': '50%', '--mouse-y': '50%'}}>
+      <section className="hero" ref={heroRef}>
+        <canvas ref={canvasRef} className="particle-canvas"></canvas>
         <div className="grid-overlay"></div>
         <div className="floating-shapes">
           <div className="shape shape-1"></div>
@@ -112,7 +188,7 @@ const Home = () => {
               </span>
               <span className="static-text"> With Us</span>
             </h1>
-            <p>We craft exceptional digital experiences that transform businesses and delight users worldwide.</p>
+            <p>We help businesses digitalize and transform with cutting-edge solutions. From development to digital transformation, we're launching innovative products to revolutionize industries.</p>
             <div className="hero-buttons">
               <Link to="/contact" className="btn-primary">Get Started</Link>
               <Link to="/portfolio" className="btn-secondary">View Portfolio</Link>
@@ -148,7 +224,7 @@ const Home = () => {
           <div className="about-content">
             <div className="subtitle">About Us</div>
             <h2>Transforming Ideas Into Reality</h2>
-            <p>We are a team of passionate developers, designers, and strategists committed to delivering world-class digital solutions. With years of experience and a portfolio of successful projects, we help businesses thrive in the digital age.</p>
+            <p>We are a team of passionate developers, designers, and strategists committed to delivering world-class digital solutions and helping businesses digitalize. We're launching innovative products including The Labour, VSM (Virtual Store Manager), and a BNPL-based flight booking solution to revolutionize how businesses operate.</p>
             <div className="stats">
               <div className="stat-item">
                 <h3>150+</h3>
@@ -204,6 +280,12 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+      <Process />
+
+      <Testimonials />
+
+      <FAQ />
 
       <section className="cta-section">
         <h2>Ready to Start Your Project?</h2>
