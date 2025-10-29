@@ -56,8 +56,8 @@ export const Contact = () => {
   const contactInfo = [
     { icon: faMapMarkerAlt, title: "Address", content: "G1 Market, Johar Town, Lahore" },
     { icon: faPhone, title: "Phone", content: "+92 (300) 7171787", link: "tel:+923007171787" },
-    { icon: faEnvelope, title: "Email", content: "info@exofters.com", link: "mailto:info@exofters.com" },
-    { icon: faGlobe, title: "Website", content: "www.exofters.com", link: "https://www.exofters.com" }
+    { icon: faEnvelope, title: "Email", content: "contact@exofters.io", link: "mailto:contact@exofters.io" },
+    { icon: faGlobe, title: "Website", content: "exofters.io", link: "https://exofters.io" }
   ];
 
   return (

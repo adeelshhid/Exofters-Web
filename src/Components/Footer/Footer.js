@@ -56,7 +56,7 @@ function Footer() {
           <h3>Contact</h3>
           <ul className="footer-links">
             <li><a href="tel:+923007171787">+92 (300) 7171787</a></li>
-            <li><a href="mailto:info@exofters.com">info@exofters.com</a></li>
+            <li><a href="mailto:contact@exofters.io">contact@exofters.io</a></li>
             <li><Link to="/contact">Get In Touch</Link></li>
           </ul>
         </div>
