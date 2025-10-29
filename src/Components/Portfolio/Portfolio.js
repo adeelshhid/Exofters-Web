@@ -54,13 +54,6 @@ const Portfolio = () => {
       tags: ["Chat", "Enterprise", "Real-time"]
     },
     {
-      id: 8,
-      name: "Quraan Radio",
-      img: Images.quranradio,
-      desc: "24/7 Quran audio streaming with translations",
-      tags: ["Radio", "Streaming", "Multi-language"]
-    },
-    {
       id: 9,
       name: "X-Liquidus",
       img: Images.xliquidus,

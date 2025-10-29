@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "../About Section/AboutSection.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ceo1 from "../../../Images/ceo1.jpg";
+import Images from "../../../ImageExport";
 
 const AboutSection = () => {
   return (
@@ -123,7 +123,7 @@ const AboutSection = () => {
       <div className="container mt-5 ceo-section">
         <div className="row align-items-center">
           <div className="col-lg-12 f-col f-center">
-            <img src={ceo1} className="ceo3" alt="Adeel Shahid" />
+            <img src={Images.ceo1} className="ceo3" alt="Adeel Shahid" />
 
             <h2 className="ceo-name">Adeel Shahid, Founder & CEO</h2>
             <h5 className="fst-italic msg-text">Message</h5>

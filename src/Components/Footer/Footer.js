@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faTwitter, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import companylogo from "../../Images/companylogo.png";
 import "./footer.css";
+import Images from "../../ImageExport";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,7 +12,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-about">
-          <img src={companylogo} alt="Exofters" className="footer-logo" />
+          <img src={Images.companylogo} alt="Exofters" className="footer-logo" />
           <p>
             We are a team of passionate developers and designers creating exceptional digital experiences for businesses worldwide.
           </p>

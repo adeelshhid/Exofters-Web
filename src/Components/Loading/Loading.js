@@ -1,5 +1,5 @@
 import React from "react";
-import companylogo from "../../Images/companylogo.png";
+import Images from "../../ImageExport";
 import "./Loading.css";
 
 const Loading = () => {
@@ -7,7 +7,7 @@ const Loading = () => {
     <div className="loading-screen">
       <div className="loader">
         <div className="loader-circle"></div>
-        <img src={companylogo} alt="Exofters" className="loader-logo" />
+        <img src={Images.companylogo} alt="Exofters" className="loader-logo" />
       </div>
     </div>
   );

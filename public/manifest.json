@@ -5,8 +5,8 @@
   "description": "Software Development and IT Services Company",
   "display": "standalone",
   "orientation": "portrait",
-  "scope": "/",
-  "start_url": "/",
+  "scope": "./",
+  "start_url": "./",
   "categories": ["business", "productivity"],
   "icons": [
     {

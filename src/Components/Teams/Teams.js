@@ -1,15 +1,15 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faGithub, faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin, faGithub, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faHeart, faLightbulb, faHandshake, faRocket } from "@fortawesome/free-solid-svg-icons";
-import ceo1 from "../../Images/ceo1.jpg";
 import "./Teams.css";
+import Images from "../../ImageExport";
 
 const Teams = () => {
   const founder = {
     name: "Adeel Shahid",
     role: "CEO & Founder",
-    img: ceo1,
+    img: Images.ceo1,
     bio: "Visionary leader with 8+ years of experience in software development and business strategy. Passionate about building innovative solutions that transform businesses.",
     social: { linkedin: "https://www.linkedin.com/in/adeelshhid/", github: "https://github.com/adeelshhid", facebook: "https://www.facebook.com/adeel.shhid/" }
   };

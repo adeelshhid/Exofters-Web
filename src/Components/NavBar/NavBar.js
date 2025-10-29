@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import companylogo from "../../Images/companylogo.png";
+import Images from "../../ImageExport";
 import "./NavBar.css";
 
 function NavBar() {
@@ -32,7 +32,7 @@ function NavBar() {
       <nav className={`navbar ${scrolled ? "scrolled" : "transparent"}`}>
         <div className="navbar-container">
           <Link to="/" className="logo-container">
-            <img src={companylogo} alt="Exofters" className="logo" />
+            <img src={Images.companylogo} alt="Exofters" className="logo" />
             {/* <span className="logo-text">Exofters</span> */}
           </Link>
           <div className="nav-links">

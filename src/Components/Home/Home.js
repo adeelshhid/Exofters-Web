@@ -2,17 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMobile, faLaptopCode, faCloud, faShoppingCart, faDatabase, faPalette } from "@fortawesome/free-solid-svg-icons";
-import aboutBg from "../../Images/about-bg.png";
-import react from "../../Images/react.png";
-import nodejs from "../../Images/nodejs.png";
-import angular from "../../Images/angular.png";
-import flutter from "../../Images/flutter.png";
-import php from "../../Images/php.png";
-import mongodb from "../../Images/mongodb.png";
-import aws from "../../Images/aws.png";
-import firebase from "../../Images/firebase.png";
-import python from "../../Images/python.png";
-import tensorflow from "../../Images/tensorflow.png";
 import Images from "../../ImageExport";
 import Testimonials from "../Testimonials/Testimonials";
 import FAQ from "../FAQ/FAQ";
@@ -131,16 +120,16 @@ const Home = () => {
   ];
 
   const technologies = [
-    { name: "React", img: react },
-    { name: "Node.js", img: nodejs },
-    { name: "Angular", img: angular },
-    { name: "Flutter", img: flutter },
-    { name: "Python", img: python },
-    { name: "TensorFlow", img: tensorflow },
-    { name: "PHP", img: php },
-    { name: "MongoDB", img: mongodb },
-    { name: "AWS", img: aws },
-    { name: "Firebase", img: firebase }
+    { name: "React", img: Images.react },
+    { name: "Node.js", img: Images.nodejs },
+    { name: "Angular", img: Images.angular },
+    { name: "Flutter", img: Images.flutter },
+    { name: "Python", img: Images.python },
+    { name: "TensorFlow", img: Images.tensorflow },
+    { name: "PHP", img: Images.php },
+    { name: "MongoDB", img: Images.mongodb },
+    { name: "AWS", img: Images.aws },
+    { name: "Firebase", img: Images.firebase }
   ];
 
   const featuredProjects = [
@@ -223,7 +212,7 @@ const Home = () => {
       <section className="about-section">
         <div className="about-container">
           <div className="about-image">
-            <img src={aboutBg} alt="About Exofters" />
+            <img src={Images.aboutBg} alt="About Exofters" />
           </div>
           <div className="about-content">
             <div className="subtitle">About Us</div>

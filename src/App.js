@@ -9,6 +9,7 @@ import Services from "./Components/Services/Services";
 import { Contact } from "./Components/Contact Us/Contact";
 import Loading from "./Components/Loading/Loading";
 import BackToTop from "./Components/BackToTop/BackToTop";
+import NotFound from "./Components/NotFound/NotFound";
 import emailjs from "@emailjs/browser";
 import "./App.css";
 
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/teams" element={<Teams />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <BackToTop />
