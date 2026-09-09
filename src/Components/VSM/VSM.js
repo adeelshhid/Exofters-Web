@@ -58,6 +58,14 @@ const Icons = {
       <polyline points="17 6 23 6 23 12" />
     </svg>
   ),
+  GooglePlay: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="#4285F4" d="M3.61 1.81l10.18 10.19-10.18 10.19c-.38-.41-.61-.99-.61-1.63V3.44c0-.64.23-1.22.61-1.63z"/>
+      <path fill="#FBBC04" d="M17.31 9.38l-3.52 2.62-10.18-10.19 11.45 6.52 2.25 1.05z"/>
+      <path fill="#EA4335" d="M3.61 22.19l10.18-10.19 3.52 2.62-2.25 1.05-11.45 6.52z"/>
+      <path fill="#34A853" d="M17.31 9.38l2.94 1.67c1.07.61 1.07 1.61 0 2.22l-2.94 1.67-3.52-2.78 3.52-2.78z"/>
+    </svg>
+  ),
   Android: () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v6c0 .83.67 1.5 1.5 1.5S5 16.33 5 15.5v-6C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v6c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-6c0-.83-.67-1.5-1.5-1.5zm-4.97-4.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 2.23 12.95 2 12 2c-.96 0-1.86.23-2.66.63L7.85 1.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 4.26 6 6.01 6 8h12c0-1.99-.97-3.75-2.47-4.84zM10 5.5c-.41 0-.75-.34-.75-.75s.34-.75.75-.75.75.34.75.75-.34.75-.75.75zm4 0c-.41 0-.75-.34-.75-.75s.34-.75.75-.75.75.34.75.75-.34.75-.75.75z"/>
@@ -454,20 +462,20 @@ const VSM = () => {
           </div>
 
           <div className="download-cards">
-            {/* Android / Aptoide Card */}
+            {/* Google Play Store Card */}
             <a
               className="download-card"
               href={platformLinks.androidAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              title="Download VSM for Android on Aptoide"
+              title="Get VSM on Google Play Store"
             >
-              <span className="store-icon android">
-                <Icons.Android />
+              <span className="store-icon playstore">
+                <Icons.GooglePlay />
               </span>
               <span className="card-labels">
                 <small>Get it on</small>
-                <strong>Aptoide Store / Android</strong>
+                <strong>Google Play Store</strong>
               </span>
               <span className="card-action-icon">
                 <Icons.ArrowUpRight />

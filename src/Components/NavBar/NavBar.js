@@ -22,15 +22,15 @@ function NavBar() {
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/products/vsm", label: "VSM" },
+    { path: "/products", label: "Products" },
     { path: "/portfolio", label: "Portfolio" },
     { path: "/services", label: "Services" },
     { path: "/teams", label: "Team" }
   ];
 
   const isItemActive = (itemPath) => {
-    if (itemPath === "/products/vsm") {
-      return location.pathname === "/products/vsm" || location.pathname === "/vsm";
+    if (itemPath === "/products") {
+      return location.pathname.startsWith("/products") || location.pathname === "/vsm";
     }
     return location.pathname === itemPath;
   };

@@ -45,7 +45,7 @@ describe('VSM Component', () => {
   });
 
   test('renders multi-platform download cards', () => {
-    expect(screen.getByText(/Aptoide Store \/ Android/i)).toBeInTheDocument();
+    expect(screen.getByText(/Google Play Store/i)).toBeInTheDocument();
     expect(screen.getByText(/Apple App Store/i)).toBeInTheDocument();
     expect(screen.getByText(/VSM Cloud Web App/i)).toBeInTheDocument();
   });

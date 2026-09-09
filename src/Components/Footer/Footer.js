@@ -36,6 +36,7 @@ function Footer() {
           <h3>Quick Links</h3>
           <ul className="footer-links">
             <li><Link to="/">Home</Link></li>
+            <li><Link to="/products">Products</Link></li>
             <li><Link to="/products/vsm">VSM Store Manager</Link></li>
             <li><Link to="/portfolio">Portfolio</Link></li>
             <li><Link to="/teams">Teams</Link></li>

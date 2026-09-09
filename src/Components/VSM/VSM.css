@@ -771,6 +771,11 @@
   flex-shrink: 0;
 }
 
+.store-icon.playstore {
+  background: #f0fdf4;
+  border: 1px solid #dcfce7;
+}
+
 .store-icon.android {
   background: #ddf3e8;
   color: #2ea966;
@@ -888,14 +893,6 @@
 }
 
 @media (max-width: 850px) {
-  .vsm-subnav {
-    top: 65px;
-  }
-
-  .vsm-subnav-links a:not(.vsm-subnav-cta) {
-    display: none;
-  }
-
   .hero-section {
     grid-template-columns: 1fr;
     padding: 40px 0 60px;
@@ -954,23 +951,12 @@
 
 @media (max-width: 520px) {
   .vsm-product-page {
-    padding-top: 75px;
+    padding-top: 85px;
   }
 
-  .vsm-subnav-container {
-    padding: 10px 16px;
-  }
-
-  .vsm-back-link span {
-    display: none;
-  }
-
-  .vsm-subnav-cta span {
-    display: none;
-  }
-
-  .vsm-subnav-cta {
-    padding: 8px 10px;
+  .vsm-breadcrumb-link {
+    font-size: 12px;
+    padding: 6px 12px;
   }
 
   .landing-shell {
