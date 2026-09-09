@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "https://exofters.io/static/css/main.706a8902.css",
-    "main.js": "https://exofters.io/static/js/main.3fc60b5b.js",
+    "main.js": "https://exofters.io/static/js/main.d66d404b.js",
     "static/js/787.c10cda3b.chunk.js": "https://exofters.io/static/js/787.c10cda3b.chunk.js",
     "index.html": "https://exofters.io/index.html",
     "main.706a8902.css.map": "https://exofters.io/static/css/main.706a8902.css.map",
-    "main.3fc60b5b.js.map": "https://exofters.io/static/js/main.3fc60b5b.js.map",
+    "main.d66d404b.js.map": "https://exofters.io/static/js/main.d66d404b.js.map",
     "787.c10cda3b.chunk.js.map": "https://exofters.io/static/js/787.c10cda3b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.706a8902.css",
-    "static/js/main.3fc60b5b.js"
+    "static/js/main.d66d404b.js"
   ]
 }
