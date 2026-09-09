@@ -68,7 +68,15 @@ const Services = () => {
               <p>{service.desc}</p>
               <ul className="service-features">
                 {service.features.map((feature, idx) => (
-                  <li key={idx}>{feature}</li>
+                  <li key={idx}>
+                    {feature.includes("VSM") ? (
+                      <Link to="/products/vsm" style={{ color: "var(--primary)", textDecoration: "none", fontWeight: "600" }}>
+                        {feature} ↗
+                      </Link>
+                    ) : (
+                      feature
+                    )}
+                  </li>
                 ))}
               </ul>
             </div>

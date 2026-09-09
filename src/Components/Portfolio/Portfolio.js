@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Portfolio.css";
 import Images from "../../ImageExport";
 
@@ -59,6 +60,14 @@ const Portfolio = () => {
       img: Images.xliquidus,
       desc: "Blockchain-based digital asset trading platform",
       tags: ["Blockchain", "Trading", "Crypto"]
+    },
+    {
+      id: 10,
+      name: "VSM - Virtual Store Manager",
+      img: Images.mainImg,
+      desc: "All-in-one POS, inventory control, customer khata and analytics platform",
+      tags: ["POS & Inventory", "SaaS", "Flagship Product"],
+      link: "/products/vsm"
     }
   ];
 
@@ -76,7 +85,13 @@ const Portfolio = () => {
               <div className="portfolio-image">
                 <img src={project.img} alt={project.name} />
                 <div className="portfolio-overlay">
-                  <button className="view-btn">View Details</button>
+                  {project.link ? (
+                    <Link to={project.link} className="view-btn" style={{ textDecoration: 'none' }}>
+                      View Product
+                    </Link>
+                  ) : (
+                    <button className="view-btn">View Details</button>
+                  )}
                 </div>
               </div>
               <div className="portfolio-info">

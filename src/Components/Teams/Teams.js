@@ -46,13 +46,13 @@ const Teams = () => {
             <div className="role">{founder.role}</div>
             <p>{founder.bio}</p>
             <div className="social-links">
-              <a href={founder.social.linkedin} target="_blank" className="social-link">
+              <a href={founder.social.linkedin} target="_blank" rel="noopener noreferrer" className="social-link">
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>
-              <a href={founder.social.github} target="_blank"  className="social-link">
+              <a href={founder.social.github} target="_blank" rel="noopener noreferrer" className="social-link">
                 <FontAwesomeIcon icon={faGithub} />
               </a>
-              <a href={founder.social.facebook} target="_blank"  className="social-link">
+              <a href={founder.social.facebook} target="_blank" rel="noopener noreferrer" className="social-link">
                 <FontAwesomeIcon icon={faFacebook} />
               </a>
             </div>
@@ -73,13 +73,13 @@ const Teams = () => {
                   <img src={member.img} alt={member.name} />
                   <div className="team-overlay">
                     <div className="social-links">
-                      <a href={member.social.linkedin} target="_blank" className="social-link">
+                      <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="social-link">
                         <FontAwesomeIcon icon={faLinkedin} />
                       </a>
-                      <a href={member.social.github}  target="_blank" className="social-link">
+                      <a href={member.social.github} target="_blank" rel="noopener noreferrer" className="social-link">
                         <FontAwesomeIcon icon={faGithub} />
                       </a>
-                      <a href={member.social.facebook} target="_blank" className="social-link">
+                      <a href={member.social.facebook} target="_blank" rel="noopener noreferrer" className="social-link">
                         <FontAwesomeIcon icon={faFacebook} />
                       </a>
                     </div>

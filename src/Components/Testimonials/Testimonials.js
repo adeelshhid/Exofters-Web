@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft, faStar } from "@fortawesome/free-solid-svg-icons";
 import "./Testimonials.css";
 
 const Testimonials = () => {
   const [active, setActive] = useState(0);
-  const [direction, setDirection] = useState('next');
+  const [, setDirection] = useState('next');
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   const containerRef = useRef(null);

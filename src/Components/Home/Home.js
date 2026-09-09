@@ -8,6 +8,8 @@ import FAQ from "../FAQ/FAQ";
 import Process from "../Process/Process";
 import "./Home.css";
 
+const PHRASES = ['Digital Future', 'Success Story', 'Dream Project', 'Next Innovation'];
+
 const Home = () => {
   const heroRef = useRef(null);
   const canvasRef = useRef(null);
@@ -16,6 +18,7 @@ const Home = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -138,13 +141,12 @@ const Home = () => {
     { name: "X-Liquidus", img: Images.xliquidus, desc: "Blockchain trading platform" }
   ];
 
-  const phrases = ['Digital Future', 'Success Story', 'Dream Project', 'Next Innovation'];
   const [typedText, setTypedText] = React.useState('');
   const [phraseIndex, setPhraseIndex] = React.useState(0);
   const [isDeleting, setIsDeleting] = React.useState(false);
 
   React.useEffect(() => {
-    const currentPhrase = phrases[phraseIndex];
+    const currentPhrase = PHRASES[phraseIndex];
     const typingSpeed = isDeleting ? 50 : 100;
     const pauseTime = isDeleting ? 500 : 2000;
 
@@ -153,7 +155,7 @@ const Home = () => {
         setTimeout(() => setIsDeleting(true), pauseTime);
       } else if (isDeleting && typedText === '') {
         setIsDeleting(false);
-        setPhraseIndex((prev) => (prev + 1) % phrases.length);
+        setPhraseIndex((prev) => (prev + 1) % PHRASES.length);
       } else {
         setTypedText(currentPhrase.slice(0, typedText.length + (isDeleting ? -1 : 1)));
       }
@@ -217,7 +219,7 @@ const Home = () => {
           <div className="about-content">
             <div className="subtitle">About Us</div>
             <h2>Transforming Ideas Into Reality</h2>
-            <p>We are a team of passionate developers, designers, and strategists committed to delivering world-class digital solutions and helping businesses digitalize. We're launching innovative products including The Labour, VSM (Virtual Store Manager), and a BNPL-based flight booking solution to revolutionize how businesses operate.</p>
+            <p>We are a team of passionate developers, designers, and strategists committed to delivering world-class digital solutions and helping businesses digitalize. We're launching innovative products including The Labour, <Link to="/products/vsm" style={{ color: "var(--primary-light)", textDecoration: "underline", fontWeight: 600 }}>VSM (Virtual Store Manager)</Link>, and a BNPL-based flight booking solution to revolutionize how businesses operate.</p>
             <div className="stats">
               <div className="stat-item">
                 <h3>150+</h3>

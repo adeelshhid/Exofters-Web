@@ -10,6 +10,7 @@ import { Contact } from "./Components/Contact Us/Contact";
 import Loading from "./Components/Loading/Loading";
 import BackToTop from "./Components/BackToTop/BackToTop";
 import NotFound from "./Components/NotFound/NotFound";
+import VSM from "./Components/VSM/VSM";
 import emailjs from "@emailjs/browser";
 import "./App.css";
 
@@ -32,6 +33,8 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/products/vsm" element={<VSM />} />
+        <Route path="/vsm" element={<VSM />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/teams" element={<Teams />} />
         <Route path="/services" element={<Services />} />

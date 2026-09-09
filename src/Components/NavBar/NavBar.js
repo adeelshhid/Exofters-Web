@@ -22,10 +22,18 @@ function NavBar() {
 
   const navItems = [
     { path: "/", label: "Home" },
+    { path: "/products/vsm", label: "VSM" },
     { path: "/portfolio", label: "Portfolio" },
     { path: "/services", label: "Services" },
     { path: "/teams", label: "Team" }
   ];
+
+  const isItemActive = (itemPath) => {
+    if (itemPath === "/products/vsm") {
+      return location.pathname === "/products/vsm" || location.pathname === "/vsm";
+    }
+    return location.pathname === itemPath;
+  };
 
   return (
     <>
@@ -40,14 +48,14 @@ function NavBar() {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`nav-link ${location.pathname === item.path ? "active" : ""}`}
+                className={`nav-link ${isItemActive(item.path) ? "active" : ""}`}
               >
                 {item.label}
               </Link>
             ))}
             <Link to="/contact" className="cta-button">Get Started</Link>
           </div>
-          <button className="mobile-toggle" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button className="mobile-toggle" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle navigation menu">
             <FontAwesomeIcon icon={mobileOpen ? faXmark : faBars} />
           </button>
         </div>
@@ -57,7 +65,7 @@ function NavBar() {
           <Link
             key={item.path}
             to={item.path}
-            className={`nav-link ${location.pathname === item.path ? "active" : ""}`}
+            className={`nav-link ${isItemActive(item.path) ? "active" : ""}`}
           >
             {item.label}
           </Link>

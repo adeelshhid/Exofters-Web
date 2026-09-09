@@ -17,16 +17,16 @@ function Footer() {
             We are a team of passionate developers and designers creating exceptional digital experiences for businesses worldwide.
           </p>
           <div className="social-icons">
-            <a href="#" className="social-icon" aria-label="Facebook">
+            <a href="https://facebook.com/exofters" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook">
               <FontAwesomeIcon icon={faFacebook} />
             </a>
-            <a href="#" className="social-icon" aria-label="Twitter">
+            <a href="https://twitter.com/exofters" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Twitter">
               <FontAwesomeIcon icon={faTwitter} />
             </a>
-            <a href="#" className="social-icon" aria-label="LinkedIn">
+            <a href="https://linkedin.com/company/exofters" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
               <FontAwesomeIcon icon={faLinkedin} />
             </a>
-            <a href="#" className="social-icon" aria-label="Instagram">
+            <a href="https://instagram.com/exofters" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
               <FontAwesomeIcon icon={faInstagram} />
             </a>
           </div>
@@ -36,6 +36,7 @@ function Footer() {
           <h3>Quick Links</h3>
           <ul className="footer-links">
             <li><Link to="/">Home</Link></li>
+            <li><Link to="/products/vsm">VSM Store Manager</Link></li>
             <li><Link to="/portfolio">Portfolio</Link></li>
             <li><Link to="/teams">Teams</Link></li>
             <li><Link to="/services">Services</Link></li>
