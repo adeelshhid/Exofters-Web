@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone, faMapMarkerAlt, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import emailjs from "@emailjs/browser";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "../../lib/firebase";
 import "./Contact.css";
 
 export const Contact = () => {
@@ -44,6 +46,7 @@ export const Contact = () => {
         { email: form.email, name: form.name, message: form.message },
         "_6Td844_fKAwDRtj4"
       );
+      addDoc(collection(db, "inquiries"), { ...form, createdAt: serverTimestamp(), source: "website" }).catch(() => {});
       setStatus({ type: "success", message: "Message sent successfully! We'll get back to you soon." });
       setForm({ name: "", email: "", message: "" });
     } catch (error) {

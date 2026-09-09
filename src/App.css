@@ -5,11 +5,11 @@
 }
 
 :root {
-  --primary: #1ea78d;
+  --primary: #42cbb7;
   --primary-dark: #178c75;
   --primary-light: #2bc4a8;
   --primary-lighter: #e6f7f4;
-  --dark: #1a1a2e;
+  --dark: #102334;
   --gray: #6b7280;
   --light: #f8f9fa;
   --white: #ffffff;
@@ -21,7 +21,20 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   overflow-x: hidden;
   color: var(--dark);
+  background: #f3f7fa;
 }
+
+/* Shared premium surface language */
+.page-transition { background: radial-gradient(circle at 90% 8%, rgba(98, 213, 215, .16), transparent 28%), radial-gradient(circle at 8% 25%, rgba(134, 115, 255, .1), transparent 24%), #f3f7fa; }
+.products-hero,.portfolio-hero,.services-hero,.contact-hero { position:relative; isolation:isolate; overflow:hidden; background:linear-gradient(120deg,#081b2e,#103e52 60%,#145d5d); color:white!important; padding:170px 24px 90px!important; }
+.products-hero:after,.portfolio-hero:after,.services-hero:after,.contact-hero:after { content:""; position:absolute; z-index:-1; width:440px; height:440px; right:-110px; top:-190px; border-radius:50%; background:radial-gradient(circle,rgba(104,239,220,.48),transparent 67%); filter:blur(8px); }
+.products-hero h1,.portfolio-hero h1,.services-hero h1,.contact-hero h1 { max-width:850px; letter-spacing:-.055em; font-size:clamp(42px,7vw,82px)!important; line-height:.98; }
+.products-hero p,.portfolio-hero p,.services-hero p,.contact-hero p { max-width:650px; color:rgba(255,255,255,.78)!important; font-size:18px!important; line-height:1.6; }
+.products-eyebrow,.portfolio-hero>span,.services-hero>span { letter-spacing:.16em!important; font-weight:800!important; color:#79f3dd!important; font-size:11px!important; }
+.product-card,.portfolio-card,.service-card,.contact-form-container,.contact-info-section { border:1px solid rgba(15,74,92,.11)!important; box-shadow:0 20px 60px rgba(15,44,59,.09)!important; border-radius:20px!important; background:rgba(255,255,255,.7)!important; backdrop-filter:blur(18px); }
+.product-card:hover,.portfolio-card:hover,.service-card:hover { transform:translateY(-8px)!important; box-shadow:0 28px 70px rgba(15,44,59,.16)!important; }
+.product-detail { min-height:100vh; background:#f3f7fa; }.product-detail-hero { padding:160px max(24px,10vw) 90px; color:white; background:radial-gradient(circle at 80% 10%,#39bcb2 0,transparent 29%),linear-gradient(135deg,#091b2c,#123f52); }.product-detail-hero>a { color:#94f4df; text-decoration:none; display:block; margin-bottom:58px; }.product-detail-hero span { display:block; color:#8bf5df; letter-spacing:.16em; font-size:11px; font-weight:800; }.product-detail-hero h1 { max-width:850px; font-size:clamp(42px,7vw,76px); letter-spacing:-.06em; margin:14px 0; }.product-detail-hero p { max-width:620px; color:#c9e3ea; font-size:19px; line-height:1.6; margin-bottom:30px; }.product-detail-content { max-width:1100px; padding:70px 24px; margin:auto; display:grid; grid-template-columns:1.5fr .8fr; gap:44px; }.product-detail-content article,.product-detail-content aside { background:white; border:1px solid rgba(13,59,78,.1); border-radius:20px; padding:clamp(26px,5vw,52px); box-shadow:0 20px 55px rgba(17,50,63,.08); }.product-detail-content article h2 { font-size:34px; letter-spacing:-.04em; margin-bottom:16px; }.product-detail-content article p { color:#597180; line-height:1.8; }.product-detail-content aside { height:max-content; }.product-detail-content aside span { color:#198e82; letter-spacing:.12em; font-size:11px; font-weight:800; }.product-detail-content aside p { border-top:1px solid #e5eff2; padding-top:14px; margin-top:14px; color:#294e5c; }.product-not-found { padding:200px 24px; text-align:center; }
+@media(max-width:700px){.products-hero,.portfolio-hero,.services-hero,.contact-hero{padding:135px 22px 70px!important}.product-detail-content{grid-template-columns:1fr;padding-top:38px}.product-detail-hero{padding:130px 24px 65px}.product-detail-hero>a{margin-bottom:42px}}
 
 .page-transition {
   animation: fadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);

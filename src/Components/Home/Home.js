@@ -6,11 +6,13 @@ import Images from "../../ImageExport";
 import Testimonials from "../Testimonials/Testimonials";
 import FAQ from "../FAQ/FAQ";
 import Process from "../Process/Process";
+import { useContent } from "../../content/ContentProvider";
 import "./Home.css";
 
 const PHRASES = ['Digital Future', 'Success Story', 'Dream Project', 'Next Innovation'];
 
 const Home = () => {
+  const { settings } = useContent();
   const heroRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -177,16 +179,12 @@ const Home = () => {
         <div className="hero-content">
           <div className="hero-text">
             <h1>
-              <span className="static-text">Build Your </span>
-              <span className="highlight typing-text">
-                &nbsp;{typedText}
-              </span>
-              <span className="static-text"> With Us</span>
+              <span className="static-text">{settings.heroTitle || "Build Your "}</span>
             </h1>
-            <p>We help businesses digitalize and transform with cutting-edge solutions including AI/ML. From development to digital transformation, we're launching innovative products to revolutionize industries.</p>
+            <p>{settings.heroBody}</p>
             <div className="hero-buttons">
-              <Link to="/contact" className="btn-primary">Get Started</Link>
-              <Link to="/portfolio" className="btn-secondary">View Portfolio</Link>
+              <Link to={settings.heroPrimaryLink || "/contact"} className="btn-primary">{settings.heroPrimaryLabel || "Get Started"}</Link>
+              <Link to={settings.heroSecondaryLink || "/portfolio"} className="btn-secondary">{settings.heroSecondaryLabel || "View Portfolio"}</Link>
             </div>
           </div>
         </div>

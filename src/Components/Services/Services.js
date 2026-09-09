@@ -1,96 +1,49 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMobile, faLaptopCode, faCloud, faShoppingCart, faDatabase, faPalette } from "@fortawesome/free-solid-svg-icons";
+import { useContent } from "../../content/ContentProvider";
 import "./Services.css";
 
-const Services = () => {
-  const services = [
-    {
-      icon: faMobile,
-      title: "Mobile Development",
-      desc: "Native and cross-platform mobile applications for iOS and Android",
-      features: ["React Native", "Flutter", "iOS/Android Native", "App Store Deployment"]
-    },
-    {
-      icon: faLaptopCode,
-      title: "Web Development",
-      desc: "Modern, responsive web applications built with cutting-edge technologies",
-      features: ["React/Angular/Vue", "Node.js Backend", "Progressive Web Apps", "API Integration"]
-    },
-    {
-      icon: faCloud,
-      title: "AI & Machine Learning",
-      desc: "Intelligent solutions powered by artificial intelligence and machine learning",
-      features: ["Custom AI Models", "Natural Language Processing", "Computer Vision", "Predictive Analytics"]
-    },
-    {
-      icon: faCloud,
-      title: "Digital Transformation",
-      desc: "Help businesses digitalize and modernize their operations",
-      features: ["Process Automation", "Digital Strategy", "Legacy System Modernization", "Cloud Migration"]
-    },
-    {
-      icon: faShoppingCart,
-      title: "E-Commerce",
-      desc: "Complete e-commerce solutions with payment integration",
-      features: ["Custom Platforms", "Payment Gateways", "Inventory Management", "Analytics Dashboard"]
-    },
-    {
-      icon: faDatabase,
-      title: "Product Development",
-      desc: "Innovative SaaS products to revolutionize industries",
-      features: ["The Labour Platform", "VSM (Virtual Store Manager)", "BNPL Flight Booking", "Custom Products"]
-    },
-    {
-      icon: faPalette,
-      title: "UI/UX Design",
-      desc: "Beautiful, intuitive designs that users love",
-      features: ["User Research", "Wireframing", "Prototyping", "Design Systems"]
-    }
-  ];
-
+export default function Services() {
+  const { services } = useContent();
+  const liveServices = services.filter(
+    (service) => service.published !== false,
+  );
   return (
-    <div className="services-page page-transition">
-      <div className="services-hero">
-        <h1>Our Services</h1>
-        <p>Comprehensive digital solutions tailored to your business needs</p>
-      </div>
-
-      <div className="services-content">
+    <main className="services-page page-transition">
+      <header className="services-hero">
+        <span>CAPABILITIES</span>
+        <h1>Designed to move business forward.</h1>
+        <p>
+          Senior thinking and deep product craft, from the first idea to the
+          systems your teams depend on.
+        </p>
+      </header>
+      <section className="services-content">
         <div className="services-grid">
-          {services.map((service, index) => (
-            <div key={index} className="service-card">
-              <div className="service-icon">
-                <FontAwesomeIcon icon={service.icon} />
-              </div>
+          {liveServices.map((service, index) => (
+            <article className="service-card" key={service.id}>
+              <div className="service-icon">0{index + 1}</div>
               <h3>{service.title}</h3>
-              <p>{service.desc}</p>
+              <p>{service.description}</p>
               <ul className="service-features">
-                {service.features.map((feature, idx) => (
-                  <li key={idx}>
-                    {feature.includes("VSM") ? (
-                      <Link to="/products/vsm" style={{ color: "var(--primary)", textDecoration: "none", fontWeight: "600" }}>
-                        {feature} ↗
-                      </Link>
-                    ) : (
-                      feature
-                    )}
-                  </li>
+                {(service.features || []).map((feature) => (
+                  <li key={feature}>{feature}</li>
                 ))}
               </ul>
-            </div>
+            </article>
           ))}
         </div>
-      </div>
-
-      <div className="cta-section">
-        <h2>Ready to Start Your Project?</h2>
-        <p>Let's discuss how we can help bring your ideas to life with our expert team</p>
-        <Link to="/contact" className="cta-btn">Get In Touch</Link>
-      </div>
-    </div>
+      </section>
+      <section className="cta-section">
+        <h2>Ready to build what’s next?</h2>
+        <p>
+          Bring your biggest operational challenge. We’ll bring sharp product
+          thinking.
+        </p>
+        <Link to="/contact" className="cta-btn">
+          Start a conversation →
+        </Link>
+      </section>
+    </main>
   );
-};
-
-export default Services;
+}

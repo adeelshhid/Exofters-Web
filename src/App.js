@@ -12,12 +12,15 @@ import BackToTop from "./Components/BackToTop/BackToTop";
 import NotFound from "./Components/NotFound/NotFound";
 import Products from "./Components/Products/Products";
 import VSM from "./Components/VSM/VSM";
+import Admin from "./Components/Admin/Admin";
+import ProductDetail from "./Components/Products/ProductDetail";
 import emailjs from "@emailjs/browser";
 import "./App.css";
 
 const App = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
+  const isAdmin = location.pathname.startsWith("/admin");
 
   useEffect(() => {
     emailjs.init("_6Td844_fKAwDRtj4");
@@ -30,21 +33,22 @@ const App = () => {
 
   return (
     <>
-      {loading && <Loading />}
-      <NavBar />
+      {loading && !isAdmin && <Loading />}
+      {!isAdmin && <NavBar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/vsm" element={<VSM />} />
+        <Route path="/products/:productId" element={<ProductDetail />} />
         <Route path="/vsm" element={<VSM />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/teams" element={<Teams />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
-      <BackToTop />
+      {!isAdmin && <><Footer /><BackToTop /></>}
     </>
   );
 };

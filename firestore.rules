@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+
+    // Public site content is readable by everyone; only Firebase-authenticated
+    // administrators can publish or remove it.
+    match /products/{id} { allow read: if true; allow write: if signedIn(); }
+    match /portfolio/{id} { allow read: if true; allow write: if signedIn(); }
+    match /services/{id} { allow read: if true; allow write: if signedIn(); }
+    match /site/{id} { allow read: if true; allow write: if signedIn(); }
+    match /inquiries/{id} { allow create: if true; allow read, update, delete: if signedIn(); }
+  }
+}

@@ -1,114 +1,64 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Portfolio.css";
+import { useContent } from "../../content/ContentProvider";
 import Images from "../../ImageExport";
+import "./Portfolio.css";
 
-const Portfolio = () => {
-  const portfolio = [
-    {
-      id: 1,
-      name: "eTraffic",
-      img: Images.etraffic,
-      desc: "Traffic management system for Ministry of Interior - Bahrain",
-      tags: ["Mobile App", "Government", "React Native"]
-    },
-    {
-      id: 2,
-      name: "Feba",
-      img: Images.feba,
-      desc: "Non-denominational Gospel radio broadcasting platform",
-      tags: ["Web Radio", "Streaming", "React"]
-    },
-    {
-      id: 3,
-      name: "Guest",
-      img: Images.guest,
-      desc: "Travel booking platform for flights, hotels, and services",
-      tags: ["Travel", "Booking", "Flutter"]
-    },
-    {
-      id: 4,
-      name: "Ivory",
-      img: Images.ivory,
-      desc: "Fashion e-commerce platform for women's clothing",
-      tags: ["E-commerce", "Fashion", "React"]
-    },
-    {
-      id: 5,
-      name: "iWish",
-      img: Images.iwish,
-      desc: "App for leaving messages to loved ones",
-      tags: ["Social", "Mobile", "iOS/Android"]
-    },
-    {
-      id: 6,
-      name: "Owner's Info",
-      img: Images.ownersinfo,
-      desc: "Lost device tracking and recovery application",
-      tags: ["Security", "Mobile", "GPS"]
-    },
-    {
-      id: 7,
-      name: "Pent House Chat",
-      img: Images.penthouse,
-      desc: "Secure internal team messaging solution",
-      tags: ["Chat", "Enterprise", "Real-time"]
-    },
-    {
-      id: 9,
-      name: "X-Liquidus",
-      img: Images.xliquidus,
-      desc: "Blockchain-based digital asset trading platform",
-      tags: ["Blockchain", "Trading", "Crypto"]
-    },
-    {
-      id: 10,
-      name: "VSM - Virtual Store Manager",
-      img: Images.mainImg,
-      desc: "All-in-one POS, inventory control, customer khata and analytics platform",
-      tags: ["POS & Inventory", "SaaS", "Flagship Product"],
-      link: "/products/vsm"
-    }
-  ];
-
+const fallbackImages = [Images.etraffic, Images.guest, Images.xliquidus];
+export default function Portfolio() {
+  const { portfolio } = useContent();
+  const livePortfolio = portfolio.filter(
+    (project) => project.published !== false,
+  );
   return (
-    <div className="portfolio-page page-transition">
-      <div className="portfolio-hero">
-        <h1>Our Portfolio</h1>
-        <p>Explore our successful projects that have transformed businesses worldwide</p>
-      </div>
-
-      <div className="portfolio-content">
+    <main className="portfolio-page page-transition">
+      <header className="portfolio-hero">
+        <span>SELECTED WORK</span>
+        <h1>Built for the real world.</h1>
+        <p>
+          Digital products where craft, clarity and ambitious engineering move
+          together.
+        </p>
+      </header>
+      <section className="portfolio-content">
         <div className="portfolio-grid">
-          {portfolio.map((project) => (
-            <div key={project.id} className="portfolio-card">
+          {livePortfolio.map((project, index) => (
+            <article className="portfolio-card" key={project.id}>
               <div className="portfolio-image">
-                <img src={project.img} alt={project.name} />
+                <img
+                  src={
+                    project.imageUrl ||
+                    fallbackImages[index % fallbackImages.length]
+                  }
+                  alt={project.title}
+                />
                 <div className="portfolio-overlay">
                   {project.link ? (
-                    <Link to={project.link} className="view-btn" style={{ textDecoration: 'none' }}>
-                      View Product
-                    </Link>
+                    <a className="view-btn" href={project.link}>
+                      View project ↗
+                    </a>
                   ) : (
-                    <button className="view-btn">View Details</button>
+                    <Link className="view-btn" to="/contact">
+                      Discuss a project
+                    </Link>
                   )}
                 </div>
               </div>
               <div className="portfolio-info">
-                <h3>{project.name}</h3>
-                <p>{project.desc}</p>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
                 <div className="portfolio-tags">
-                  {project.tags.map((tag, index) => (
-                    <span key={index} className="tag">{tag}</span>
+                  {(project.tags || []).map((tag) => (
+                    <span className="tag" key={tag}>
+                      {tag}
+                    </span>
                   ))}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
-};
-
-export default Portfolio;
+}
