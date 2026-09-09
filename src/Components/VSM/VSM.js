@@ -211,50 +211,13 @@ const VSM = () => {
 
   return (
     <main className="vsm-product-page page-transition">
-      {/* Sub-header / Product Navigation Bar */}
-      <nav className="vsm-subnav" aria-label="VSM product navigation">
-        <div className="vsm-subnav-container">
-          <div className="vsm-subnav-left">
-            <Link to="/" className="vsm-back-link" title="Return to Exofters homepage">
-              <Icons.BackArrow />
-              <span>Back to Exofters</span>
-            </Link>
-            <div className="vsm-nav-divider" aria-hidden="true"></div>
-            <div className="vsm-brand-pill">
-              <span className="vsm-brand-icon">
-                <Icons.StoreLogo />
-              </span>
-              <div className="vsm-brand-text">
-                <strong>VSM</strong>
-                <small>Virtual Store Manager</small>
-              </div>
-            </div>
-          </div>
-
-          <div className="vsm-subnav-links">
-            <a href="#features" onClick={(e) => scrollToSection("features", e)}>
-              Features
-            </a>
-            <a href="#how-it-works" onClick={(e) => scrollToSection("how-it-works", e)}>
-              How it works
-            </a>
-            <a href="#apps" onClick={(e) => scrollToSection("apps", e)}>
-              Apps
-            </a>
-            <a
-              className="vsm-subnav-cta"
-              href={platformLinks.webAppUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Open Web App</span>
-              <Icons.ArrowUpRight />
-            </a>
-          </div>
-        </div>
-      </nav>
-
       <div className="landing-shell">
+        <div className="vsm-top-breadcrumb">
+          <Link to="/products" className="vsm-breadcrumb-link">
+            <Icons.BackArrow />
+            <span>Back to Products</span>
+          </Link>
+        </div>
         {/* Hero Section */}
         <section className="hero-section" aria-label="Product introduction">
           <div className="hero-copy">
