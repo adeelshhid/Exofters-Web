@@ -9,6 +9,32 @@ import { auth, storage } from "../../lib/firebase";
 import { useContent } from "../../content/ContentProvider";
 import "./Admin.css";
 
+const emptyProductPage = {
+  heroEyebrow: "EXOFTERS / PRODUCT",
+  template: "welcome",
+  renderMode: "structured",
+  customHtml: "",
+  heroTitle: "",
+  heroBody: "",
+  heroImageUrl: "",
+  heroDashboard: { enabled: true, label: "Live workspace", heading: "Your operation at a glance", cards: [{ label: "Sales", value: "48.6k", meta: "↗ 18.4%" }, { label: "Orders", value: "126", meta: "Today" }, { label: "In control", value: "08", meta: "Needs attention" }], chart: [{ label: "Mon", value: "35" }, { label: "Tue", value: "54" }, { label: "Wed", value: "43" }, { label: "Thu", value: "70" }, { label: "Fri", value: "59" }, { label: "Sat", value: "84" }, { label: "Sun", value: "96" }] },
+  accentColor: "#59e7d2",
+  stats: [],
+  overviewTitle: "Made for momentum.",
+  overviewBody: "Explain the operational transformation your product enables.",
+  featureCards: [],
+  steps: [],
+  screenshots: [],
+  industries: [],
+  ctaTitle: "Ready to see what’s possible?",
+  ctaBody: "Talk with our product team about your requirements.",
+  ctaLabel: "Start a conversation",
+  ctaLink: "/contact",
+  appsEyebrow: "TAKE IT WITH YOU",
+  appsTitle: "Your product, wherever work happens.",
+  appsBody: "Connect your team across the browser and the devices they use every day.",
+  apps: [],
+};
 const newItem = {
   products: {
     name: "",
@@ -26,6 +52,7 @@ const newItem = {
     order: 99,
     published: true,
     featured: false,
+    page: emptyProductPage,
   },
   portfolio: {
     title: "",
@@ -54,7 +81,8 @@ const labels = {
 const scrubHtml = (html) =>
   (html || "")
     .replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, "")
-    .replace(/on\w+\s*=\s*(["']).*?\1/gi, "");
+    .replace(/on\w+\s*=\s*(["']).*?\1/gi, "")
+    .replace(/(?:href|src)\s*=\s*(["'])\s*javascript:[\s\S]*?\1/gi, "");
 const makeId = (text) =>
   (text || "content")
     .toLowerCase()
@@ -101,6 +129,7 @@ export default function Admin() {
       id: base.id || makeId(base.name || base.title),
       features: Array.isArray(base.features) ? base.features : [],
       tags: Array.isArray(base.tags) ? base.tags : [],
+      page: { ...emptyProductPage, ...(base.page || {}) },
     });
   };
   const publish = async (event) => {
@@ -504,14 +533,21 @@ function Builder({
             </div>
           )}
           {section === "products" && (
-            <label className="html-field">
-              Product introduction HTML{" "}
-              <span>Scripts and inline handlers are removed on publish.</span>
-              <textarea
-                value={draft.introHtml || ""}
-                onChange={(e) => update("introHtml", e.target.value)}
+            <>
+              <label className="html-field">
+                Product introduction HTML{" "}
+                <span>Scripts and inline handlers are removed on publish.</span>
+                <textarea
+                  value={draft.introHtml || ""}
+                  onChange={(e) => update("introHtml", e.target.value)}
+                />
+              </label>
+              <ProductPageComposer
+                page={draft.page || emptyProductPage}
+                onChange={(page) => update("page", page)}
+                upload={upload}
               />
-            </label>
+            </>
           )}
         </section>
         <aside className="builder-preview">
@@ -532,6 +568,78 @@ function Builder({
       </div>
     </form>
   );
+}
+function ProductPageComposer({ page, onChange, upload }) {
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
+  const update = (field, value) => onChange({ ...emptyProductPage, ...page, [field]: value });
+  const parsePairs = (value) => value.split("\n").map(line => line.trim()).filter(Boolean).map(line => {
+    const [title, ...rest] = line.split("|");
+    return { title: title.trim(), description: rest.join("|").trim() };
+  });
+  const parseTriples = (value) => value.split("\n").map(line => line.trim()).filter(Boolean).map(line => { const [label, value, meta] = line.split("|"); return { label: (label || "").trim(), value: (value || "").trim(), meta: (meta || "").trim() }; });
+  const pairsToText = (values) => (values || []).map(item => `${item.title || ""} | ${item.description || ""}`).join("\n");
+  const uploadImage = async event => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setUploading(true); setUploadError("");
+    try { update("heroImageUrl", await upload(file)); }
+    catch { setUploadError("Hero image upload failed. Check Firebase Storage rules."); }
+    finally { setUploading(false); }
+  };
+  return <details className="page-composer" open>
+    <summary><span>RESPONSIVE PRODUCT PAGE</span><strong>Build page sections</strong><em>Structured, responsive and live in preview</em></summary>
+    <div className="composer-content">
+      <div className="template-picker"><div><span>PAGE TEMPLATE</span><strong>Choose the product-story direction</strong></div><label>Template<select value={page.template || "welcome"} onChange={e => update("template", e.target.value)}><option value="welcome">Welcome — VSM-style clarity</option><option value="studio">Studio — enterprise glass</option><option value="launch">Launch — high-contrast product reveal</option></select></label><label>Rendering mode<select value={page.renderMode || "structured"} onChange={e => update("renderMode", e.target.value)}><option value="structured">Structured builder</option><option value="html">Custom HTML page</option></select></label></div>
+      {page.renderMode === "html" && <label className="html-field custom-html-field">Complete details page HTML <span>Optional full-page override. Scripts, event handlers, and javascript URLs are removed before publish. Your structured page remains saved as a fallback.</span><textarea value={page.customHtml || ""} onChange={e => update("customHtml", e.target.value)} placeholder="<section class='hero'>...</section>" /></label>}
+      <div className="composer-heading"><span>01 / HERO</span><p>Build the first screen without touching code.</p></div>
+      <div className="editor-grid">
+        <Field label="Hero eyebrow" value={page.heroEyebrow} onChange={value => update("heroEyebrow", value)} />
+        <label>Accent color<input type="color" value={page.accentColor || "#59e7d2"} onChange={e => update("accentColor", e.target.value)} /></label>
+        <Field wide label="Hero headline" textarea value={page.heroTitle} onChange={value => update("heroTitle", value)} />
+        <Field wide label="Hero description" textarea value={page.heroBody} onChange={value => update("heroBody", value)} />
+      </div>
+      <div className="media-control"><label>Hero visual<input type="file" accept="image/*" onChange={uploadImage}/></label><span>{uploading ? "Uploading to Firebase Storage…" : uploadError || "Upload a product visual or paste an image URL."}</span><Field label="Hero image URL" value={page.heroImageUrl} onChange={value => update("heroImageUrl", value)} /></div>
+      <div className="dashboard-composer"><div className="composer-heading"><span>01B / LIVE DASHBOARD HERO</span><p>Use a responsive VSM-style product dashboard when you do not have a hero visual.</p></div><label className="publish-switch"><input type="checkbox" checked={page.heroDashboard?.enabled !== false} onChange={e => update("heroDashboard", { ...(page.heroDashboard || {}), enabled: e.target.checked })}/><span>Show dashboard simulation</span></label><div className="editor-grid"><Field label="Dashboard label" value={page.heroDashboard?.label} onChange={value => update("heroDashboard", { ...(page.heroDashboard || {}), label: value })}/><Field label="Dashboard heading" value={page.heroDashboard?.heading} onChange={value => update("heroDashboard", { ...(page.heroDashboard || {}), heading: value })}/><Field wide label="Dashboard cards — one per line: Label | Value | Detail" textarea value={(page.heroDashboard?.cards || []).map(card => `${card.label || ""} | ${card.value || ""} | ${card.meta || ""}`).join("\n")} onChange={value => update("heroDashboard", { ...(page.heroDashboard || {}), cards: parseTriples(value) })}/><Field wide label="Chart bars — one per line: Label | Height (0–100)" textarea value={(page.heroDashboard?.chart || []).map(bar => `${bar.label || ""} | ${bar.value || ""}`).join("\n")} onChange={value => update("heroDashboard", { ...(page.heroDashboard || {}), chart: parseTriples(value).map(bar => ({ label: bar.label, value: bar.value })) })}/></div></div>
+      <div className="composer-heading"><span>02 / PROOF & OVERVIEW</span><p>Add outcome-oriented metrics and positioning.</p></div>
+      <div className="editor-grid">
+        <Field wide label="Impact metrics — one per line: Value | Label" textarea value={pairsToText(page.stats)} onChange={value => update("stats", parsePairs(value))} />
+        <Field label="Overview heading" value={page.overviewTitle} onChange={value => update("overviewTitle", value)} />
+        <Field label="Industries — one per line" textarea value={(page.industries || []).join("\n")} onChange={value => update("industries", value.split("\n").map(item => item.trim()).filter(Boolean))} />
+        <Field wide label="Overview copy" textarea value={page.overviewBody} onChange={value => update("overviewBody", value)} />
+      </div>
+      <div className="composer-heading"><span>03 / CAPABILITIES & WORKFLOW</span><p>Compose cards and implementation steps. Use: Title | Description.</p></div>
+      <div className="editor-grid">
+        <Field wide label="Capability cards — one per line" textarea value={pairsToText(page.featureCards)} onChange={value => update("featureCards", parsePairs(value))} />
+        <Field wide label="Workflow steps — one per line" textarea value={pairsToText(page.steps)} onChange={value => update("steps", parsePairs(value))} />
+      </div>
+      <ScreenshotManager screenshots={page.screenshots || []} onChange={value => update("screenshots", value)} upload={upload} />
+      <AppDistributionManager page={page} onChange={onChange} />
+      <div className="composer-heading"><span>05 / FINAL CTA</span><p>Close with a clear next action.</p></div>
+      <div className="editor-grid">
+        <Field label="CTA heading" value={page.ctaTitle} onChange={value => update("ctaTitle", value)} />
+        <Field label="CTA label" value={page.ctaLabel} onChange={value => update("ctaLabel", value)} />
+        <Field wide label="CTA description" textarea value={page.ctaBody} onChange={value => update("ctaBody", value)} />
+        <Field label="CTA link" value={page.ctaLink} onChange={value => update("ctaLink", value)} />
+      </div>
+    </div>
+  </details>;
+}
+function AppDistributionManager({ page, onChange }) {
+  const update = (field, value) => onChange({ ...emptyProductPage, ...page, [field]: value });
+  const apps = page.apps || [];
+  const updateApp = (index, field, value) => update("apps", apps.map((app, current) => current === index ? { ...app, [field]: value } : app));
+  const add = type => update("apps", [...apps, { id: `app-${Date.now()}`, type, label: type === "android" ? "Google Play" : type === "ios" ? "App Store" : "Web app", description: "Available wherever work happens.", url: "", enabled: true }]);
+  return <section className="app-distribution"><div className="composer-heading"><span>05 / APPS & PLATFORMS</span><p>Create VSM-style download cards for web, Android, iOS, or any platform.</p></div><div className="editor-grid"><Field wide label="Apps eyebrow" value={page.appsEyebrow} onChange={value => update("appsEyebrow", value)}/><Field label="Apps heading" value={page.appsTitle} onChange={value => update("appsTitle", value)}/><Field label="Apps description" textarea value={page.appsBody} onChange={value => update("appsBody", value)}/></div><div className="screenshot-actions"><button type="button" onClick={() => add("web")}>+ Web app</button><button type="button" onClick={() => add("android")}>+ Android app</button><button type="button" onClick={() => add("ios")}>+ iOS app</button></div>{apps.map((app, index) => <div className="platform-card-editor" key={app.id || index}><select value={app.type} onChange={e => updateApp(index, "type", e.target.value)}><option value="web">Web app</option><option value="android">Android</option><option value="ios">iOS</option></select><Field label="Card title" value={app.label} onChange={value => updateApp(index, "label", value)}/><Field label="Card detail" value={app.description} onChange={value => updateApp(index, "description", value)}/><Field label="Platform URL" value={app.url} onChange={value => updateApp(index, "url", value)}/><label className="publish-switch"><input type="checkbox" checked={app.enabled !== false} onChange={e => updateApp(index, "enabled", e.target.checked)}/><span>{app.enabled !== false ? "Available" : "Coming soon"}</span></label><button type="button" onClick={() => update("apps", apps.filter((_, current) => current !== index))}>Remove</button></div>)}</section>;
+}
+function ScreenshotManager({ screenshots, onChange, upload }) {
+  const [uploading, setUploading] = useState("");
+  const [error, setError] = useState("");
+  const add = device => onChange([...screenshots, { id: `screen-${Date.now()}`, device, title: device === "mobile" ? "A considered mobile moment" : "A workspace built for focus", description: "Describe what this screen helps people accomplish.", imageUrl: "" }]);
+  const update = (index, field, value) => onChange(screenshots.map((shot, current) => current === index ? { ...shot, [field]: value } : shot));
+  const remove = index => onChange(screenshots.filter((_, current) => current !== index));
+  const uploadImage = async (event, index) => { const file = event.target.files?.[0]; if (!file) return; setUploading(screenshots[index].id); setError(""); try { update(index, "imageUrl", await upload(file)); } catch { setError("Screenshot upload failed. Check Firebase Storage rules."); } finally { setUploading(""); } };
+  return <section className="screenshot-manager"><div className="composer-heading"><span>04 / PRODUCT GALLERY</span><p>Show the real product on desktop and mobile. Every screenshot gets its own explanatory detail.</p></div><div className="screenshot-actions"><button type="button" onClick={() => add("desktop")}>+ Add desktop screenshot</button><button type="button" onClick={() => add("mobile")}>+ Add mobile screenshot</button></div>{error && <p className="screenshot-error">{error}</p>}{screenshots.length === 0 ? <div className="screenshot-empty">No screenshots yet. Add desktop dashboards, mobile views, or key workflows to make the product story tangible.</div> : <div className="screenshot-edit-list">{screenshots.map((shot, index) => <article key={shot.id || index} className="screenshot-edit-card"><div className="screenshot-edit-head"><span>{shot.device === "mobile" ? "MOBILE APP" : "DESKTOP APP"}</span><button type="button" onClick={() => remove(index)}>Remove</button></div><div className="editor-grid"><Field label="Screen title" value={shot.title} onChange={value => update(index, "title", value)}/><label>Device type<select value={shot.device} onChange={e => update(index, "device", e.target.value)}><option value="desktop">Desktop app</option><option value="mobile">Mobile app</option></select></label><Field wide label="What this screen does" textarea value={shot.description} onChange={value => update(index, "description", value)}/><Field wide label="Screenshot image URL" value={shot.imageUrl} onChange={value => update(index, "imageUrl", value)}/></div><label className="screenshot-upload">Upload screenshot<input type="file" accept="image/png,image/jpeg,image/webp" onChange={event => uploadImage(event, index)}/><span>{uploading === shot.id ? "Uploading to Firebase Storage…" : shot.imageUrl ? "Screenshot ready" : "PNG, JPG, or WebP"}</span></label>{shot.imageUrl && <img src={shot.imageUrl} alt="Screenshot preview" />}</article>)}</div>}</section>;
 }
 function SettingsBuilder({ draft, setDraft, publish, publishing, cancel }) {
   const update = (field, value) =>
@@ -664,21 +772,7 @@ function Preview({ section, draft }) {
       </article>
     );
   if (section === "products")
-    return (
-      <article className="product-preview-card">
-        <span>{draft.badge || "PRODUCT"}</span>
-        <h2>{draft.name || "Your product"}</h2>
-        <h3>{draft.tagline || "A compelling product tagline"}</h3>
-        <p>{draft.description || "Explain why this product matters."}</p>
-        <div
-          className="preview-html"
-          dangerouslySetInnerHTML={{ __html: scrubHtml(draft.introHtml) }}
-        />
-        <button type="button">
-          {draft.primaryText || "Explore product"} →
-        </button>
-      </article>
-    );
+    return <ProductFullPreview draft={draft} />;
   return (
     <article className="product-preview-card">
       <span>SERVICE</span>
@@ -686,4 +780,10 @@ function Preview({ section, draft }) {
       <p>{draft.description || "A clear service proposition."}</p>
     </article>
   );
+}
+function ProductFullPreview({ draft }) {
+  const page = draft.page || {};
+  if (page.renderMode === "html" && page.customHtml) return <div className="full-page-preview html-mode-preview" dangerouslySetInnerHTML={{ __html: scrubHtml(page.customHtml) }} />;
+  const features = page.featureCards?.length ? page.featureCards : (draft.features || []).map(title => ({ title, description: "Product capability" }));
+  return <div className={`full-page-preview preview-template-${page.template || "welcome"}`}><header><b>{draft.name || "PRODUCT"}</b><span>Features&nbsp;&nbsp; Apps</span><i>Preview</i></header><section className="full-preview-hero"><div><small>{page.heroEyebrow || draft.badge || "EXOFTERS PRODUCT"}</small><h2>{page.heroTitle || draft.name || "Your product"}</h2><p>{page.heroBody || draft.description || "Build the story your visitors need to see."}</p><button type="button">{draft.primaryText || "Explore product"} →</button></div>{page.heroImageUrl ? <img src={page.heroImageUrl} alt="Hero preview"/> : <div className="full-preview-dashboard"><span>● {page.heroDashboard?.label || "Live workspace"}</span><strong>{page.heroDashboard?.heading || "Your operation at a glance"}</strong><div>{(page.heroDashboard?.cards || []).slice(0,3).map((card,index)=><i key={index}><small>{card.label}</small><b>{card.value}</b></i>)}</div></div>}</section>{(page.stats || []).length > 0 && <section className="full-preview-stats">{page.stats.slice(0,3).map((stat,index)=><span key={index}><b>{stat.title}</b><small>{stat.description}</small></span>)}</section>}<section className="full-preview-section"><small>EVERYTHING CONNECTED</small><h3>{page.overviewTitle || "A more capable way forward."}</h3><div className="full-preview-feature-grid">{features.slice(0,3).map((feature,index)=><article key={index}><i>0{index+1}</i><b>{feature.title}</b><p>{feature.description}</p></article>)}</div></section>{(page.screenshots || []).filter(shot=>shot.imageUrl).length > 0 && <section className="full-preview-shots">{page.screenshots.filter(shot=>shot.imageUrl).slice(0,3).map((shot,index)=><img key={index} src={shot.imageUrl} alt="Screen preview"/>)}</section>}<footer><small>{page.ctaTitle || "Ready to see what’s possible?"}</small><button type="button">{page.ctaLabel || "Start a conversation"}</button></footer></div>;
 }
