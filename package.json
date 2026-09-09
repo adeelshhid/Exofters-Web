@@ -24,7 +24,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "firebase:rules": "npx firebase deploy --only firestore:rules --project exofters",
+    "firebase:indexes": "npx firebase deploy --only firestore:indexes --project exofters",
+    "firebase:storage-rules": "npx firebase deploy --only storage --project exofters",
+    "firebase:config": "npx firebase deploy --only firestore:rules,firestore:indexes,storage --project exofters"
   },
   "eslintConfig": {
     "extends": [

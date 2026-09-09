@@ -16,8 +16,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-// Firebase targets `(default)` unless a named database is configured. Set this
-// only when the Firestore console shows a non-default Database ID.
-const databaseId = process.env.REACT_APP_FIRESTORE_DATABASE_ID;
-export const db = databaseId ? getFirestore(app, databaseId) : getFirestore(app);
+// The Exofters project was provisioned with a named `default` database (rather
+// than Firebase's conventional `(default)` database). An environment override
+// keeps the integration portable for staging or future projects.
+const databaseId = process.env.REACT_APP_FIRESTORE_DATABASE_ID || "default";
+export const db = getFirestore(app, databaseId);
 export const storage = getStorage(app);

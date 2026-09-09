@@ -4,7 +4,7 @@ The website is connected to the provided `exofters` Firebase project and runs wi
 
 ## Database selection
 
-The app targets Firebase's standard `(default)` database. If the Firestore console for `exofters` shows a different **Database ID**, create a local `.env` file from [`.env.example`](./.env.example), set `REACT_APP_FIRESTORE_DATABASE_ID` to that exact ID, and restart or rebuild the React app. Do not put `(default)` in this variable; leave it blank.
+This Firebase project uses the named `default` Firestore database, and the app targets it automatically. If a future environment uses a different **Database ID**, create a local `.env` file from [`.env.example`](./.env.example), set `REACT_APP_FIRESTORE_DATABASE_ID` to that exact ID, and restart or rebuild the React app.
 
 1. In Firebase Console, enable **Authentication → Email/Password** and create the administrator account you will use at `/admin`.
 2. Create a **Cloud Firestore** database. In its Rules tab, paste and publish the contents of [`firestore.rules`](./firestore.rules).
