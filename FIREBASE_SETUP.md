@@ -2,6 +2,10 @@
 
 The website is connected to the provided `exofters` Firebase project and runs with useful on-screen defaults until Firestore contains content.
 
+## Database selection
+
+The app targets Firebase's standard `(default)` database. If the Firestore console for `exofters` shows a different **Database ID**, create a local `.env` file from [`.env.example`](./.env.example), set `REACT_APP_FIRESTORE_DATABASE_ID` to that exact ID, and restart or rebuild the React app. Do not put `(default)` in this variable; leave it blank.
+
 1. In Firebase Console, enable **Authentication → Email/Password** and create the administrator account you will use at `/admin`.
 2. Create a **Cloud Firestore** database. In its Rules tab, paste and publish the contents of [`firestore.rules`](./firestore.rules).
 3. Enable **Firebase Storage**. In its Rules tab, paste and publish [`storage.rules`](./storage.rules), enabling authenticated administrators to upload portfolio images up to 10 MB.

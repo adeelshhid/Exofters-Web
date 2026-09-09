@@ -16,5 +16,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = getFirestore(app);
+// Firebase targets `(default)` unless a named database is configured. Set this
+// only when the Firestore console shows a non-default Database ID.
+const databaseId = process.env.REACT_APP_FIRESTORE_DATABASE_ID;
+export const db = databaseId ? getFirestore(app, databaseId) : getFirestore(app);
 export const storage = getStorage(app);
