@@ -33,6 +33,7 @@ const App = () => {
 
   return (
     <>
+      <MotionSystem locationKey={location.pathname} />
       {loading && !isAdmin && <Loading />}
       {!isAdmin && <NavBar />}
       <Routes>
@@ -51,5 +52,20 @@ const App = () => {
     </>
   );
 };
+
+function MotionSystem({ locationKey }) {
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+    const targets = Array.from(document.querySelectorAll("main section, .section, .footer-content, .footer-bottom"))
+      .filter(node => !node.classList.contains("dynamic-product-hero"));
+    targets.forEach(node => node.classList.add("site-reveal"));
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("site-revealed"); observer.unobserve(entry.target); } });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px" });
+    targets.forEach(node => observer.observe(node));
+    return () => observer.disconnect();
+  }, [locationKey]);
+  return null;
+}
 
 export default App;
