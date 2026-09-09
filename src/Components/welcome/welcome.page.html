@@ -1,0 +1,65 @@
+<ion-content [fullscreen]="true" class="welcome-page">
+  <div class="landing-shell">
+    <header class="site-header">
+      <a class="brand" [href]="links.websiteUrl" aria-label="VSM home">
+        <span class="brand-mark"><img src="assets/logo.png" alt="VSM logo"></span>
+        <span>
+          <strong>VSM</strong>
+          <small>Virtual Store Manager</small>
+        </span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#features" (click)="scrollToSection('features', $event)">Features</a>
+        <a href="#how-it-works" (click)="scrollToSection('how-it-works', $event)">How it works</a>
+        <a class="header-cta" [href]="links.webAppUrl" target="_blank" rel="noopener">Open web app</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="hero-copy">
+          <span class="eyebrow"><ion-icon name="sparkles-outline"></ion-icon> Built for businesses that are going places</span>
+          <h1>Run your store with clarity. <em>Grow with confidence.</em></h1>
+          <p class="hero-lead">VSM brings your stock, sales, customers, suppliers and business performance together in one simple platform.</p>
+          <div class="hero-actions">
+            <a class="primary-button" [href]="links.webAppUrl" target="_blank" rel="noopener">
+              Start on the web <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+            <a class="text-button" href="#apps">Explore apps <ion-icon name="chevron-down-outline"></ion-icon></a>
+          </div>
+          <div class="hero-note"><ion-icon name="shield-checkmark-outline"></ion-icon> Simple to start · Ready for everyday business</div>
+        </div>
+        <div class="hero-visual" aria-label="VSM business dashboard preview">
+          <div class="visual-glow"></div>
+          <div class="dashboard-card main-card">
+            <div class="dashboard-topline"><span class="live-dot"></span> Business overview <ion-icon name="ellipsis-horizontal-outline"></ion-icon></div>
+            <div class="dashboard-title-row"><div><small>Good morning</small><strong>Your store at a glance</strong></div><span class="date-pill">Today</span></div>
+            <div class="stat-grid">
+              <div class="stat-box"><span>Sales</span><strong>PKR 48.6k</strong><small class="positive">↗ 18.4%</small></div>
+              <div class="stat-box"><span>Orders</span><strong>126</strong><small class="positive">↗ 12.8%</small></div>
+              <div class="stat-box"><span>Low stock</span><strong>08</strong><small class="warning">Needs attention</small></div>
+            </div>
+            <div class="chart-area"><div class="chart-label"><span>Sales activity</span><small>Last 7 days</small></div><div class="chart-bars"><i style="height: 35%"></i><i style="height: 52%"></i><i style="height: 42%"></i><i style="height: 68%"></i><i style="height: 57%"></i><i style="height: 82%"></i><i class="active" style="height: 94%"></i></div></div>
+          </div>
+          <div class="floating-card inventory-card"><span class="floating-icon green"><ion-icon name="checkmark-outline"></ion-icon></span><span><small>Inventory status</small><strong>Everything in control</strong></span></div>
+          <div class="floating-card customers-card"><span class="floating-icon purple"><ion-icon name="people-outline"></ion-icon></span><span><small>Customers served</small><strong>1,284 this month</strong></span></div>
+        </div>
+      </section>
+
+      <section class="trust-strip"><span>One platform for your whole business</span><div><strong>Retail</strong><strong>Wholesale</strong><strong>Pharmacy</strong><strong>Agro-vet</strong><strong>Everyday trade</strong></div></section>
+
+      <section id="features" class="section-block">
+        <div class="section-heading"><span class="eyebrow">Everything connected</span><h2>The calm, capable way to manage business.</h2><p>Less time searching through notebooks. More time serving customers and building what comes next.</p></div>
+        <div class="feature-grid">@for (feature of features; track feature.title) {<article class="feature-card"><span class="feature-icon"><ion-icon [name]="feature.icon"></ion-icon></span><h3>{{ feature.title }}</h3><p>{{ feature.description }}</p><a [href]="links.webAppUrl" target="_blank" rel="noopener">Learn more <ion-icon name="arrow-forward-outline"></ion-icon></a></article>}</div>
+      </section>
+
+      <section id="how-it-works" class="process-section"><div class="section-heading"><span class="eyebrow">A better business day</span><h2>From first sale to lasting growth.</h2></div><div class="steps-grid">@for (step of steps; track step.number) {<div class="step"><span>{{ step.number }}</span><h3>{{ step.title }}</h3><p>{{ step.description }}</p></div>}</div></section>
+
+      <section id="apps" class="apps-section"><div class="apps-copy"><span class="eyebrow">Take VSM with you</span><h2>Your business, wherever the day takes you.</h2><p>Use VSM from your browser or choose the mobile experience that fits your workflow. Everything stays connected.</p><a class="primary-button" [href]="links.webAppUrl" target="_blank" rel="noopener">Open web app <ion-icon name="arrow-forward-outline"></ion-icon></a></div><div class="download-cards"><a class="download-card" [class.disabled-card]="!links.androidAppUrl" [attr.href]="links.androidAppUrl || null" [attr.target]="links.androidAppUrl ? '_blank' : null" rel="noopener"><span class="store-icon android"><ion-icon name="logo-android"></ion-icon></span><span><small>Get it on</small><strong>Aptoide Store</strong></span><ion-icon name="arrow-up-right-outline"></ion-icon></a><a class="download-card" [class.disabled-card]="!links.iosAppUrl" [attr.href]="links.iosAppUrl || null" [attr.target]="links.iosAppUrl ? '_blank' : null" rel="noopener"><span class="store-icon apple"><ion-icon name="logo-apple"></ion-icon></span><span><small>Download on the</small><strong>App Store</strong></span><ion-icon name="arrow-up-right-outline"></ion-icon></a><a class="download-card" [href]="links.websiteUrl" target="_blank" rel="noopener"><span class="store-icon web"><ion-icon name="globe-outline"></ion-icon></span><span><small>Visit the</small><strong>VSM Website</strong></span><ion-icon name="arrow-up-right-outline"></ion-icon></a></div></section>
+
+      <section class="final-cta"><div><span class="eyebrow">Your next chapter starts here</span><h2>Make every business decision count.</h2></div><a class="primary-button light-button" [href]="links.webAppUrl" target="_blank" rel="noopener">Get started with VSM <ion-icon name="arrow-forward-outline"></ion-icon></a></section>
+    </main>
+
+    <footer class="site-footer"><div class="brand footer-brand"><span class="brand-mark"><img src="assets/logo.png" alt="VSM logo"></span><span><strong>VSM</strong><small>Virtual Store Manager</small></span></div><p>Built to help businesses run better, every day.</p><div class="footer-links"><a [href]="links.websiteUrl" target="_blank" rel="noopener">Website</a><a [href]="links.webAppUrl" target="_blank" rel="noopener">Web app</a></div><small>© {{ 2026 }} VSM. All rights reserved.</small></footer>
+  </div>
+</ion-content>

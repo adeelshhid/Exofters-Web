@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - VSM (Virtual Store Manager)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=SF+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --primary-light: #eff6ff;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --success: #158466;
+      --success-light: #ecfdf5;
+      --amber: #b7791f;
+      --amber-light: #fffbeb;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 4px 14px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f6f8fb;
+      color: var(--slate-800);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1d4ed8 100%);
+      color: #ffffff;
+      padding: 60px 24px 50px;
+      text-align: center;
+      position: relative;
+    }
+
+    .brand-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.825rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .header-sub {
+      font-size: 1.1rem;
+      color: var(--slate-300);
+      max-width: 650px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    .meta-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 24px;
+      font-size: 0.875rem;
+      color: var(--slate-300);
+    }
+
+    .meta-bar span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .meta-pill {
+      background: rgba(59, 130, 246, 0.25);
+      border: 1px solid rgba(147, 197, 253, 0.3);
+      padding: 2px 10px;
+      border-radius: 6px;
+      color: #bfdbfe;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: -24px auto 60px;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .content-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 44px 48px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--slate-200);
+    }
+
+    @media (max-width: 768px) {
+      .content-card {
+        padding: 28px 20px;
+      }
+    }
+
+    /* Table of Contents */
+    .toc {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 36px;
+    }
+
+    .toc h3 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--slate-500);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .toc-grid li a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-grid li a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--slate-900);
+      margin-top: 40px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--slate-100);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 .num {
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--slate-800);
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 0.965rem;
+      color: var(--slate-700);
+    }
+
+    ul, ol {
+      margin: 14px 0 20px 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: var(--slate-700);
+    }
+
+    li strong {
+      color: var(--slate-900);
+    }
+
+    /* Callout & Highlights */
+    .callout {
+      padding: 20px 24px;
+      border-radius: var(--radius-md);
+      margin: 24px 0;
+      font-size: 0.94rem;
+    }
+
+    .callout-info {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      color: #1e3a8a;
+    }
+
+    .callout-success {
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
+      color: #064e3b;
+    }
+
+    .callout-warning {
+      background: var(--amber-light);
+      border-left: 4px solid var(--amber);
+      color: #78350f;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Data Safety Table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.9rem;
+    }
+
+    .data-table th, .data-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border: 1px solid var(--slate-200);
+    }
+
+    .data-table th {
+      background: var(--slate-50);
+      color: var(--slate-900);
+      font-weight: 600;
+    }
+
+    .data-table tr:nth-child(even) {
+      background: #fafcff;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-green { background: #d1fae5; color: #065f46; }
+    .badge-amber { background: #fef3c7; color: #92400e; }
+
+    /* Contact Card */
+    .contact-card {
+      background: linear-gradient(135deg, var(--slate-900) 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 32px;
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    .contact-card h3 {
+      color: #ffffff;
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    .contact-card p {
+      color: var(--slate-300);
+      font-size: 0.95rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.15s ease;
+    }
+
+    .contact-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .contact-btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 36px 20px;
+      color: var(--slate-500);
+      font-size: 0.875rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-tag">Exofters (Pvt) Ltd</div>
+    <h1>Privacy Policy</h1>
+    <p class="header-sub">VSM – Virtual Store Manager for Point of Sale, Inventory, Customer Khata & Business Management</p>
+    <div class="meta-bar">
+      <span><strong>Effective Date:</strong> March 1, 2026</span>
+      <span>•</span>
+      <span><strong>Last Updated:</strong> March 1, 2026</span>
+      <span>•</span>
+      <span class="meta-pill">Google Play & App Store Compliant</span>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="content-card">
+
+      <div class="callout callout-success">
+        <div class="callout-title">🔒 Our Core Privacy Commitment</div>
+        <strong>VSM (Virtual Store Manager)</strong> is built to empower small, medium, and growing businesses. <strong>We do NOT sell, rent, monetize, or share your business data, product catalogs, customer records, or financial numbers with any advertisers or third-party brokers.</strong> Your store data belongs entirely to you.
+      </div>
+
+      <!-- Quick Navigation -->
+      <nav class="toc" aria-label="Table of Contents">
+        <h3>Contents</h3>
+        <ul class="toc-grid">
+          <li><a href="#overview">1. Overview & Scope</a></li>
+          <li><a href="#data-collection">2. Information We Collect</a></li>
+          <li><a href="#device-permissions">3. Device Permissions & Usage</a></li>
+          <li><a href="#data-use">4. How We Use Information</a></li>
+          <li><a href="#data-storage">5. Storage, Security & Firebase</a></li>
+          <li><a href="#third-parties">6. Third-Party Services</a></li>
+          <li><a href="#data-rights">7. Your Rights & Data Portability</a></li>
+          <li><a href="#account-deletion">8. Account & Data Deletion</a></li>
+          <li><a href="#retention">9. Data Retention Policy</a></li>
+          <li><a href="#children">10. Children's Privacy</a></li>
+          <li><a href="#changes">11. Changes to This Policy</a></li>
+          <li><a href="#contact">12. Contact & Grievance Officer</a></li>
+        </ul>
+      </nav>
+
+      <!-- 1. Overview -->
+      <section id="overview">
+        <h2><span class="num">1.</span> Overview & Scope</h2>
+        <p>This Privacy Policy applies to the <strong>VSM - Virtual Store Manager</strong> mobile application (Android package: <code>com.exofters.vetmate</code>), web application, and related services operated by <strong>Exofters (Pvt) Ltd</strong> ("we", "us", or "our").</p>
+        <p>VSM is a Point of Sale (POS), inventory tracking, digital billing, customer credit (Khata), supplier management, and business accounting tool designed for diverse commercial setups, including but not limited to:</p>
+        <ul>
+          <li>Pharmacies & Medical Stores</li>
+          <li>Supermarkets, Grocery & Karyana Stores</li>
+          <li>Mobile Phones, Electronics & Computer Repair Shops</li>
+          <li>Fertilizers, Pesticides, Seeds & Agro-Vet Supply Stores</li>
+          <li>Garments, Shoes & Fashion Boutiques</li>
+          <li>Hardware, Sanitary & Auto Spare Parts Dealers</li>
+          <li>Cafes, Restaurants & Food Counters</li>
+          <li>Wholesale & Distribution Centers</li>
+        </ul>
+      </section>
+
+      <!-- 2. Information We Collect -->
+      <section id="data-collection">
+        <h2><span class="num">2.</span> Information We Collect</h2>
+        <p>We collect only the information necessary to provide seamless point-of-sale operations, cloud synchronization, invoice printing, and inventory analytics:</p>
+
+        <h3>A. Account & Profile Information</h3>
+        <ul>
+          <li><strong>Store Owner Information:</strong> Full name, business/store name, email address, contact telephone number, physical store address, and currency/tax preferences.</li>
+          <li><strong>Staff & Cashier Accounts:</strong> Assigned staff names, email credentials, and administrative role permissions (e.g., Cashier, Store Admin).</li>
+          <li><strong>Authentication Credentials:</strong> Secure hashed credentials managed via Google Firebase Authentication.</li>
+        </ul>
+
+        <h3>B. Commercial & Operational Data (Customer & Store Records)</h3>
+        <ul>
+          <li><strong>Inventory & Product Catalog:</strong> Item names, SKU/barcodes, formula/generic names, categories, purchase cost, retail/selling price, current stock count, batch numbers, manufacturing/expiry dates, and item photos.</li>
+          <li><strong>Sales & Digital Receipts:</strong> Invoice numbers, itemized line items, payment methods (Cash, Card, Digital, Credit/Udhaar), date/time stamps, discounts applied, and tax calculations.</li>
+          <li><strong>Customer Ledger (Khata / Credit):</strong> Customer name, phone number, address, unpaid credit balances, payment logs, and receipt history.</li>
+          <li><strong>Supplier Records & Purchase Orders:</strong> Supplier names, contact numbers, outstanding balances, received inventory bills, and payment records.</li>
+          <li><strong>Operating Expenses:</strong> Business expense categories (rent, utilities, salaries, transport) and daily petty cash notes recorded by the user.</li>
+        </ul>
+
+        <h3>C. Device & Technical Diagnostics</h3>
+        <ul>
+          <li><strong>Diagnostic Data:</strong> App version, operating system release, crash logs, and anonymized performance metrics to help us troubleshoot technical glitches and optimize UI rendering.</li>
+        </ul>
+      </section>
+
+      <!-- 3. Device Permissions & Usage -->
+      <section id="device-permissions">
+        <h2><span class="num">3.</span> Device Permissions & Purpose</h2>
+        <p>To deliver advanced Point of Sale capabilities, VSM requests specific operating system permissions. We adhere strictly to the principle of least privilege:</p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Android Permission</th>
+              <th>Category</th>
+              <th>Specific Purpose in VSM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>CAMERA</code></td>
+              <td><span class="badge badge-blue">Hardware</span></td>
+              <td>Enables the built-in barcode and QR scanner for rapid checkout and product lookup, and allows snapping photos of inventory items. The camera is never accessed in the background or without explicit user initiation.</td>
+            </tr>
+            <tr>
+              <td><code>BLUETOOTH / BLUETOOTH_CONNECT</code></td>
+              <td><span class="badge badge-blue">Connectivity</span></td>
+              <td>Enables discovery and communication with wireless ESC/POS thermal receipt printers (58mm / 80mm) to print customer sales invoices.</td>
+            </tr>
+            <tr>
+              <td><code>READ / WRITE STORAGE</code></td>
+              <td><span class="badge badge-blue">Files & Media</span></td>
+              <td>Allows downloading and saving generated PDF receipts, sales invoices, Excel balance sheets, and inventory backup files to your local device storage.</td>
+            </tr>
+            <tr>
+              <td><code>POST_NOTIFICATIONS</code></td>
+              <td><span class="badge badge-amber">Alerts</span></td>
+              <td>Delivers timely notifications regarding low inventory quantities, upcoming product expiry dates, and essential account security notices.</td>
+            </tr>
+            <tr>
+              <td><code>BACKGROUND_RUNNER / WAKE_LOCK</code></td>
+              <td><span class="badge badge-amber">Automation</span></td>
+              <td>Runs periodic on-device background evaluations (every 15–30 minutes) to verify if any product has fallen below its low-stock threshold, notifying store staff before stock runs out.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 4. How We Use Information -->
+      <section id="data-use">
+        <h2><span class="num">4.</span> How We Use Your Information</h2>
+        <p>Your data is processed strictly for legitimate operational purposes:</p>
+        <ul>
+          <li><strong>Point of Sale Execution:</strong> Calculating cart totals, applying discounts, updating inventory balances in real time, and generating print-ready receipts.</li>
+          <li><strong>Real-time Cloud Sync:</strong> Synchronizing data between your smartphone, tablet, desktop browser, and multi-staff terminals.</li>
+          <li><strong>Financial & Profit Insights:</strong> Generating visual charts depicting daily/weekly sales trends, net profits, inventory valuation, and top-selling items.</li>
+          <li><strong>Stock Depletion Prevention:</strong> Generating batch warnings and low-stock alerts before shelves run empty.</li>
+          <li><strong>Customer Account & Credit Records:</strong> Allowing store owners to track customer debt (*udhaar*) and share digital receipts via WhatsApp or SMS.</li>
+          <li><strong>Customer Support:</strong> Assisting you when you open support tickets or request data troubleshooting.</li>
+        </ul>
+      </section>
+
+      <!-- 5. Storage, Security & Firebase -->
+      <section id="data-storage">
+        <h2><span class="num">5.</span> Data Storage, Security & Infrastructure</h2>
+        <p>We treat business records with utmost confidentiality and implement enterprise-grade protection:</p>
+        <ul>
+          <li><strong>Cloud Infrastructure:</strong> VSM is powered by <strong>Google Firebase</strong> (hosted on secure Google Cloud Platform data centers).</li>
+          <li><strong>Encryption in Transit:</strong> All communications between the app and our cloud databases are encrypted using modern Transport Layer Security (TLS 1.3 / HTTPS).</li>
+          <li><strong>Encryption at Rest:</strong> All stored database documents and cloud media files are encrypted at rest using AES-256 standard encryption.</li>
+          <li><strong>Multi-Tenant Isolation:</strong> Every store operates within an isolated tenant environment protected by granular Firestore Security Rules. No store owner can access or view another store's inventory, customers, or financial records.</li>
+        </ul>
+      </section>
+
+      <!-- 6. Third Parties -->
+      <section id="third-parties">
+        <h2><span class="num">6.</span> Third-Party Service Providers</h2>
+        <p>We work with trusted enterprise cloud infrastructure providers to provide our services. These providers only process data on our behalf under strict confidentiality agreements:</p>
+        <ul>
+          <li><strong>Google Firebase / Google Cloud Platform:</strong> Authentication, Cloud Firestore (Real-time Database), Firebase Storage, and Cloud Messaging. (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>)</li>
+        </ul>
+        <p>We do <strong>NOT</strong> integrate third-party ad networks, behavioral trackers, or data-broker SDKs.</p>
+      </section>
+
+      <!-- 7. Your Rights -->
+      <section id="data-rights">
+        <h2><span class="num">7.</span> Your Rights & Data Portability</h2>
+        <p>As a store owner and registered user, you retain complete rights over your data:</p>
+        <ul>
+          <li><strong>Access & Review:</strong> You can view all your stored inventory, customer accounts, and historical sales transactions at any time within the app.</li>
+          <li><strong>Data Export:</strong> You can export your inventory catalog, transaction logs, and customer ledger to Excel (<code>.xlsx</code>) or PDF format directly from the app.</li>
+          <li><strong>Correction & Updates:</strong> You can edit product specifications, customer details, and store profile parameters at any moment.</li>
+          <li><strong>Revocation of Permissions:</strong> You can revoke device permissions (Camera, Bluetooth, Notifications) anytime through your device's operating system settings.</li>
+        </ul>
+      </section>
+
+      <!-- 8. Account & Data Deletion -->
+      <section id="account-deletion">
+        <h2><span class="num">8.</span> Account & Data Deletion (Google Play Compliance)</h2>
+        <div class="callout callout-warning">
+          <div class="callout-title">⚠️ Complete Control Over Your Account & Data</div>
+          In compliance with Google Play Store User Data and Account Deletion policies, you have the right to request the permanent deletion of your account and all associated store data at any time.
+        </div>
+
+        <p>You can initiate deletion through either of the following methods:</p>
+        
+        <h3>Method 1: In-App Self-Service Deletion</h3>
+        <ol>
+          <li>Open the <strong>VSM</strong> app and navigate to <strong>Settings</strong>.</li>
+          <li>Tap on <strong>Account / Profile Details</strong>.</li>
+          <li>Scroll to the bottom and select <strong>Delete Account & All Store Data</strong>.</li>
+          <li>Confirm your authentication. Once confirmed, all your products, customer records, receipts, and images will be permanently erased.</li>
+        </ol>
+
+        <h3>Method 2: Email / Web Deletion Request</h3>
+        <p>If you have uninstalled the app or cannot access your account, you can submit an account deletion request by emailing us at:</p>
+        <p>📧 <strong><a href="mailto:adeel.shhid@gmail.com?subject=VSM%20Account%20Deletion%20Request">adeel.shhid@gmail.com</a></strong> or <strong><a href="mailto:info@exofters.site?subject=VSM%20Account%20Deletion%20Request">info@exofters.site</a></strong> with the subject line <em>"VSM Account Deletion Request"</em> from your registered account email.</p>
+        <p>Upon verification, all account records, stores, sales histories, and uploaded images will be permanently purged from our active databases within <strong>30 days</strong>.</p>
+      </section>
+
+      <!-- 9. Retention -->
+      <section id="retention">
+        <h2><span class="num">9.</span> Data Retention Policy</h2>
+        <ul>
+          <li><strong>Active Accounts:</strong> We retain your business data as long as your account remains active, ensuring seamless business continuity and historical reporting.</li>
+          <li><strong>Deleted Accounts:</strong> Upon confirmed deletion, all primary operational records are purged immediately from production databases. Residual encrypted backup snapshots are permanently overwritten within 30 to 60 days.</li>
+          <li><strong>Legal & Tax Records:</strong> If required by applicable national or local commercial laws, certain anonymized transaction records may be retained solely to fulfill statutory legal obligations.</li>
+        </ul>
+      </section>
+
+      <!-- 10. Children's Privacy -->
+      <section id="children">
+        <h2><span class="num">10.</span> Children's Privacy</h2>
+        <p>VSM is strictly a commercial business-to-business (B2B) and enterprise retail management application. It is not intended for or directed toward individuals under the age of 18 (or under 13 in relevant jurisdictions). We do not knowingly collect personal data from children. If you believe a minor has registered an account, please contact us immediately for prompt deletion.</p>
+      </section>
+
+      <!-- 11. Changes -->
+      <section id="changes">
+        <h2><span class="num">11.</span> Changes to This Privacy Policy</h2>
+        <p>We may periodically update this policy to reflect application updates, new feature releases, or statutory requirements. When updates occur, the <em>"Last Updated"</em> date at the top of this page will be revised. For significant changes, we will provide in-app notifications or email notices prior to the changes taking effect.</p>
+      </section>
+
+      <!-- 12. Contact -->
+      <section id="contact">
+        <h2><span class="num">12.</span> Contact & Grievance Information</h2>
+        <p>If you have questions, feedback, or privacy-related concerns regarding this policy, please reach out to our team:</p>
+
+        <div class="contact-card">
+          <h3>Exofters (Pvt) Ltd – Product & Privacy Team</h3>
+          <p><strong>Legal Entity:</strong> Exofters (Pvt) Ltd</p>
+          <p><strong>Lead Developer:</strong> Adeel Shahid</p>
+          <p><strong>Primary Support Email:</strong> adeel.shhid@gmail.com</p>
+          <p><strong>Business Inquiries:</strong> info@exofters.site</p>
+          <p><strong>Official Website:</strong> <a href="https://exofters.io" target="_blank" rel="noopener" style="color: #60a5fa;">https://exofters.io</a></p>
+          <p><strong>App Name:</strong> VSM - Virtual Store Manager</p>
+          <p><strong>Package ID:</strong> com.exofters.vetmate</p>
+          
+          <div class="contact-links">
+            <a href="mailto:adeel.shhid@gmail.com?subject=VSM%20Privacy%20Inquiry" class="contact-btn">Email Privacy Team</a>
+            <a href="https://exofters.io" target="_blank" rel="noopener" class="contact-btn contact-btn-secondary">Visit Website</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 <strong>VSM - Virtual Store Manager</strong>. All rights reserved.</p>
+    <p>Developed with pride by <a href="https://exofters.io" target="_blank" rel="noopener">Exofters (Pvt) Ltd</a>.</p>
+  </footer>
+
+</body>
+</html>
