@@ -1,13 +1,16 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useRef } from "react";
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { auth, storage } from "../../lib/firebase";
 import { useContent } from "../../content/ContentProvider";
 import "./Admin.css";
+import { createPortal } from "react-dom";
+import Products from "../Products/Products";
+import { ProductPage } from "../Products/ProductDetail";
 
 const emptyProductPage = {
   heroEyebrow: "EXOFTERS / PRODUCT",
@@ -38,6 +41,7 @@ const emptyProductPage = {
 const newItem = {
   products: {
     name: "",
+    thumbnailUrl: "",
     tagline: "",
     description: "",
     badge: "New release",
@@ -90,6 +94,10 @@ const makeId = (text) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "")
     .slice(0, 52);
+
+// Preserve source pixels and embedded ICC/P3 profiles. Canvas conversion can
+// make vibrant screenshots look muted in browsers that do not retain profiles.
+const optimizeImage = (file) => Promise.resolve(file);
 
 export default function Admin() {
   const content = useContent();
@@ -158,16 +166,19 @@ export default function Admin() {
       setPublishing(false);
     }
   };
-  const upload = async (file) => {
-    const filename = file.name.replace(/[^a-z0-9._-]/gi, "-");
+  const upload = async (file, maxDimension, onProgress = () => {}) => {
+    const optimizedFile = await optimizeImage(file, maxDimension);
+    const filename = optimizedFile.name.replace(/[^a-z0-9._-]/gi, "-");
     const uploadRef = ref(
       storage,
       `content/${section}/${Date.now()}-${filename}`,
     );
-    const result = await uploadBytes(uploadRef, file, {
-      contentType: file.type,
+    const uploadTask = uploadBytesResumable(uploadRef, optimizedFile, {
+      contentType: optimizedFile.type,
     });
-    return getDownloadURL(result.ref);
+    return new Promise((resolve, reject) => uploadTask.on("state_changed", snapshot => {
+      onProgress(Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100));
+    }, reject, async () => resolve(getDownloadURL(uploadTask.snapshot.ref))));
   };
   if (user === undefined)
     return <div className="admin-loading">Opening workspace…</div>;
@@ -374,7 +385,7 @@ function Builder({
     setUploading(true);
     setUploadError("");
     try {
-      update("imageUrl", await upload(file));
+      update(section === "products" ? "thumbnailUrl" : "imageUrl", await upload(file));
     } catch {
       setUploadError(
         "Image could not upload. Confirm Firebase Storage is enabled and its rules are published.",
@@ -408,7 +419,7 @@ function Builder({
             {draft.published !== false ? "Will publish live" : "Save as draft"}
           </span>
         </label>
-        <button className="admin-primary" disabled={publishing}>
+        <button className="admin-primary" disabled={publishing || uploading}>
           {publishing ? "Publishing…" : "Publish changes"}
         </button>
       </div>
@@ -534,6 +545,11 @@ function Builder({
           )}
           {section === "products" && (
             <>
+              <div className="media-control">
+                <label>Product card background thumbnail<input type="file" accept="image/png,image/jpeg,image/webp" onChange={fileSelected} disabled={uploading} /></label>
+                <span role="status">{uploading ? "Optimizing and uploading thumbnail…" : uploadError || "Choose the background shown on the Products card."}</span>
+                <Field label="Card thumbnail URL" value={draft.thumbnailUrl} onChange={value => update("thumbnailUrl", value)} />
+              </div>
               <label className="html-field">
                 Product introduction HTML{" "}
                 <span>Scripts and inline handlers are removed on publish.</span>
@@ -633,14 +649,40 @@ function AppDistributionManager({ page, onChange }) {
   return <section className="app-distribution"><div className="composer-heading"><span>05 / APPS & PLATFORMS</span><p>Create VSM-style download cards for web, Android, iOS, or any platform.</p></div><div className="editor-grid"><Field wide label="Apps eyebrow" value={page.appsEyebrow} onChange={value => update("appsEyebrow", value)}/><Field label="Apps heading" value={page.appsTitle} onChange={value => update("appsTitle", value)}/><Field label="Apps description" textarea value={page.appsBody} onChange={value => update("appsBody", value)}/></div><div className="screenshot-actions"><button type="button" onClick={() => add("web")}>+ Web app</button><button type="button" onClick={() => add("android")}>+ Android app</button><button type="button" onClick={() => add("ios")}>+ iOS app</button></div>{apps.map((app, index) => <div className="platform-card-editor" key={app.id || index}><select value={app.type} onChange={e => updateApp(index, "type", e.target.value)}><option value="web">Web app</option><option value="android">Android</option><option value="ios">iOS</option></select><Field label="Card title" value={app.label} onChange={value => updateApp(index, "label", value)}/><Field label="Card detail" value={app.description} onChange={value => updateApp(index, "description", value)}/><Field label="Platform URL" value={app.url} onChange={value => updateApp(index, "url", value)}/><label className="publish-switch"><input type="checkbox" checked={app.enabled !== false} onChange={e => updateApp(index, "enabled", e.target.checked)}/><span>{app.enabled !== false ? "Available" : "Coming soon"}</span></label><button type="button" onClick={() => update("apps", apps.filter((_, current) => current !== index))}>Remove</button></div>)}</section>;
 }
 function ScreenshotManager({ screenshots, onChange, upload }) {
+  const latest = useRef({ screenshots, onChange });
+  latest.current = { screenshots, onChange };
   const [uploading, setUploading] = useState("");
+  const [progress, setProgress] = useState({});
+  const [localPreviews, setLocalPreviews] = useState({});
   const [error, setError] = useState("");
-  const add = device => onChange([...screenshots, { id: `screen-${Date.now()}`, device, title: device === "mobile" ? "A considered mobile moment" : "A workspace built for focus", description: "Describe what this screen helps people accomplish.", imageUrl: "" }]);
+  const add = () => onChange([...screenshots, { id: `screen-${Date.now()}`, title: "A closer look at the experience", description: "Describe what this screen helps people accomplish.", desktopImageUrl: "", mobileImageUrl: "" }]);
   const update = (index, field, value) => onChange(screenshots.map((shot, current) => current === index ? { ...shot, [field]: value } : shot));
   const remove = index => onChange(screenshots.filter((_, current) => current !== index));
-  const uploadImage = async (event, index) => { const file = event.target.files?.[0]; if (!file) return; setUploading(screenshots[index].id); setError(""); try { update(index, "imageUrl", await upload(file)); } catch { setError("Screenshot upload failed. Check Firebase Storage rules."); } finally { setUploading(""); } };
-  return <section className="screenshot-manager"><div className="composer-heading"><span>04 / PRODUCT GALLERY</span><p>Show the real product on desktop and mobile. Every screenshot gets its own explanatory detail.</p></div><div className="screenshot-actions"><button type="button" onClick={() => add("desktop")}>+ Add desktop screenshot</button><button type="button" onClick={() => add("mobile")}>+ Add mobile screenshot</button></div>{error && <p className="screenshot-error">{error}</p>}{screenshots.length === 0 ? <div className="screenshot-empty">No screenshots yet. Add desktop dashboards, mobile views, or key workflows to make the product story tangible.</div> : <div className="screenshot-edit-list">{screenshots.map((shot, index) => <article key={shot.id || index} className="screenshot-edit-card"><div className="screenshot-edit-head"><span>{shot.device === "mobile" ? "MOBILE APP" : "DESKTOP APP"}</span><button type="button" onClick={() => remove(index)}>Remove</button></div><div className="editor-grid"><Field label="Screen title" value={shot.title} onChange={value => update(index, "title", value)}/><label>Device type<select value={shot.device} onChange={e => update(index, "device", e.target.value)}><option value="desktop">Desktop app</option><option value="mobile">Mobile app</option></select></label><Field wide label="What this screen does" textarea value={shot.description} onChange={value => update(index, "description", value)}/><Field wide label="Screenshot image URL" value={shot.imageUrl} onChange={value => update(index, "imageUrl", value)}/></div><label className="screenshot-upload">Upload screenshot<input type="file" accept="image/png,image/jpeg,image/webp" onChange={event => uploadImage(event, index)}/><span>{uploading === shot.id ? "Uploading to Firebase Storage…" : shot.imageUrl ? "Screenshot ready" : "PNG, JPG, or WebP"}</span></label>{shot.imageUrl && <img src={shot.imageUrl} alt="Screenshot preview" />}</article>)}</div>}</section>;
+  const uploadImage = async (event, index, field, maxDimension) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    const key = `${screenshots[index].id}-${field}`;
+    const localPreview = URL.createObjectURL(file);
+    setUploading(key);
+    setProgress(current => ({ ...current, [key]: 0 }));
+    setLocalPreviews(current => ({ ...current, [key]: localPreview }));
+    setError("");
+    try {
+      const id = screenshots[index].id;
+      const url = await upload(file, maxDimension, value => setProgress(current => ({ ...current, [key]: value })));
+      URL.revokeObjectURL(localPreview);
+      setLocalPreviews(current => ({ ...current, [key]: "" }));
+      latest.current.onChange(latest.current.screenshots.map(shot => shot.id === id ? { ...shot, [field]: url } : shot));
+    } catch {
+      setError("Screenshot upload failed. Check Firebase Storage rules and try again.");
+    } finally {
+      setUploading("");
+      setProgress(current => { const next = { ...current }; delete next[key]; return next; });
+    }
+  };
+  return <section className="screenshot-manager"><div className="composer-heading"><span>04 / PRODUCT GALLERY</span><p>Add matching desktop and mobile views together. Images retain their original format and color profile.</p></div><div className="screenshot-actions"><button type="button" onClick={add}>+ Add screenshot set</button></div>{error && <p className="screenshot-error">{error}</p>}{screenshots.length === 0 ? <div className="screenshot-empty">No screenshots yet. Add a paired desktop and mobile view to make the product story tangible.</div> : <div className="screenshot-edit-list">{screenshots.map((shot, index) => <article key={shot.id || index} className="screenshot-edit-card"><div className="screenshot-edit-head"><span>RESPONSIVE SCREEN SET</span><button type="button" onClick={() => remove(index)}>Remove</button></div><div className="editor-grid"><Field label="Screen title" value={shot.title} onChange={value => update(index, "title", value)}/><Field wide label="What this screen does" textarea value={shot.description} onChange={value => update(index, "description", value)}/></div><div className="paired-screenshot-upload"><ScreenshotUpload label="Desktop screenshot" value={shot.desktopImageUrl || (shot.device !== "mobile" ? shot.imageUrl : "")} preview={localPreviews[`${shot.id}-desktopImageUrl`]} progress={progress[`${shot.id}-desktopImageUrl`]} loading={uploading === `${shot.id}-desktopImageUrl`} onFile={event => uploadImage(event, index, "desktopImageUrl", 1920)} onUrl={value => update(index, "desktopImageUrl", value)} /><ScreenshotUpload label="Mobile screenshot" value={shot.mobileImageUrl || (shot.device === "mobile" ? shot.imageUrl : "")} preview={localPreviews[`${shot.id}-mobileImageUrl`]} progress={progress[`${shot.id}-mobileImageUrl`]} loading={uploading === `${shot.id}-mobileImageUrl`} onFile={event => uploadImage(event, index, "mobileImageUrl", 1080)} onUrl={value => update(index, "mobileImageUrl", value)} /></div></article>)}</div>}</section>;
 }
+function ScreenshotUpload({ label, value, preview, progress, loading, onFile, onUrl }) { const image = preview || value; return <label className="screenshot-upload"><b>{label}</b><input type="file" accept="image/png,image/jpeg,image/webp" onChange={onFile}/><input value={value} placeholder="Or paste image URL" onChange={event => onUrl(event.target.value)}/><span>{loading ? `Uploading ${progress || 0}%…` : value ? "Original screenshot ready" : "PNG, JPG, or WebP — original colors preserved"}</span>{image && <img src={image} alt={`${label} preview`} />}{loading && <div className="upload-progress" role="progressbar" aria-label={`${label} upload progress`} aria-valuemin="0" aria-valuemax="100" aria-valuenow={progress || 0}><i style={{ width: `${progress || 0}%` }} /><b>{progress || 0}%</b></div>}</label>; }
 function SettingsBuilder({ draft, setDraft, publish, publishing, cancel }) {
   const update = (field, value) =>
     setDraft((current) => ({ ...current, [field]: value }));
@@ -781,9 +823,31 @@ function Preview({ section, draft }) {
     </article>
   );
 }
-function ProductFullPreview({ draft }) {
-  const page = draft.page || {};
-  if (page.renderMode === "html" && page.customHtml) return <div className="full-page-preview html-mode-preview" dangerouslySetInnerHTML={{ __html: scrubHtml(page.customHtml) }} />;
-  const features = page.featureCards?.length ? page.featureCards : (draft.features || []).map(title => ({ title, description: "Product capability" }));
-  return <div className={`full-page-preview preview-template-${page.template || "welcome"}`}><header><b>{draft.name || "PRODUCT"}</b><span>Features&nbsp;&nbsp; Apps</span><i>Preview</i></header><section className="full-preview-hero"><div><small>{page.heroEyebrow || draft.badge || "EXOFTERS PRODUCT"}</small><h2>{page.heroTitle || draft.name || "Your product"}</h2><p>{page.heroBody || draft.description || "Build the story your visitors need to see."}</p><button type="button">{draft.primaryText || "Explore product"} →</button></div>{page.heroImageUrl ? <img src={page.heroImageUrl} alt="Hero preview"/> : <div className="full-preview-dashboard"><span>● {page.heroDashboard?.label || "Live workspace"}</span><strong>{page.heroDashboard?.heading || "Your operation at a glance"}</strong><div>{(page.heroDashboard?.cards || []).slice(0,3).map((card,index)=><i key={index}><small>{card.label}</small><b>{card.value}</b></i>)}</div></div>}</section>{(page.stats || []).length > 0 && <section className="full-preview-stats">{page.stats.slice(0,3).map((stat,index)=><span key={index}><b>{stat.title}</b><small>{stat.description}</small></span>)}</section>}<section className="full-preview-section"><small>EVERYTHING CONNECTED</small><h3>{page.overviewTitle || "A more capable way forward."}</h3><div className="full-preview-feature-grid">{features.slice(0,3).map((feature,index)=><article key={index}><i>0{index+1}</i><b>{feature.title}</b><p>{feature.description}</p></article>)}</div></section>{(page.screenshots || []).filter(shot=>shot.imageUrl).length > 0 && <section className="full-preview-shots">{page.screenshots.filter(shot=>shot.imageUrl).slice(0,3).map((shot,index)=><img key={index} src={shot.imageUrl} alt="Screen preview"/>)}</section>}<footer><small>{page.ctaTitle || "Ready to see what’s possible?"}</small><button type="button">{page.ctaLabel || "Start a conversation"}</button></footer></div>;
+export function ProductFullPreview({ draft }) {
+  const [view, setView] = useState("page");
+  const [frameDocument, setFrameDocument] = useState(null);
+  const [wide, setWide] = useState(false);
+  useEffect(() => {
+    if (!frameDocument) return;
+    const copies = Array.from(document.querySelectorAll('style, link[rel="stylesheet"]')).map(node => {
+      const copy = node.cloneNode(true);
+      frameDocument.head.appendChild(copy);
+      return copy;
+    });
+    return () => copies.forEach(copy => copy.remove());
+  }, [frameDocument]);
+  return <div className="admin-product-preview">
+    <div className="preview-controls">
+      <button type="button" aria-pressed={view === "page"} onClick={() => setView("page")}>Product page</button>
+      <button type="button" aria-pressed={view === "card"} onClick={() => setView("card")}>Product card</button>
+      <label><input type="checkbox" checked={wide} onChange={event => setWide(event.target.checked)} />Desktop width</label>
+    </div>
+    <div className="preview-frame-scroll">
+      <iframe title="Live product preview" style={{ width: wide ? 1024 : "100%" }} onLoad={event => setFrameDocument(event.currentTarget.contentDocument)} srcDoc={'<!doctype html><html><head></head><body><div id="preview-root"></div></body></html>'} />
+      {frameDocument?.getElementById("preview-root") && createPortal(
+        <div onClickCapture={event => { if (event.target.closest("a")) event.preventDefault(); }}>
+          {view === "card" ? <Products previewProduct={draft} /> : <ProductPage product={draft} />}
+        </div>, frameDocument.getElementById("preview-root"))}
+    </div>
+  </div>;
 }
